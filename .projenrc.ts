@@ -10,7 +10,7 @@ const project = new cdk.JsiiProject({
   description: 'Provides a CMS Plone Backend and Frontend for Kubernetes with cdk8s',
   deps: [
     'cdk8s',
-    'constructs@^10.3.0',
+    'constructs',
   ],
   peerDeps: [
     'constructs@^10.3.0',
@@ -19,5 +19,9 @@ const project = new cdk.JsiiProject({
     'constructs@^10.3.0',
     'yaml',
   ],
+  publishToPypi: {
+    distName: 'cdk8s-plone',
+    module: 'cdk8s_plone',
+  },
 });
 project.synth();

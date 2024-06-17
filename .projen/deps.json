@@ -104,7 +104,6 @@
     },
     {
       "name": "constructs",
-      "version": "^10.3.0",
       "type": "runtime"
     }
   ],

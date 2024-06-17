@@ -7,4 +7,20 @@ It provides
 - frontend (Plone-Volto, a ReactJS based user interface)
 - varnish (optional)
 
+## Usage
 
+TODO
+
+## Development
+
+Clone the repository and install the dependencies:
+
+```bash
+yarn install
+```
+
+Then run the following command to run the test:
+
+```bash
+npx projen test
+```
