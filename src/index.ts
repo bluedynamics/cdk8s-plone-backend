@@ -1,3 +1,5 @@
-export * from './backend-deployment';
-export * from './backend-service';
-export * from './backend';
+export class Hello {
+  public sayHello() {
+    return 'hello, world!';
+  }
+}
