@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Construct } from 'constructs';
 import { IntOrString, KubeServiceProps, KubeService } from './imports/k8s';
 

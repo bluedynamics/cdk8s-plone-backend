@@ -1,4 +1,5 @@
 import { Names } from 'cdk8s';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Construct } from 'constructs';
 import * as k8s from './imports/k8s';
 

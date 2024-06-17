@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Construct } from 'constructs';
 import { PloneBackendDeploymentOptions, PloneBackendDeployment } from './backend-deployment';
 import { PloneBackendServiceOptions, PloneBackendService } from './backend-service';
