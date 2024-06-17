@@ -90,7 +90,21 @@
       "type": "build"
     },
     {
+      "name": "yaml",
+      "type": "build"
+    },
+    {
+      "name": "constructs",
+      "version": "^10.3.0",
+      "type": "peer"
+    },
+    {
       "name": "cdk8s",
+      "type": "runtime"
+    },
+    {
+      "name": "constructs",
+      "version": "^10.3.0",
       "type": "runtime"
     }
   ],

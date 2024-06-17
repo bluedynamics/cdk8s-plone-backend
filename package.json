@@ -1,5 +1,6 @@
 {
   "name": "cdk8s-plone",
+  "description": "Provides a CMS Plone Backend and Frontend for Kubernetes with cdk8s",
   "repository": {
     "type": "git",
     "url": "git@github.com:bluedynamics/cdk8s-plone.git"
@@ -53,10 +54,15 @@
     "standard-version": "^9",
     "ts-jest": "^29.1.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "yaml": "^2.4.5"
+  },
+  "peerDependencies": {
+    "constructs": "^10.3.0"
   },
   "dependencies": {
-    "cdk8s": "^2.68.79"
+    "cdk8s": "^2.68.79",
+    "constructs": "^10.3.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",

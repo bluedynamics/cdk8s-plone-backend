@@ -1,4 +1,6 @@
+import { Names } from 'cdk8s';
 import { Construct } from 'constructs';
+import * as k8s from './imports/k8s';
 
 export interface PloneBackendDeploymentOptions {
   /**
@@ -30,9 +32,39 @@ export class PloneBackendDeployment extends Construct {
 
   constructor(scope: Construct, id: string, options: PloneBackendDeploymentOptions = { }) {
     super(scope, id);
-    const baseImage = options.image ?? 'plone/plone-backend:latest';
+    const image = options.image ?? 'plone/plone-backend:latest';
     const replicas = options.replicas ?? 2;
-    const port = options.port ?? 8080;
-    const labels = options.labels ?? {};
+    const label = { app: Names.toLabelValue(this) };
+    const labels = {
+      ...options.labels ?? {},
+      ...label,
+    };
+    const deployment_name = id + '-deployment';
+    const pod_name = id + '-pod';
+
+    const deploymentOpts: k8s.KubeDeploymentProps = {
+      metadata: {
+        name: deployment_name,
+      },
+      spec: {
+        replicas,
+        selector: {
+          matchLabels: label,
+        },
+        template: {
+          metadata: { labels: labels },
+          spec: {
+            containers: [
+              {
+                name: pod_name,
+                image: image,
+              },
+            ],
+          },
+        },
+      },
+    };
+
+    new k8s.KubeDeployment(this, 'deployment', deploymentOpts);
   }
 }

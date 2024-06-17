@@ -1,3 +1,3 @@
-export * from './backend-deployment';
-export * from './backend-service';
-export * from './backend';
+export { PloneBackendDeploymentOptions, PloneBackendDeployment } from './backend-deployment';
+export { PloneBackendServiceOptions, PloneBackendService } from './backend-service';
+export { PloneBackendOptions, PloneBackend } from './backend';

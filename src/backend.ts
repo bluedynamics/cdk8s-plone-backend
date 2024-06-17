@@ -3,8 +3,8 @@ import { PloneBackendDeploymentOptions, PloneBackendDeployment } from './backend
 import { PloneBackendServiceOptions, PloneBackendService } from './backend-service';
 
 export interface PloneBackendOptions {
-  deployment?: PloneBackendDeploymentOptions;
-  service?: PloneBackendServiceOptions;
+  readonly deployment?: PloneBackendDeploymentOptions;
+  readonly service?: PloneBackendServiceOptions;
 }
 
 export class PloneBackend extends Construct {

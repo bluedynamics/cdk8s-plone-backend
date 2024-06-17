@@ -7,12 +7,17 @@ const project = new cdk.JsiiProject({
   name: 'cdk8s-plone',
   projenrcTs: true,
   repositoryUrl: 'git@github.com:bluedynamics/cdk8s-plone.git',
-
+  description: 'Provides a CMS Plone Backend and Frontend for Kubernetes with cdk8s',
   deps: [
-    "cdk8s",
+    'cdk8s',
+    'constructs@^10.3.0',
   ],
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  peerDeps: [
+    'constructs@^10.3.0',
+  ],
+  devDeps: [
+    'constructs@^10.3.0',
+    'yaml',
+  ],
 });
 project.synth();
