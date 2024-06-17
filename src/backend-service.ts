@@ -16,6 +16,11 @@ export interface PloneBackendServiceOptions {
   readonly targetPort?: number;
 
   /**
+   * Selector label.
+   */
+  readonly selector_label: { [name: string]: string };
+
+  /**
    * Extra labels to associate with resources.
    * @default - none
    */
@@ -24,23 +29,22 @@ export interface PloneBackendServiceOptions {
 
 export class PloneBackendService extends Construct {
 
-  constructor(scope: Construct, id: string, options: PloneBackendServiceOptions = {}) {
+  constructor(scope: Construct, id: string, options: PloneBackendServiceOptions) {
     super(scope, id);
 
     const port = options.port ?? 8080;
     const targetPort = IntOrString.fromNumber(options.targetPort ?? 8080);
-    const labels = options.labels ?? {};
-    const name = id + '-service';
+    const selector_label = options.selector_label;
 
     const serviceOpts: KubeServiceProps = {
       metadata: {
-        name: name,
+        labels: options.labels ?? {},
       },
       spec: {
         type: 'ClusterIP',
         clusterIp: 'None',
         ports: [{ port: port, targetPort: targetPort }],
-        selector: labels,
+        selector: selector_label,
       },
     };
     new KubeService(this, 'service', serviceOpts);

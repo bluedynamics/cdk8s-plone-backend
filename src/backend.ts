@@ -1,3 +1,4 @@
+import { Names } from 'cdk8s';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Construct } from 'constructs';
 import { PloneBackendDeploymentOptions, PloneBackendDeployment } from './backend-deployment';
@@ -12,13 +13,16 @@ export class PloneBackend extends Construct {
 
   constructor(scope: Construct, id: string, options: PloneBackendOptions = {}) {
     super(scope, id);
-    const deployment = options.deployment ?? {};
-    const service = options.service ?? {};
+    const deploymentOptions = options.deployment ?? {};
 
     // Create a deployment
-    new PloneBackendDeployment(this, 'deployment', deployment);
+    const deployment = new PloneBackendDeployment(this, 'deployment', deploymentOptions);
 
     // Create a service
-    new PloneBackendService(this, 'service', service);
+    const serviceOptions = {
+      ...options.service ?? {},
+      selector_label: { app: Names.toLabelValue(deployment) },
+    };
+    new PloneBackendService(this, 'service', serviceOptions);
   }
 }

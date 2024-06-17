@@ -36,16 +36,14 @@ export class PloneBackendDeployment extends Construct {
     const image = options.image ?? 'plone/plone-backend:latest';
     const replicas = options.replicas ?? 2;
     const label = { app: Names.toLabelValue(this) };
-    const labels = {
+    const template_labels = {
       ...options.labels ?? {},
       ...label,
     };
-    const deployment_name = id + '-deployment';
-    const pod_name = id + '-pod';
 
     const deploymentOpts: k8s.KubeDeploymentProps = {
       metadata: {
-        name: deployment_name,
+        labels: options.labels ?? {},
       },
       spec: {
         replicas,
@@ -53,11 +51,11 @@ export class PloneBackendDeployment extends Construct {
           matchLabels: label,
         },
         template: {
-          metadata: { labels: labels },
+          metadata: { labels: template_labels },
           spec: {
             containers: [
               {
-                name: pod_name,
+                name: id + '-container', // here the namespaced name shold be used, but how?
                 image: image,
               },
             ],
