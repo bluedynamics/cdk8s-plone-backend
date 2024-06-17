@@ -1,17 +1,21 @@
-import { cdk8s } from 'projen';
-const project = new cdk8s.Cdk8sTypeScriptApp({
+import { Cdk8sTeamJsiiProject } from '@cdk8s/projen-common';
+
+const project = new Cdk8sTeamJsiiProject({
   authorEmail: 'jk@kleinundpartner.at',
   authorName: 'Jens Klein',
-  authorOrganization: true,
-  authorUrl: 'https://geosphere.at',
-  cdk8sVersion: '2.3.33',
+  authorOrganization: false,
+  authorUrl: 'https://kleinundpartner.at',
   defaultReleaseBranch: 'main',
-  name: 'plone-backend',
+  name: 'cdk8s-plone',
   projenrcTs: true,
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  keywords: [
+    'cdk8s',
+    'cms',
+    'plone',
+    'react',
+  ],
+  devDeps: [
+    '@cdk8s/projen-common',
+  ],
 });
 project.synth();

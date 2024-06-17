@@ -1,5 +1,5 @@
 {
-  "name": "plone-backend",
+  "name": "cdk8s-plone",
   "scripts": {
     "build": "npx projen build",
     "clobber": "npx projen clobber",
@@ -22,8 +22,8 @@
   "author": {
     "name": "Jens Klein",
     "email": "jk@kleinundpartner.at",
-    "url": "https://geosphere.at",
-    "organization": true
+    "url": "https://kleinundpartner.at",
+    "organization": false
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
@@ -31,7 +31,6 @@
     "@typescript-eslint/eslint-plugin": "^7",
     "@typescript-eslint/parser": "^7",
     "cdk8s-cli": "^2.0.28",
-    "constructs": "^10.0.0",
     "eslint": "^8",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
@@ -43,6 +42,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@cdk8s/projen-common": "^0.0.530",
     "cdk8s": "^2.3.33",
     "cdk8s-plus-22": "^2.0.0-rc.26",
     "constructs": "^10.1.42"
