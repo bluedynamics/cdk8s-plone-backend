@@ -1,6 +1,7 @@
 import { Names } from 'cdk8s';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Construct } from 'constructs';
+import { PloneBackendPDB, PloneBackendPDBOptions } from './backend-pdb';
 import * as k8s from './imports/k8s';
 
 export interface PloneBackendDeploymentOptions {
@@ -27,6 +28,13 @@ export interface PloneBackendDeploymentOptions {
    * @default - none
    */
   readonly labels?: { [name: string]: string };
+
+  /**
+   * Create a PodDisruptionBugdet for the deployment?
+   * If given
+   * @default - none
+   */
+  readonly pdbOptions?: PloneBackendPDBOptions;
 }
 
 export class PloneBackendDeployment extends Construct {
@@ -40,8 +48,8 @@ export class PloneBackendDeployment extends Construct {
       ...options.labels ?? {},
       ...label,
     };
-
-    const deploymentOpts: k8s.KubeDeploymentProps = {
+    const pdb = options.pdbOptions ?? true;
+    const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {
         labels: options.labels ?? {},
       },
@@ -64,6 +72,14 @@ export class PloneBackendDeployment extends Construct {
       },
     };
 
-    new k8s.KubeDeployment(this, 'deployment', deploymentOpts);
+    new k8s.KubeDeployment(this, 'deployment', deploymentOptions);
+
+    if (pdb ?? false) {
+      const pdbOptions = {
+        ...options.pdbOptions ?? {},
+        selector_label: { app: Names.toLabelValue(this) },
+      };
+      new PloneBackendPDB(this, 'pdb', pdbOptions);
+    }
   }
 }
