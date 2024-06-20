@@ -24,3 +24,42 @@ Then run the following command to run the test:
 ```bash
 npx projen test
 ```
+
+WIP Checklist:
+
+Each step need to be implemented with tests!
+
+- [ ] Start Backend
+    - [ ] deployment
+    - [ ] service
+    - [ ] pdb
+    - [ ] init container running plone-site-create
+    - [ ] lifecycle checks (readiness, liveness)
+    - [ ] sidecars
+        - [ ] generic way to inject sidecars
+        - [ ] (optional) direct way to specify metrics sidecar (prometheus exporter)
+        - [ ] (optional) direct way to specify logging sidecar (fluentd/loki?)
+- [ ] Start Frontend
+    - [ ] deployment
+    - [ ] service
+    - [ ] pdb
+    - [ ] lifecycle checks (readiness, liveness)
+    - [ ] sidecars
+        - [ ] generic way to inject sidecars
+        - [ ] (optional) direct way to specify metrics sidecar (prometheus exporter)
+        - [ ] (optional) direct way to specify logging sidecar (fluentd/loki?)
+
+- [ ] Start Varnish
+    - [ ] deployment
+    - [ ] service
+    - [ ] pdb
+    - [ ] lifecycle checks (readiness, liveness)
+    - [ ] sidecars
+        - [ ] generic way to inject sidecars
+        - [ ] (optional) direct way to specify metrics sidecar (prometheus exporter)
+        - [ ] (optional) direct way to specify logging sidecar (fluentd/loki?)
+
+- [ ] Other Languages
+    - [ ] Check Python distribution
+    - [ ] Check Java distribution
+    - [ ] Check Go distribution
