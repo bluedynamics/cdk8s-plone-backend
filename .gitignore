@@ -48,5 +48,8 @@ junit.xml
 !/.eslintrc.json
 .jsii
 tsconfig.json
+tsconfig.dev.json
 !/API.md
 !/.projenrc.ts
+yarn.lock
+/.projen
