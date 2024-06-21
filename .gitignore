@@ -52,4 +52,3 @@ tsconfig.dev.json
 !/API.md
 !/.projenrc.ts
 yarn.lock
-/.projen
