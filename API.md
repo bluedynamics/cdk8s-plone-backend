@@ -228,6 +228,119 @@ The tree node.
 ---
 
 
+### PloneBackendPDB <a name="PloneBackendPDB" id="cdk8s-plone.PloneBackendPDB"></a>
+
+#### Initializers <a name="Initializers" id="cdk8s-plone.PloneBackendPDB.Initializer"></a>
+
+```typescript
+import { PloneBackendPDB } from 'cdk8s-plone'
+
+new PloneBackendPDB(scope: Construct, id: string, options: PloneBackendPDBOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk8s-plone.PloneBackendPDB.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBackendPDB.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBackendPDB.Initializer.parameter.options">options</a></code> | <code><a href="#cdk8s-plone.PloneBackendPDBOptions">PloneBackendPDBOptions</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk8s-plone.PloneBackendPDB.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="cdk8s-plone.PloneBackendPDB.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="cdk8s-plone.PloneBackendPDB.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#cdk8s-plone.PloneBackendPDBOptions">PloneBackendPDBOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk8s-plone.PloneBackendPDB.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="cdk8s-plone.PloneBackendPDB.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#cdk8s-plone.PloneBackendPDB.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="cdk8s-plone.PloneBackendPDB.isConstruct"></a>
+
+```typescript
+import { PloneBackendPDB } from 'cdk8s-plone'
+
+PloneBackendPDB.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="cdk8s-plone.PloneBackendPDB.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk8s-plone.PloneBackendPDB.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="cdk8s-plone.PloneBackendPDB.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+
 ### PloneBackendService <a name="PloneBackendService" id="cdk8s-plone.PloneBackendService"></a>
 
 #### Initializers <a name="Initializers" id="cdk8s-plone.PloneBackendService.Initializer"></a>
@@ -235,7 +348,7 @@ The tree node.
 ```typescript
 import { PloneBackendService } from 'cdk8s-plone'
 
-new PloneBackendService(scope: Construct, id: string, options?: PloneBackendServiceOptions)
+new PloneBackendService(scope: Construct, id: string, options: PloneBackendServiceOptions)
 ```
 
 | **Name** | **Type** | **Description** |
@@ -258,7 +371,7 @@ new PloneBackendService(scope: Construct, id: string, options?: PloneBackendServ
 
 ---
 
-##### `options`<sup>Optional</sup> <a name="options" id="cdk8s-plone.PloneBackendService.Initializer.parameter.options"></a>
+##### `options`<sup>Required</sup> <a name="options" id="cdk8s-plone.PloneBackendService.Initializer.parameter.options"></a>
 
 - *Type:* <a href="#cdk8s-plone.PloneBackendServiceOptions">PloneBackendServiceOptions</a>
 
@@ -359,6 +472,7 @@ const ploneBackendDeploymentOptions: PloneBackendDeploymentOptions = { ... }
 | --- | --- | --- |
 | <code><a href="#cdk8s-plone.PloneBackendDeploymentOptions.property.image">image</a></code> | <code>string</code> | Specify a custom image for Plone Backend. |
 | <code><a href="#cdk8s-plone.PloneBackendDeploymentOptions.property.labels">labels</a></code> | <code>{[ key: string ]: string}</code> | Extra labels to associate with resources. |
+| <code><a href="#cdk8s-plone.PloneBackendDeploymentOptions.property.pdbOptions">pdbOptions</a></code> | <code><a href="#cdk8s-plone.PloneBackendPDBOptions">PloneBackendPDBOptions</a></code> | Create a PodDisruptionBugdet for the deployment? |
 | <code><a href="#cdk8s-plone.PloneBackendDeploymentOptions.property.port">port</a></code> | <code>number</code> | Port number. |
 | <code><a href="#cdk8s-plone.PloneBackendDeploymentOptions.property.replicas">replicas</a></code> | <code>number</code> | Number of replicas. |
 
@@ -387,6 +501,21 @@ public readonly labels: {[ key: string ]: string};
 - *Default:* none
 
 Extra labels to associate with resources.
+
+---
+
+##### `pdbOptions`<sup>Optional</sup> <a name="pdbOptions" id="cdk8s-plone.PloneBackendDeploymentOptions.property.pdbOptions"></a>
+
+```typescript
+public readonly pdbOptions: PloneBackendPDBOptions;
+```
+
+- *Type:* <a href="#cdk8s-plone.PloneBackendPDBOptions">PloneBackendPDBOptions</a>
+- *Default:* none
+
+Create a PodDisruptionBugdet for the deployment?
+
+If given
 
 ---
 
@@ -455,6 +584,78 @@ public readonly service: PloneBackendServiceOptions;
 
 ---
 
+### PloneBackendPDBOptions <a name="PloneBackendPDBOptions" id="cdk8s-plone.PloneBackendPDBOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk8s-plone.PloneBackendPDBOptions.Initializer"></a>
+
+```typescript
+import { PloneBackendPDBOptions } from 'cdk8s-plone'
+
+const ploneBackendPDBOptions: PloneBackendPDBOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk8s-plone.PloneBackendPDBOptions.property.selectorLabel">selectorLabel</a></code> | <code>{[ key: string ]: string}</code> | Selector label. |
+| <code><a href="#cdk8s-plone.PloneBackendPDBOptions.property.labels">labels</a></code> | <code>{[ key: string ]: string}</code> | Extra labels to associate with resources. |
+| <code><a href="#cdk8s-plone.PloneBackendPDBOptions.property.maxUnavailable">maxUnavailable</a></code> | <code>string \| number</code> | maxUnavailable specification. |
+| <code><a href="#cdk8s-plone.PloneBackendPDBOptions.property.minAvailable">minAvailable</a></code> | <code>string \| number</code> | minAvailable specification. |
+
+---
+
+##### `selectorLabel`<sup>Required</sup> <a name="selectorLabel" id="cdk8s-plone.PloneBackendPDBOptions.property.selectorLabel"></a>
+
+```typescript
+public readonly selectorLabel: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Selector label.
+
+---
+
+##### `labels`<sup>Optional</sup> <a name="labels" id="cdk8s-plone.PloneBackendPDBOptions.property.labels"></a>
+
+```typescript
+public readonly labels: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+- *Default:* none
+
+Extra labels to associate with resources.
+
+---
+
+##### `maxUnavailable`<sup>Optional</sup> <a name="maxUnavailable" id="cdk8s-plone.PloneBackendPDBOptions.property.maxUnavailable"></a>
+
+```typescript
+public readonly maxUnavailable: string | number;
+```
+
+- *Type:* string | number
+- *Default:* none
+
+maxUnavailable specification.
+
+---
+
+##### `minAvailable`<sup>Optional</sup> <a name="minAvailable" id="cdk8s-plone.PloneBackendPDBOptions.property.minAvailable"></a>
+
+```typescript
+public readonly minAvailable: string | number;
+```
+
+- *Type:* string | number
+- *Default:* 1
+
+minAvailable specification.
+
+---
+
 ### PloneBackendServiceOptions <a name="PloneBackendServiceOptions" id="cdk8s-plone.PloneBackendServiceOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk8s-plone.PloneBackendServiceOptions.Initializer"></a>
@@ -469,9 +670,22 @@ const ploneBackendServiceOptions: PloneBackendServiceOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#cdk8s-plone.PloneBackendServiceOptions.property.selectorLabel">selectorLabel</a></code> | <code>{[ key: string ]: string}</code> | Selector label. |
 | <code><a href="#cdk8s-plone.PloneBackendServiceOptions.property.labels">labels</a></code> | <code>{[ key: string ]: string}</code> | Extra labels to associate with resources. |
 | <code><a href="#cdk8s-plone.PloneBackendServiceOptions.property.port">port</a></code> | <code>number</code> | Port number. |
 | <code><a href="#cdk8s-plone.PloneBackendServiceOptions.property.targetPort">targetPort</a></code> | <code>number</code> | Port number. |
+
+---
+
+##### `selectorLabel`<sup>Required</sup> <a name="selectorLabel" id="cdk8s-plone.PloneBackendServiceOptions.property.selectorLabel"></a>
+
+```typescript
+public readonly selectorLabel: {[ key: string ]: string};
+```
+
+- *Type:* {[ key: string ]: string}
+
+Selector label.
 
 ---
 

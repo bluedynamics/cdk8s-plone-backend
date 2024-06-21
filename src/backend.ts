@@ -21,7 +21,7 @@ export class PloneBackend extends Construct {
     // Create a service
     const serviceOptions = {
       ...options.service ?? {},
-      selector_label: { app: Names.toLabelValue(deployment) },
+      selectorLabel: { app: Names.toLabelValue(deployment) },
     };
     new PloneBackendService(this, 'service', serviceOptions);
   }

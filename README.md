@@ -25,7 +25,7 @@ Then run the following command to run the test:
 npx projen test
 ```
 
-WIP Checklist:
+### WIP Checklist:
 
 Each step need to be implemented with tests!
 

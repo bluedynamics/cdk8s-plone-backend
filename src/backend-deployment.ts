@@ -77,7 +77,7 @@ export class PloneBackendDeployment extends Construct {
     if (pdb ?? false) {
       const pdbOptions = {
         ...options.pdbOptions ?? {},
-        selector_label: { app: Names.toLabelValue(this) },
+        selectorLabel: { app: Names.toLabelValue(this) },
       };
       new PloneBackendPDB(this, 'pdb', pdbOptions);
     }

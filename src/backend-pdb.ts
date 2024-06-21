@@ -18,7 +18,7 @@ export interface PloneBackendPDBOptions {
   /**
    * Selector label.
    */
-  readonly selector_label: { [name: string]: string };
+  readonly selectorLabel: { [name: string]: string };
 
   /**
    * Extra labels to associate with resources.
@@ -50,7 +50,7 @@ export class PloneBackendPDB extends Construct {
         labels: options.labels ?? {},
       },
       spec: {
-        selector: { matchLabels: options.selector_label },
+        selector: { matchLabels: options.selectorLabel },
         maxUnavailable: maxUnavailable,
         minAvailable: minAvailable,
       },
