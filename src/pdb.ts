@@ -2,7 +2,7 @@
 import { Construct } from 'constructs';
 import { IntOrString, KubePodDisruptionBudget } from './imports/k8s';
 
-export interface PloneBackendPDBOptions {
+export interface PlonePDBOptions {
   /**
    * maxUnavailable specification
    * @default - none
@@ -16,20 +16,15 @@ export interface PloneBackendPDBOptions {
   readonly minAvailable?: number | string;
 
   /**
-   * Selector label.
-   */
-  readonly selectorLabel: { [name: string]: string };
-
-  /**
    * Extra labels to associate with resources.
    * @default - none
    */
   readonly labels?: { [name: string]: string };
 }
 
-export class PloneBackendPDB extends Construct {
+export class PlonePDB extends Construct {
 
-  constructor(scope: Construct, id: string, options: PloneBackendPDBOptions) {
+  constructor(scope: Construct, id: string, selectorLabel: { [name: string]: string }, options: PlonePDBOptions) {
     super(scope, id);
 
     var maxUnavailable: IntOrString = IntOrString.fromString(''); // default value
@@ -50,7 +45,7 @@ export class PloneBackendPDB extends Construct {
         labels: options.labels ?? {},
       },
       spec: {
-        selector: { matchLabels: options.selectorLabel },
+        selector: { matchLabels: selectorLabel },
         maxUnavailable: maxUnavailable,
         minAvailable: minAvailable,
       },

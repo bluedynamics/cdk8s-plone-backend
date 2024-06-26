@@ -6,19 +6,19 @@ exports[`defaults 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
-      "name": "plone-backend-deployment-c8e77b89",
+      "name": "plone-frontend-deployment-c88bcfaf",
     },
     "spec": {
       "replicas": 2,
       "selector": {
         "matchLabels": {
-          "app": "plone-backend-deployment-c83d26f8",
+          "app": "plone-frontend-deployment-c8d95ffb",
         },
       },
       "template": {
         "metadata": {
           "labels": {
-            "app": "plone-backend-deployment-c83d26f8",
+            "app": "plone-frontend-deployment-c8d95ffb",
           },
         },
         "spec": {
@@ -36,18 +36,18 @@ exports[`defaults 1`] = `
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": {
-      "name": "plone-backend-service-c81df201",
+      "name": "plone-frontend-service-c8d6d7d9",
     },
     "spec": {
       "clusterIP": "None",
       "ports": [
         {
-          "port": 8080,
-          "targetPort": 8080,
+          "port": 3000,
+          "targetPort": 3000,
         },
       ],
       "selector": {
-        "app": "plone-backend-deployment-c83d26f8",
+        "app": "plone-frontend-deployment-c8d95ffb",
       },
       "type": "ClusterIP",
     },
@@ -61,19 +61,19 @@ exports[`defaults-with-pdp 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
-      "name": "plone-backend_with_pdb-deployment-c828b7f6",
+      "name": "plone-frontend_with_pdb-deployment-c84d7c2b",
     },
     "spec": {
       "replicas": 2,
       "selector": {
         "matchLabels": {
-          "app": "plone-backend_with_pdb-deployment-c8de3ed2",
+          "app": "plone-frontend_with_pdb-deployment-c8256934",
         },
       },
       "template": {
         "metadata": {
           "labels": {
-            "app": "plone-backend_with_pdb-deployment-c8de3ed2",
+            "app": "plone-frontend_with_pdb-deployment-c8256934",
           },
         },
         "spec": {
@@ -91,14 +91,14 @@ exports[`defaults-with-pdp 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
-      "name": "plone-backend_with_pdb-deployment-pdb-c86717f8",
+      "name": "plone-frontend_with_pdb-deployment-deployment-pdb-pdb-c8d88a97",
     },
     "spec": {
       "maxUnavailable": "",
       "minAvailable": "",
       "selector": {
         "matchLabels": {
-          "app": "plone-backend_with_pdb-deployment-c8de3ed2",
+          "app": "plone-frontend_with_pdb-deployment-c8256934",
         },
       },
     },
@@ -107,18 +107,18 @@ exports[`defaults-with-pdp 1`] = `
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": {
-      "name": "plone-backend_with_pdb-service-c85257cd",
+      "name": "plone-frontend_with_pdb-service-c88fbf72",
     },
     "spec": {
       "clusterIP": "None",
       "ports": [
         {
-          "port": 8080,
-          "targetPort": 8080,
+          "port": 3000,
+          "targetPort": 3000,
         },
       ],
       "selector": {
-        "app": "plone-backend_with_pdb-deployment-c8de3ed2",
+        "app": "plone-frontend_with_pdb-deployment-c8256934",
       },
       "type": "ClusterIP",
     },

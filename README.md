@@ -31,6 +31,7 @@ Each step need to be implemented with tests!
 
 - [ ] Start Backend
     - [ ] deployment
+        - [ ] depend on "some" postgres db - which can be provided in different ways
     - [ ] service
     - [ ] pdb
     - [ ] init container running plone-site-create
@@ -41,6 +42,7 @@ Each step need to be implemented with tests!
         - [ ] (optional) direct way to specify logging sidecar (fluentd/loki?)
 - [ ] Start Frontend
     - [ ] deployment
+        - [ ] depend on ready/live backend
     - [ ] service
     - [ ] pdb
     - [ ] lifecycle checks (readiness, liveness)
@@ -51,6 +53,7 @@ Each step need to be implemented with tests!
 
 - [ ] Start Varnish
     - [ ] deployment
+        - [ ] do not depend on backend/front end to be  up, but configure to deliver from cache if possible.
     - [ ] service
     - [ ] pdb
     - [ ] lifecycle checks (readiness, liveness)
@@ -58,6 +61,7 @@ Each step need to be implemented with tests!
         - [ ] generic way to inject sidecars
         - [ ] (optional) direct way to specify metrics sidecar (prometheus exporter)
         - [ ] (optional) direct way to specify logging sidecar (fluentd/loki?)
+    - find a way to purge caches. based on kitconcept varnish purger? needs
 
 - [ ] Other Languages
     - [ ] Check Python distribution

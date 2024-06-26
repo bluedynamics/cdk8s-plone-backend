@@ -4,10 +4,10 @@ import { Construct } from 'constructs';
 import * as k8s from './imports/k8s';
 import { PlonePDB, PlonePDBOptions } from './pdb';
 
-export interface PloneBackendDeploymentOptions {
+export interface PloneFrontendDeploymentOptions {
   /**
-   * Specify a custom image for Plone Backend.
-   * @default "plone/plone-backend:latest"
+   * Specify a custom image for Plone Frontend.
+   * @default "plone/plone-frontend:latest"
    */
   readonly image?: string;
 
@@ -37,9 +37,9 @@ export interface PloneBackendDeploymentOptions {
   readonly pdbOptions?: PlonePDBOptions;
 }
 
-export class PloneBackendDeployment extends Construct {
+export class PloneFrontendDeployment extends Construct {
 
-  constructor(scope: Construct, id: string, options: PloneBackendDeploymentOptions = {}) {
+  constructor(scope: Construct, id: string, options: PloneFrontendDeploymentOptions = {}) {
     super(scope, id);
     const image = options.image ?? 'plone/plone-backend:latest';
     const replicas = options.replicas ?? 2;
@@ -73,9 +73,10 @@ export class PloneBackendDeployment extends Construct {
 
     new k8s.KubeDeployment(this, 'deployment', deploymentOptions);
 
+
     if (options.pdbOptions ?? false) {
       const pdbOptions = options.pdbOptions ?? {};
-      new PlonePDB(this, 'pdb', label, pdbOptions);
+      new PlonePDB(this, id + '-pdb', label, pdbOptions);
     }
   }
 }
