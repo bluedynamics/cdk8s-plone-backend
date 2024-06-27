@@ -20,7 +20,7 @@ test('defaults-with-pdp', () => {
   const chart = new Chart(app, 'plone');
   const options: PloneFrontendOptions = {
     deployment: {
-      pdbOptions: {
+      pdb: {
         minAvailable: 1,
       },
     },

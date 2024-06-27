@@ -34,7 +34,7 @@ export interface PloneBackendDeploymentOptions {
    * If given
    * @default - none
    */
-  readonly pdbOptions?: PlonePDBOptions;
+  readonly pdb?: PlonePDBOptions;
 }
 
 export class PloneBackendDeployment extends Construct {
@@ -73,8 +73,8 @@ export class PloneBackendDeployment extends Construct {
 
     new k8s.KubeDeployment(this, 'deployment', deploymentOptions);
 
-    if (options.pdbOptions ?? false) {
-      const pdbOptions = options.pdbOptions ?? {};
+    if (options.pdb ?? false) {
+      const pdbOptions = options.pdb ?? {};
       new PlonePDB(this, 'pdb', label, pdbOptions);
     }
   }

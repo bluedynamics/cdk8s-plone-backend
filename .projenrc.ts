@@ -10,6 +10,7 @@ const project = new cdk.JsiiProject({
   description: 'Provides a CMS Plone Backend and Frontend for Kubernetes with cdk8s',
   deps: [
     'cdk8s',
+    'cdk8s-plus-24',
     'constructs',
   ],
   peerDeps: [

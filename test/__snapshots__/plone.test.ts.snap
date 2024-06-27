@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`defaults 1`] = `
+[
+  {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "app-plone-backend-deployment-c8e65ede",
+    },
+    "spec": {
+      "replicas": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "app-plone-backend-deployment-c85baacf",
+        },
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "app-plone-backend-deployment-c85baacf",
+          },
+        },
+        "spec": {
+          "containers": [
+            {
+              "image": "plone/plone-backend:latest",
+              "name": "deployment-container",
+            },
+          ],
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+      "name": "app-plone-backend-service-c8efef4c",
+    },
+    "spec": {
+      "clusterIP": "None",
+      "ports": [
+        {
+          "port": 8080,
+          "targetPort": 8080,
+        },
+      ],
+      "selector": {
+        "app": "app-plone-backend-deployment-c85baacf",
+      },
+      "type": "ClusterIP",
+    },
+  },
+  {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "app-plone-frontend-deployment-c8407ca5",
+    },
+    "spec": {
+      "replicas": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "app-plone-frontend-deployment-c872e367",
+        },
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "app-plone-frontend-deployment-c872e367",
+          },
+        },
+        "spec": {
+          "containers": [
+            {
+              "image": "plone/plone-backend:latest",
+              "name": "deployment-container",
+            },
+          ],
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+      "name": "app-plone-frontend-service-c8f392cd",
+    },
+    "spec": {
+      "clusterIP": "None",
+      "ports": [
+        {
+          "port": 3000,
+          "targetPort": 3000,
+        },
+      ],
+      "selector": {
+        "app": "app-plone-frontend-deployment-c872e367",
+      },
+      "type": "ClusterIP",
+    },
+  },
+]
+`;
+
+exports[`defaults-with-pdps 1`] = `
+[
+  {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "app-plone_with_pdbs-backend-deployment-c8a42868",
+    },
+    "spec": {
+      "replicas": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "app-plone_with_pdbs-backend-deployment-c8d5991a",
+        },
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "app-plone_with_pdbs-backend-deployment-c8d5991a",
+          },
+        },
+        "spec": {
+          "containers": [
+            {
+              "image": "plone/plone-backend:latest",
+              "name": "deployment-container",
+            },
+          ],
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "policy/v1",
+    "kind": "PodDisruptionBudget",
+    "metadata": {
+      "name": "app-plone_with_pdbs-backend-deployment-pdb-c8f35341",
+    },
+    "spec": {
+      "minAvailable": 1,
+      "selector": {
+        "matchLabels": {
+          "app": "app-plone_with_pdbs-backend-deployment-c8d5991a",
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+      "name": "app-plone_with_pdbs-backend-service-c819541f",
+    },
+    "spec": {
+      "clusterIP": "None",
+      "ports": [
+        {
+          "port": 8080,
+          "targetPort": 8080,
+        },
+      ],
+      "selector": {
+        "app": "app-plone_with_pdbs-backend-deployment-c8d5991a",
+      },
+      "type": "ClusterIP",
+    },
+  },
+  {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "app-plone_with_pdbs-frontend-deployment-c8a5664e",
+    },
+    "spec": {
+      "replicas": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "app-plone_with_pdbs-frontend-deployment-c812b31a",
+        },
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "app-plone_with_pdbs-frontend-deployment-c812b31a",
+          },
+        },
+        "spec": {
+          "containers": [
+            {
+              "image": "plone/plone-backend:latest",
+              "name": "deployment-container",
+            },
+          ],
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "policy/v1",
+    "kind": "PodDisruptionBudget",
+    "metadata": {
+      "name": "app-plone_with_pdbs-frontend-deployment-pdb-c8fa2465",
+    },
+    "spec": {
+      "minAvailable": 1,
+      "selector": {
+        "matchLabels": {
+          "app": "app-plone_with_pdbs-frontend-deployment-c812b31a",
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+      "name": "app-plone_with_pdbs-frontend-service-c8999de8",
+    },
+    "spec": {
+      "clusterIP": "None",
+      "ports": [
+        {
+          "port": 3000,
+          "targetPort": 3000,
+        },
+      ],
+      "selector": {
+        "app": "app-plone_with_pdbs-frontend-deployment-c812b31a",
+      },
+      "type": "ClusterIP",
+    },
+  },
+]
+`;

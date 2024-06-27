@@ -103,6 +103,10 @@
       "type": "runtime"
     },
     {
+      "name": "cdk8s-plus-24",
+      "type": "runtime"
+    },
+    {
       "name": "constructs",
       "type": "runtime"
     }

@@ -91,11 +91,10 @@ exports[`defaults-with-pdp 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
-      "name": "plone-frontend_with_pdb-deployment-deployment-pdb-pdb-c8d88a97",
+      "name": "plone-frontend_with_pdb-deployment-pdb-c8993f39",
     },
     "spec": {
-      "maxUnavailable": "",
-      "minAvailable": "",
+      "minAvailable": 1,
       "selector": {
         "matchLabels": {
           "app": "plone-frontend_with_pdb-deployment-c8256934",

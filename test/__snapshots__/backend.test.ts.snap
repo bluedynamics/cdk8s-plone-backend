@@ -94,8 +94,7 @@ exports[`defaults-with-pdp 1`] = `
       "name": "plone-backend_with_pdb-deployment-pdb-c86717f8",
     },
     "spec": {
-      "maxUnavailable": "",
-      "minAvailable": "",
+      "minAvailable": 1,
       "selector": {
         "matchLabels": {
           "app": "plone-backend_with_pdb-deployment-c8de3ed2",
