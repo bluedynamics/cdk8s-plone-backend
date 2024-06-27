@@ -55,7 +55,7 @@ export class Plone extends Construct {
     // Frontend
     const frontendPort = 3000;
     var frontendEnvironment = options.frontendEnvironment ?? new kplus.Env([], {});
-    if (frontendEnvironment.variables.RAZZLE_API_PATH === undefined) {
+    if (frontendEnvironment.variables.RAZZLE_INTERNAL_API_PATH === undefined) {
       frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:80`));
     }
 
