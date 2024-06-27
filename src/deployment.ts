@@ -1,5 +1,5 @@
 import { Names } from 'cdk8s';
-// eslint-disable-next-line import/no-extraneous-dependencies
+import * as kplus from 'cdk8s-plus-24';
 import { Construct } from 'constructs';
 import * as k8s from './imports/k8s';
 import { PlonePDB, PlonePDBOptions } from './pdb';
@@ -30,6 +30,12 @@ export interface PloneDeploymentOptions {
    * @default "plone/plone-backend:latest"
    */
   readonly image?: PloneImageOptions;
+
+  /**
+   * Specify an environment for Plone .
+   * @default - none
+  */
+  readonly environment?: kplus.Env;
 
   /**
  * Number of replicas.
@@ -79,12 +85,17 @@ export class PloneDeployment extends Construct {
       ...options.labels ?? {},
       ...label,
     };
-    var ploneContainerSpec = {
-      ...options.ploneContainer ?? {},
+    const kpEnv = options.environment ?? new kplus.Env([], {});
+    var env: k8s.EnvVar[] = [];
+    for (const name in kpEnv.variables) {
+      env.push({ name: name, value: kpEnv.variables[name].value });
+    }
+    var ploneContainerSpec: k8s.Container = {
       name: id + '-container', // here the namespaced name shold be used, but how?
       image: image.image,
       imagePullPolicy: image.imagePullPolicy,
-      imagePullSecret: { name: image.imagePullSecret },
+      // imagePullSecret: image.imagePullSecret, -> ServiceAccount should be used
+      env: env,
     };
     const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {

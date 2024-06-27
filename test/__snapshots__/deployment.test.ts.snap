@@ -24,6 +24,7 @@ exports[`defaults 1`] = `
         "spec": {
           "containers": [
             {
+              "env": [],
               "name": "test-container",
             },
           ],
@@ -58,6 +59,7 @@ exports[`defaults-with-pdp 1`] = `
         "spec": {
           "containers": [
             {
+              "env": [],
               "name": "frontend_with_pdb-container",
             },
           ],

@@ -99,6 +99,8 @@ Any object.
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#cdk8s-plone.Plone.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk8s-plone.Plone.property.backendServiceName">backendServiceName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.Plone.property.frontendServiceName">frontendServiceName</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -111,6 +113,26 @@ public readonly node: Node;
 - *Type:* constructs.Node
 
 The tree node.
+
+---
+
+##### `backendServiceName`<sup>Required</sup> <a name="backendServiceName" id="cdk8s-plone.Plone.property.backendServiceName"></a>
+
+```typescript
+public readonly backendServiceName: string;
+```
+
+- *Type:* string
+
+---
+
+##### `frontendServiceName`<sup>Required</sup> <a name="frontendServiceName" id="cdk8s-plone.Plone.property.frontendServiceName"></a>
+
+```typescript
+public readonly frontendServiceName: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -131,14 +153,14 @@ const ploneOptions: PloneOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk8s-plone.PloneOptions.property.backendEnvironment">backendEnvironment</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.backendEnvironment">backendEnvironment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.backendImage">backendImage</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.backendImagePullPolicy">backendImagePullPolicy</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.backendImagePullSecret">backendImagePullSecret</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.backendMaxUnavailable">backendMaxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.backendMinAvailable">backendMinAvailable</a></code> | <code>string \| number</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.backendReplicas">backendReplicas</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.frontendEnvironment">frontendEnvironment</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.frontendEnvironment">frontendEnvironment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.frontendImage">frontendImage</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.frontendImagePullPolicy">frontendImagePullPolicy</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.frontendImagePullSecret">frontendImagePullSecret</a></code> | <code>string</code> | *No description.* |
@@ -151,10 +173,10 @@ const ploneOptions: PloneOptions = { ... }
 ##### `backendEnvironment`<sup>Optional</sup> <a name="backendEnvironment" id="cdk8s-plone.PloneOptions.property.backendEnvironment"></a>
 
 ```typescript
-public readonly backendEnvironment: string;
+public readonly backendEnvironment: Env;
 ```
 
-- *Type:* string
+- *Type:* cdk8s-plus-24.Env
 
 ---
 
@@ -221,10 +243,10 @@ public readonly backendReplicas: number;
 ##### `frontendEnvironment`<sup>Optional</sup> <a name="frontendEnvironment" id="cdk8s-plone.PloneOptions.property.frontendEnvironment"></a>
 
 ```typescript
-public readonly frontendEnvironment: string;
+public readonly frontendEnvironment: Env;
 ```
 
-- *Type:* string
+- *Type:* cdk8s-plus-24.Env
 
 ---
 

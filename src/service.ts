@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Construct } from 'constructs';
-import { IntOrString, KubeServiceProps, KubeService } from './imports/k8s';
+import * as k8s from './imports/k8s';
 
 export interface PloneServiceOptions {
 
@@ -23,13 +23,15 @@ export interface PloneServiceOptions {
 
 export class PloneService extends Construct {
 
+  public name: string;
+
   constructor(scope: Construct, id: string, options: PloneServiceOptions) {
     super(scope, id);
 
-    const targetPort = IntOrString.fromNumber(options.targetPort);
+    const targetPort = k8s.IntOrString.fromNumber(options.targetPort);
     const selectorLabel = options.selectorLabel;
 
-    const serviceOpts: KubeServiceProps = {
+    const serviceOpts: k8s.KubeServiceProps = {
       metadata: {
         labels: options.labels ?? {},
       },
@@ -40,6 +42,7 @@ export class PloneService extends Construct {
         selector: selectorLabel,
       },
     };
-    new KubeService(this, 'service', serviceOpts);
+    const service = new k8s.KubeService(this, 'service', serviceOpts);
+    this.name = service.name;
   }
 }

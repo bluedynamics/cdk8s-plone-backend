@@ -24,8 +24,9 @@ exports[`defaults 1`] = `
         "spec": {
           "containers": [
             {
+              "env": [],
               "image": "plone/plone-backend:latest",
-              "imagePullPolicy": "always",
+              "imagePullPolicy": "ifNotPresent",
               "name": "backend-container",
             },
           ],
@@ -90,8 +91,14 @@ exports[`defaults 1`] = `
         "spec": {
           "containers": [
             {
+              "env": [
+                {
+                  "name": "RAZZLE_INTERNAL_API_PATH",
+                  "value": "http://app-plone-backend-service-c8efef4c:80",
+                },
+              ],
               "image": "plone/plone-frontend:latest",
-              "imagePullPolicy": "always",
+              "imagePullPolicy": "ifNotPresent",
               "name": "frontend-container",
             },
           ],
@@ -161,8 +168,9 @@ exports[`defaults-with-pdps 1`] = `
         "spec": {
           "containers": [
             {
+              "env": [],
               "image": "plone/plone-backend:latest",
-              "imagePullPolicy": "always",
+              "imagePullPolicy": "ifNotPresent",
               "name": "backend-container",
             },
           ],
@@ -227,8 +235,14 @@ exports[`defaults-with-pdps 1`] = `
         "spec": {
           "containers": [
             {
+              "env": [
+                {
+                  "name": "RAZZLE_INTERNAL_API_PATH",
+                  "value": "http://app-plone_with_pdbs-backend-service-c819541f:80",
+                },
+              ],
               "image": "plone/plone-frontend:latest",
-              "imagePullPolicy": "always",
+              "imagePullPolicy": "ifNotPresent",
               "name": "frontend-container",
             },
           ],

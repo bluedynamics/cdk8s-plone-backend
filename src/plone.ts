@@ -1,5 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Names } from 'cdk8s';
+import * as kplus from 'cdk8s-plus-24';
 import { Construct } from 'constructs';
 import { PloneDeployment } from './deployment';
 import { PloneService } from './service';
@@ -11,7 +11,7 @@ export interface PloneOptions {
   readonly backendReplicas?: number;
   readonly backendMaxUnavailable?: number | string;
   readonly backendMinAvailable?: number | string;
-  readonly backendEnvironment?: string;
+  readonly backendEnvironment?: kplus.Env;
 
   readonly frontendImage?: string;
   readonly frontendImagePullSecret?: string;
@@ -19,10 +19,13 @@ export interface PloneOptions {
   readonly frontendReplicas?: number;
   readonly frontendMaxUnavailable?: number | string;
   readonly frontendMinAvailable?: number | string;
-  readonly frontendEnvironment?: string;
+  readonly frontendEnvironment?: kplus.Env;
 }
 
 export class Plone extends Construct {
+
+  public readonly backendServiceName: string;
+  public readonly frontendServiceName: string;
 
   constructor(scope: Construct, id: string, options: PloneOptions = {}) {
     super(scope, id);
@@ -33,7 +36,7 @@ export class Plone extends Construct {
       image: {
         image: options.backendImage ?? 'plone/plone-backend:latest',
         imagePullSecret: options.backendImagePullSecret ?? '',
-        imagePullPolicy: options.backendImagePullPolicy ?? 'always',
+        imagePullPolicy: options.backendImagePullPolicy ?? 'ifNotPresent',
       },
       replicas: options.backendReplicas,
       pdb: {
@@ -41,20 +44,26 @@ export class Plone extends Construct {
         minAvailable: options.backendMinAvailable ?? undefined,
       },
       port: backendPort,
-      // environment: options.backendEnvironment,
+      environment: options.backendEnvironment,
     });
-    new PloneService(backendDeployment, 'service', {
+    const backendService = new PloneService(backendDeployment, 'service', {
       targetPort: backendPort,
       selectorLabel: { app: Names.toLabelValue(backendDeployment) },
     });
+    this.backendServiceName = backendService.name;
 
     // Frontend
     const frontendPort = 3000;
+    var frontendEnvironment = options.frontendEnvironment ?? new kplus.Env([], {});
+    if (frontendEnvironment.variables.RAZZLE_API_PATH === undefined) {
+      frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:80`));
+    }
+
     const frontendDeployment = new PloneDeployment(this, 'frontend', {
       image: {
         image: options.frontendImage ?? 'plone/plone-frontend:latest',
         imagePullSecret: options.frontendImagePullSecret ?? '',
-        imagePullPolicy: options.frontendImagePullPolicy ?? 'always',
+        imagePullPolicy: options.frontendImagePullPolicy ?? 'ifNotPresent',
       },
       replicas: options.frontendReplicas,
       pdb: {
@@ -62,11 +71,12 @@ export class Plone extends Construct {
         minAvailable: options.frontendMinAvailable ?? undefined,
       },
       port: frontendPort,
-      // environment: options.frontendEnvironment,
+      environment: frontendEnvironment,
     });
-    new PloneService(frontendDeployment, 'service', {
+    const frontendService = new PloneService(frontendDeployment, 'service', {
       targetPort: frontendPort,
       selectorLabel: { app: Names.toLabelValue(frontendDeployment) },
     });
+    this.frontendServiceName = frontendService.name;
   }
 }

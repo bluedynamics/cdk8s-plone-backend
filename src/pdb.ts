@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { Construct } from 'constructs';
-import { IntOrString, KubePodDisruptionBudget, PodDisruptionBudgetSpec } from './imports/k8s';
+import * as k8s from './imports/k8s';
 
 export interface PlonePDBOptions {
   /**
@@ -28,30 +27,30 @@ export class PlonePDB extends Construct {
   constructor(scope: Construct, id: string, selectorLabel: { [name: string]: string }, options: PlonePDBOptions) {
     super(scope, id);
 
-    var spec: PodDisruptionBudgetSpec = {};
+    var spec: k8s.PodDisruptionBudgetSpec = {};
     if (typeof options.maxUnavailable === 'number') {
       spec = {
-        maxUnavailable: IntOrString.fromNumber(options.maxUnavailable as number),
+        maxUnavailable: k8s.IntOrString.fromNumber(options.maxUnavailable as number),
       };
     } else if (typeof options.maxUnavailable === 'string') {
       spec = {
-        maxUnavailable: IntOrString.fromString(options.maxUnavailable as string),
+        maxUnavailable: k8s.IntOrString.fromString(options.maxUnavailable as string),
       };
     }
     if (typeof options.minAvailable === 'number') {
       spec = {
         ...spec,
-        minAvailable: IntOrString.fromNumber(options.minAvailable as number),
+        minAvailable: k8s.IntOrString.fromNumber(options.minAvailable as number),
       };
     } else if (typeof options.minAvailable === 'string') {
       spec = {
         ...spec,
-        minAvailable: IntOrString.fromString(options.minAvailable as string),
+        minAvailable: k8s.IntOrString.fromString(options.minAvailable as string),
       };
     }
     if (options.maxUnavailable === undefined && options.minAvailable === undefined) {
       spec = {
-        minAvailable: IntOrString.fromNumber(1),
+        minAvailable: k8s.IntOrString.fromNumber(1),
       };
     }
 
@@ -60,7 +59,7 @@ export class PlonePDB extends Construct {
       selector: { matchLabels: selectorLabel },
     };
 
-    new KubePodDisruptionBudget(this, 'PDB', {
+    new k8s.KubePodDisruptionBudget(this, 'PDB', {
       metadata: {
         labels: options.labels ?? {},
       },
