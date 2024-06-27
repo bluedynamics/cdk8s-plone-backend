@@ -94,6 +94,10 @@
       "type": "build"
     },
     {
+      "name": "cdk8s",
+      "type": "peer"
+    },
+    {
       "name": "constructs",
       "version": "^10.3.0",
       "type": "peer"

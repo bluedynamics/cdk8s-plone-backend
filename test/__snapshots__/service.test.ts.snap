@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`defaults 1`] = `
+[
+  {
+    "apiVersion": "v1",
+    "kind": "Service",
+    "metadata": {
+      "name": "plone-test-service-c8a1159e",
+    },
+    "spec": {
+      "clusterIP": "None",
+      "ports": [
+        {
+          "port": 8080,
+          "targetPort": 8080,
+        },
+      ],
+      "selector": {
+        "app": "plone",
+      },
+      "type": "ClusterIP",
+    },
+  },
+]
+`;

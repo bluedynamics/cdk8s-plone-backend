@@ -14,6 +14,7 @@ const project = new cdk.JsiiProject({
     'constructs',
   ],
   peerDeps: [
+    'cdk8s',
     'constructs@^10.3.0',
   ],
   devDeps: [

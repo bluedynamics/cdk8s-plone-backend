@@ -6,28 +6,44 @@ exports[`defaults 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
-      "name": "app-plone-backend-deployment-c8e65ede",
+      "name": "app-plone-backend-deployment-c85baacf",
     },
     "spec": {
       "replicas": 2,
       "selector": {
         "matchLabels": {
-          "app": "app-plone-backend-deployment-c85baacf",
+          "app": "app-plone-backend-c82290e6",
         },
       },
       "template": {
         "metadata": {
           "labels": {
-            "app": "app-plone-backend-deployment-c85baacf",
+            "app": "app-plone-backend-c82290e6",
           },
         },
         "spec": {
           "containers": [
             {
               "image": "plone/plone-backend:latest",
-              "name": "deployment-container",
+              "imagePullPolicy": "always",
+              "name": "backend-container",
             },
           ],
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "policy/v1",
+    "kind": "PodDisruptionBudget",
+    "metadata": {
+      "name": "app-plone-backend-pdb-c8f00fdc",
+    },
+    "spec": {
+      "minAvailable": 1,
+      "selector": {
+        "matchLabels": {
+          "app": "app-plone-backend-c82290e6",
         },
       },
     },
@@ -47,7 +63,7 @@ exports[`defaults 1`] = `
         },
       ],
       "selector": {
-        "app": "app-plone-backend-deployment-c85baacf",
+        "app": "app-plone-backend-c82290e6",
       },
       "type": "ClusterIP",
     },
@@ -56,28 +72,44 @@ exports[`defaults 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
-      "name": "app-plone-frontend-deployment-c8407ca5",
+      "name": "app-plone-frontend-deployment-c872e367",
     },
     "spec": {
       "replicas": 2,
       "selector": {
         "matchLabels": {
-          "app": "app-plone-frontend-deployment-c872e367",
+          "app": "app-plone-frontend-c8d010d1",
         },
       },
       "template": {
         "metadata": {
           "labels": {
-            "app": "app-plone-frontend-deployment-c872e367",
+            "app": "app-plone-frontend-c8d010d1",
           },
         },
         "spec": {
           "containers": [
             {
-              "image": "plone/plone-backend:latest",
-              "name": "deployment-container",
+              "image": "plone/plone-frontend:latest",
+              "imagePullPolicy": "always",
+              "name": "frontend-container",
             },
           ],
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "policy/v1",
+    "kind": "PodDisruptionBudget",
+    "metadata": {
+      "name": "app-plone-frontend-pdb-c82dd14e",
+    },
+    "spec": {
+      "minAvailable": 1,
+      "selector": {
+        "matchLabels": {
+          "app": "app-plone-frontend-c8d010d1",
         },
       },
     },
@@ -97,7 +129,7 @@ exports[`defaults 1`] = `
         },
       ],
       "selector": {
-        "app": "app-plone-frontend-deployment-c872e367",
+        "app": "app-plone-frontend-c8d010d1",
       },
       "type": "ClusterIP",
     },
@@ -111,26 +143,27 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
-      "name": "app-plone_with_pdbs-backend-deployment-c8a42868",
+      "name": "app-plone_with_pdbs-backend-deployment-c8d5991a",
     },
     "spec": {
       "replicas": 2,
       "selector": {
         "matchLabels": {
-          "app": "app-plone_with_pdbs-backend-deployment-c8d5991a",
+          "app": "app-plone_with_pdbs-backend-c885cd24",
         },
       },
       "template": {
         "metadata": {
           "labels": {
-            "app": "app-plone_with_pdbs-backend-deployment-c8d5991a",
+            "app": "app-plone_with_pdbs-backend-c885cd24",
           },
         },
         "spec": {
           "containers": [
             {
               "image": "plone/plone-backend:latest",
-              "name": "deployment-container",
+              "imagePullPolicy": "always",
+              "name": "backend-container",
             },
           ],
         },
@@ -141,13 +174,13 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
-      "name": "app-plone_with_pdbs-backend-deployment-pdb-c8f35341",
+      "name": "app-plone_with_pdbs-backend-pdb-c810ca80",
     },
     "spec": {
-      "minAvailable": 1,
+      "maxUnavailable": 1,
       "selector": {
         "matchLabels": {
-          "app": "app-plone_with_pdbs-backend-deployment-c8d5991a",
+          "app": "app-plone_with_pdbs-backend-c885cd24",
         },
       },
     },
@@ -167,7 +200,7 @@ exports[`defaults-with-pdps 1`] = `
         },
       ],
       "selector": {
-        "app": "app-plone_with_pdbs-backend-deployment-c8d5991a",
+        "app": "app-plone_with_pdbs-backend-c885cd24",
       },
       "type": "ClusterIP",
     },
@@ -176,26 +209,27 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
-      "name": "app-plone_with_pdbs-frontend-deployment-c8a5664e",
+      "name": "app-plone_with_pdbs-frontend-deployment-c812b31a",
     },
     "spec": {
       "replicas": 2,
       "selector": {
         "matchLabels": {
-          "app": "app-plone_with_pdbs-frontend-deployment-c812b31a",
+          "app": "app-plone_with_pdbs-frontend-c850bc83",
         },
       },
       "template": {
         "metadata": {
           "labels": {
-            "app": "app-plone_with_pdbs-frontend-deployment-c812b31a",
+            "app": "app-plone_with_pdbs-frontend-c850bc83",
           },
         },
         "spec": {
           "containers": [
             {
-              "image": "plone/plone-backend:latest",
-              "name": "deployment-container",
+              "image": "plone/plone-frontend:latest",
+              "imagePullPolicy": "always",
+              "name": "frontend-container",
             },
           ],
         },
@@ -206,13 +240,13 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
-      "name": "app-plone_with_pdbs-frontend-deployment-pdb-c8fa2465",
+      "name": "app-plone_with_pdbs-frontend-pdb-c8ebc6c1",
     },
     "spec": {
-      "minAvailable": 1,
+      "minAvailable": 2,
       "selector": {
         "matchLabels": {
-          "app": "app-plone_with_pdbs-frontend-deployment-c812b31a",
+          "app": "app-plone_with_pdbs-frontend-c850bc83",
         },
       },
     },
@@ -232,7 +266,7 @@ exports[`defaults-with-pdps 1`] = `
         },
       ],
       "selector": {
-        "app": "app-plone_with_pdbs-frontend-deployment-c812b31a",
+        "app": "app-plone_with_pdbs-frontend-c850bc83",
       },
       "type": "ClusterIP",
     },

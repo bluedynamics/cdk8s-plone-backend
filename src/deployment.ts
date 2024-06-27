@@ -4,12 +4,32 @@ import { Construct } from 'constructs';
 import * as k8s from './imports/k8s';
 import { PlonePDB, PlonePDBOptions } from './pdb';
 
-export interface PloneBackendDeploymentOptions {
+export interface PloneImageOptions {
   /**
-   * Specify a custom image for Plone Backend.
-   * @default "plone/plone-backend:latest"
+   * Specify a custom image for Plone .
+   * @default ""
    */
   readonly image?: string;
+
+  /**
+   * Specify Secret to pull image .
+   * @default ""
+   */
+  readonly imagePullSecret?: string;
+
+  /**
+   * Specify Pull Policy .
+   * @default ""
+   */
+  readonly imagePullPolicy?: string;
+}
+
+export interface PloneDeploymentOptions {
+  /**
+   * Specify a custom image for Plone .
+   * @default "plone/plone-backend:latest"
+   */
+  readonly image?: PloneImageOptions;
 
   /**
  * Number of replicas.
@@ -30,6 +50,18 @@ export interface PloneBackendDeploymentOptions {
   readonly labels?: { [name: string]: string };
 
   /**
+   * Extra container spec to use for ploencontainer.
+   * @default - []
+   */
+  readonly ploneContainer?: k8s.Container;
+
+  /**
+   * Sidecar container spec to associate with resources.
+   * @default - []
+   */
+  readonly sidecarContainers?: k8s.Container[];
+
+  /**
    * Create a PodDisruptionBugdet for the deployment?
    * If given
    * @default - none
@@ -37,16 +69,23 @@ export interface PloneBackendDeploymentOptions {
   readonly pdb?: PlonePDBOptions;
 }
 
-export class PloneBackendDeployment extends Construct {
+export class PloneDeployment extends Construct {
 
-  constructor(scope: Construct, id: string, options: PloneBackendDeploymentOptions = {}) {
+  constructor(scope: Construct, id: string, options: PloneDeploymentOptions = {}) {
     super(scope, id);
-    const image = options.image ?? 'plone/plone-backend:latest';
+    const image = options.image ?? {};
     const replicas = options.replicas ?? 2;
     const label = { app: Names.toLabelValue(this) };
     const template_labels = {
       ...options.labels ?? {},
       ...label,
+    };
+    var ploneContainerSpec = {
+      ...options.ploneContainer ?? {},
+      name: id + '-container', // here the namespaced name shold be used, but how?
+      image: image.image,
+      imagePullPolicy: image.imagePullPolicy,
+      imagePullSecret: { name: image.imagePullSecret },
     };
     const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {
@@ -61,10 +100,8 @@ export class PloneBackendDeployment extends Construct {
           metadata: { labels: template_labels },
           spec: {
             containers: [
-              {
-                name: id + '-container', // here the namespaced name shold be used, but how?
-                image: image,
-              },
+              ploneContainerSpec,
+              ...options.sidecarContainers ?? [],
             ],
           },
         },

@@ -2,7 +2,7 @@
 import { Construct } from 'constructs';
 import { IntOrString, KubeServiceProps, KubeService } from './imports/k8s';
 
-export interface PloneBackendServiceOptions {
+export interface PloneServiceOptions {
   /**
    * Port number.
    * @default 8080
@@ -27,9 +27,9 @@ export interface PloneBackendServiceOptions {
   readonly labels?: { [name: string]: string };
 }
 
-export class PloneBackendService extends Construct {
+export class PloneService extends Construct {
 
-  constructor(scope: Construct, id: string, options: PloneBackendServiceOptions) {
+  constructor(scope: Construct, id: string, options: PloneServiceOptions) {
     super(scope, id);
 
     const port = options.port ?? 8080;

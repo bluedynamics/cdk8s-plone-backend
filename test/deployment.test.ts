@@ -1,5 +1,5 @@
 import { Chart, Testing } from 'cdk8s';
-import { PloneFrontend, PloneFrontendOptions } from '../src/frontend';
+import { PloneDeployment } from '../src/deployment';
 
 
 test('defaults', () => {
@@ -8,7 +8,7 @@ test('defaults', () => {
   const chart = new Chart(app, 'plone');
 
   // WHEN
-  new PloneFrontend(chart, 'frontend');
+  new PloneDeployment(chart, 'test');
 
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();
@@ -18,16 +18,11 @@ test('defaults-with-pdp', () => {
   // GIVEN
   const app = Testing.app();
   const chart = new Chart(app, 'plone');
-  const options: PloneFrontendOptions = {
-    deployment: {
-      pdb: {
-        minAvailable: 1,
-      },
-    },
-  };
 
   // WHEN
-  new PloneFrontend(chart, 'frontend_with_pdb', options);
+  new PloneDeployment(chart, 'frontend_with_pdb', {
+    pdb: { minAvailable: 1 },
+  });
 
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();

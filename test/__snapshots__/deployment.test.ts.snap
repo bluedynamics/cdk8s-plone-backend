@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`defaults 1`] = `
+[
+  {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "plone-test-deployment-c86dcee1",
+    },
+    "spec": {
+      "replicas": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "plone-test-c8667035",
+        },
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "plone-test-c8667035",
+          },
+        },
+        "spec": {
+          "containers": [
+            {
+              "name": "test-container",
+            },
+          ],
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`defaults-with-pdp 1`] = `
+[
+  {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "plone-frontend_with_pdb-deployment-c8256934",
+    },
+    "spec": {
+      "replicas": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "plone-frontend_with_pdb-c80c2373",
+        },
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "plone-frontend_with_pdb-c80c2373",
+          },
+        },
+        "spec": {
+          "containers": [
+            {
+              "name": "frontend_with_pdb-container",
+            },
+          ],
+        },
+      },
+    },
+  },
+  {
+    "apiVersion": "policy/v1",
+    "kind": "PodDisruptionBudget",
+    "metadata": {
+      "name": "plone-frontend_with_pdb-pdb-c8714789",
+    },
+    "spec": {
+      "minAvailable": 1,
+      "selector": {
+        "matchLabels": {
+          "app": "plone-frontend_with_pdb-c80c2373",
+        },
+      },
+    },
+  },
+]
+`;
