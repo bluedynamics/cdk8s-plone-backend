@@ -14,7 +14,7 @@ test('defaults', () => {
   expect(Testing.synth(chart)).toMatchSnapshot();
 });
 
-test('minAvailable', () => {
+test('minAvailableNumber', () => {
   // GIVEN
   const app = Testing.app();
   const chart = new Chart(app, 'plone');
@@ -26,13 +26,36 @@ test('minAvailable', () => {
   expect(Testing.synth(chart)).toMatchSnapshot();
 });
 
-test('maxUnavailable', () => {
+test('minAvailableString', () => {
+  // GIVEN
+  const app = Testing.app();
+  const chart = new Chart(app, 'plone');
+
+  // WHEN
+  new PlonePDB(chart, 'pdb', { app: 'plone' }, { minAvailable: '50%' });
+
+  // THEN
+  expect(Testing.synth(chart)).toMatchSnapshot();
+});
+
+test('maxUnavailableNumber', () => {
   // GIVEN
   const app = Testing.app();
   const chart = new Chart(app, 'plone');
 
   // WHEN
   new PlonePDB(chart, 'pdb', { app: 'plone' }, { maxUnavailable: 2 });
+
+  // THEN
+  expect(Testing.synth(chart)).toMatchSnapshot();
+});
+test('maxUnavailableString', () => {
+  // GIVEN
+  const app = Testing.app();
+  const chart = new Chart(app, 'plone');
+
+  // WHEN
+  new PlonePDB(chart, 'pdb', { app: 'plone' }, { maxUnavailable: '50%' });
 
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();

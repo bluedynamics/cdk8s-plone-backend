@@ -39,9 +39,8 @@ export interface PloneDeploymentOptions {
 
   /**
    * Port number.
-   * @default 8080
    */
-  readonly port?: number;
+  readonly port: number;
 
   /**
    * Extra labels to associate with resources.
@@ -71,7 +70,7 @@ export interface PloneDeploymentOptions {
 
 export class PloneDeployment extends Construct {
 
-  constructor(scope: Construct, id: string, options: PloneDeploymentOptions = {}) {
+  constructor(scope: Construct, id: string, options: PloneDeploymentOptions) {
     super(scope, id);
     const image = options.image ?? {};
     const replicas = options.replicas ?? 2;

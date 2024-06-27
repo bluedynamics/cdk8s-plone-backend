@@ -8,7 +8,7 @@ test('defaults', () => {
   const chart = new Chart(app, 'plone');
 
   // WHEN
-  new PloneDeployment(chart, 'test');
+  new PloneDeployment(chart, 'test', { port: 8080 });
 
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();
@@ -21,6 +21,7 @@ test('defaults-with-pdp', () => {
 
   // WHEN
   new PloneDeployment(chart, 'frontend_with_pdb', {
+    port: 3000,
     pdb: { minAvailable: 1 },
   });
 

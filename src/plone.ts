@@ -44,7 +44,6 @@ export class Plone extends Construct {
       // environment: options.backendEnvironment,
     });
     new PloneService(backendDeployment, 'service', {
-      port: backendPort,
       targetPort: backendPort,
       selectorLabel: { app: Names.toLabelValue(backendDeployment) },
     });
@@ -66,7 +65,6 @@ export class Plone extends Construct {
       // environment: options.frontendEnvironment,
     });
     new PloneService(frontendDeployment, 'service', {
-      port: frontendPort,
       targetPort: frontendPort,
       selectorLabel: { app: Names.toLabelValue(frontendDeployment) },
     });

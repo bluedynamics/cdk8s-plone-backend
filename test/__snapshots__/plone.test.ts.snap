@@ -58,7 +58,7 @@ exports[`defaults 1`] = `
       "clusterIP": "None",
       "ports": [
         {
-          "port": 8080,
+          "port": 80,
           "targetPort": 8080,
         },
       ],
@@ -124,7 +124,7 @@ exports[`defaults 1`] = `
       "clusterIP": "None",
       "ports": [
         {
-          "port": 3000,
+          "port": 80,
           "targetPort": 3000,
         },
       ],
@@ -195,7 +195,7 @@ exports[`defaults-with-pdps 1`] = `
       "clusterIP": "None",
       "ports": [
         {
-          "port": 8080,
+          "port": 80,
           "targetPort": 8080,
         },
       ],
@@ -261,7 +261,7 @@ exports[`defaults-with-pdps 1`] = `
       "clusterIP": "None",
       "ports": [
         {
-          "port": 3000,
+          "port": 80,
           "targetPort": 3000,
         },
       ],

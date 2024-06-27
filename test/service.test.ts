@@ -8,7 +8,7 @@ test('defaults', () => {
   const chart = new Chart(app, 'plone');
 
   // WHEN
-  new PloneService(chart, 'test', { port: 8080, targetPort: 8080, selectorLabel: { app: 'plone' } });
+  new PloneService(chart, 'test', { targetPort: 8080, selectorLabel: { app: 'plone' } });
 
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();

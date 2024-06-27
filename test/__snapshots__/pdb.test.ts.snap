@@ -41,7 +41,7 @@ exports[`defaults 1`] = `
 ]
 `;
 
-exports[`maxUnavailable 1`] = `
+exports[`maxUnavailableNumber 1`] = `
 [
   {
     "apiVersion": "policy/v1",
@@ -61,7 +61,27 @@ exports[`maxUnavailable 1`] = `
 ]
 `;
 
-exports[`minAvailable 1`] = `
+exports[`maxUnavailableString 1`] = `
+[
+  {
+    "apiVersion": "policy/v1",
+    "kind": "PodDisruptionBudget",
+    "metadata": {
+      "name": "plone-pdb-c8ec72df",
+    },
+    "spec": {
+      "maxUnavailable": "50%",
+      "selector": {
+        "matchLabels": {
+          "app": "plone",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`minAvailableNumber 1`] = `
 [
   {
     "apiVersion": "policy/v1",
@@ -71,6 +91,26 @@ exports[`minAvailable 1`] = `
     },
     "spec": {
       "minAvailable": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "plone",
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`minAvailableString 1`] = `
+[
+  {
+    "apiVersion": "policy/v1",
+    "kind": "PodDisruptionBudget",
+    "metadata": {
+      "name": "plone-pdb-c8ec72df",
+    },
+    "spec": {
+      "minAvailable": "50%",
       "selector": {
         "matchLabels": {
           "app": "plone",

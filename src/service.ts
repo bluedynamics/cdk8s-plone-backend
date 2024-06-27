@@ -3,17 +3,11 @@ import { Construct } from 'constructs';
 import { IntOrString, KubeServiceProps, KubeService } from './imports/k8s';
 
 export interface PloneServiceOptions {
-  /**
-   * Port number.
-   * @default 8080
-   */
-  readonly port?: number;
 
   /**
-   * Port number.
-   * @default 8080;
+   * targetPort number.
    */
-  readonly targetPort?: number;
+  readonly targetPort: number;
 
   /**
    * Selector label.
@@ -32,8 +26,7 @@ export class PloneService extends Construct {
   constructor(scope: Construct, id: string, options: PloneServiceOptions) {
     super(scope, id);
 
-    const port = options.port ?? 8080;
-    const targetPort = IntOrString.fromNumber(options.targetPort ?? 8080);
+    const targetPort = IntOrString.fromNumber(options.targetPort);
     const selectorLabel = options.selectorLabel;
 
     const serviceOpts: KubeServiceProps = {
@@ -43,7 +36,7 @@ export class PloneService extends Construct {
       spec: {
         type: 'ClusterIP',
         clusterIp: 'None',
-        ports: [{ port: port, targetPort: targetPort }],
+        ports: [{ port: 80, targetPort: targetPort }],
         selector: selectorLabel,
       },
     };
