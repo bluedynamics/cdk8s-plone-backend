@@ -27,6 +27,12 @@ exports[`defaults 1`] = `
               "env": [],
               "envFrom": [],
               "name": "test-container",
+              "resources": {
+                "limits": {
+                  "cpu": 1,
+                  "memory": "1Gi",
+                },
+              },
             },
           ],
           "imagePullSecrets": [],
@@ -64,6 +70,12 @@ exports[`defaults-with-pdp 1`] = `
               "env": [],
               "envFrom": [],
               "name": "frontend_with_pdb-container",
+              "resources": {
+                "limits": {
+                  "cpu": 1,
+                  "memory": "1Gi",
+                },
+              },
             },
           ],
           "imagePullSecrets": [],

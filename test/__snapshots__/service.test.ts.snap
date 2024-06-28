@@ -9,17 +9,16 @@ exports[`defaults 1`] = `
       "name": "plone-test-service-c8a1159e",
     },
     "spec": {
-      "clusterIP": "None",
       "ports": [
         {
-          "port": 80,
+          "name": "backend-http",
+          "port": 8080,
           "targetPort": 8080,
         },
       ],
       "selector": {
         "app": "plone",
       },
-      "type": "ClusterIP",
     },
   },
 ]

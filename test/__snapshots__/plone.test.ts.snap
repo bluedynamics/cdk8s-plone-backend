@@ -29,6 +29,12 @@ exports[`defaults 1`] = `
               "image": "plone/plone-backend:latest",
               "imagePullPolicy": "IfNotPresent",
               "name": "backend-container",
+              "resources": {
+                "limits": {
+                  "cpu": 1,
+                  "memory": "512Mi",
+                },
+              },
             },
           ],
           "imagePullSecrets": [],
@@ -58,17 +64,16 @@ exports[`defaults 1`] = `
       "name": "app-plone-backend-service-c8efef4c",
     },
     "spec": {
-      "clusterIP": "None",
       "ports": [
         {
-          "port": 80,
+          "name": "backend-http",
+          "port": 8080,
           "targetPort": 8080,
         },
       ],
       "selector": {
         "app": "app-plone-backend-c82290e6",
       },
-      "type": "ClusterIP",
     },
   },
   {
@@ -103,6 +108,12 @@ exports[`defaults 1`] = `
               "image": "plone/plone-frontend:latest",
               "imagePullPolicy": "IfNotPresent",
               "name": "frontend-container",
+              "resources": {
+                "limits": {
+                  "cpu": 1,
+                  "memory": "1Gi",
+                },
+              },
             },
           ],
           "imagePullSecrets": [],
@@ -132,17 +143,16 @@ exports[`defaults 1`] = `
       "name": "app-plone-frontend-service-c8f392cd",
     },
     "spec": {
-      "clusterIP": "None",
       "ports": [
         {
-          "port": 80,
+          "name": "backend-http",
+          "port": 3000,
           "targetPort": 3000,
         },
       ],
       "selector": {
         "app": "app-plone-frontend-c8d010d1",
       },
-      "type": "ClusterIP",
     },
   },
 ]
@@ -177,6 +187,12 @@ exports[`defaults-with-pdps 1`] = `
               "image": "plone/plone-backend:latest",
               "imagePullPolicy": "IfNotPresent",
               "name": "backend-container",
+              "resources": {
+                "limits": {
+                  "cpu": 1,
+                  "memory": "512Mi",
+                },
+              },
             },
           ],
           "imagePullSecrets": [],
@@ -206,17 +222,16 @@ exports[`defaults-with-pdps 1`] = `
       "name": "app-plone_with_pdbs-backend-service-c819541f",
     },
     "spec": {
-      "clusterIP": "None",
       "ports": [
         {
-          "port": 80,
+          "name": "backend-http",
+          "port": 8080,
           "targetPort": 8080,
         },
       ],
       "selector": {
         "app": "app-plone_with_pdbs-backend-c885cd24",
       },
-      "type": "ClusterIP",
     },
   },
   {
@@ -251,6 +266,12 @@ exports[`defaults-with-pdps 1`] = `
               "image": "plone/plone-frontend:latest",
               "imagePullPolicy": "IfNotPresent",
               "name": "frontend-container",
+              "resources": {
+                "limits": {
+                  "cpu": 1,
+                  "memory": "1Gi",
+                },
+              },
             },
           ],
           "imagePullSecrets": [],
@@ -280,17 +301,16 @@ exports[`defaults-with-pdps 1`] = `
       "name": "app-plone_with_pdbs-frontend-service-c8999de8",
     },
     "spec": {
-      "clusterIP": "None",
       "ports": [
         {
-          "port": 80,
+          "name": "backend-http",
+          "port": 3000,
           "targetPort": 3000,
         },
       ],
       "selector": {
         "app": "app-plone_with_pdbs-frontend-c850bc83",
       },
-      "type": "ClusterIP",
     },
   },
 ]

@@ -36,9 +36,7 @@ export class PloneService extends Construct {
         labels: options.labels ?? {},
       },
       spec: {
-        type: 'ClusterIP',
-        clusterIp: 'None',
-        ports: [{ port: 80, targetPort: targetPort }],
+        ports: [{ port: options.targetPort, targetPort: targetPort, name: 'backend-http' }],
         selector: selectorLabel,
       },
     };

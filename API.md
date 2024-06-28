@@ -156,6 +156,8 @@ const ploneBaseOptions: PloneBaseOptions = { ... }
 | <code><a href="#cdk8s-plone.PloneBaseOptions.property.environment">environment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneBaseOptions.property.image">image</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneBaseOptions.property.imagePullPolicy">imagePullPolicy</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.limitCpu">limitCpu</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneBaseOptions.property.maxUnavailable">maxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneBaseOptions.property.minAvailable">minAvailable</a></code> | <code>string \| number</code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneBaseOptions.property.replicas">replicas</a></code> | <code>number</code> | *No description.* |
@@ -186,6 +188,26 @@ public readonly image: string;
 
 ```typescript
 public readonly imagePullPolicy: string;
+```
+
+- *Type:* string
+
+---
+
+##### `limitCpu`<sup>Optional</sup> <a name="limitCpu" id="cdk8s-plone.PloneBaseOptions.property.limitCpu"></a>
+
+```typescript
+public readonly limitCpu: number;
+```
+
+- *Type:* number
+
+---
+
+##### `limitMemory`<sup>Optional</sup> <a name="limitMemory" id="cdk8s-plone.PloneBaseOptions.property.limitMemory"></a>
+
+```typescript
+public readonly limitMemory: string;
 ```
 
 - *Type:* string

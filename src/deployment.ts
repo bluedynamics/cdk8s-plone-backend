@@ -44,6 +44,18 @@ export interface PloneDeploymentOptions {
   readonly replicas?: number;
 
   /**
+ * CPU limit
+ * @default 1
+ */
+  readonly limitCpu?: number;
+
+  /**
+ * memory limit
+ * @default 1
+ */
+  readonly limitMemory?: string;
+
+  /**
    * Port number.
    */
   readonly port: number;
@@ -100,6 +112,12 @@ export class PloneDeployment extends Construct {
       imagePullPolicy: image.imagePullPolicy,
       env: env,
       envFrom: envFrom,
+      resources: {
+        limits: {
+          cpu: k8s.Quantity.fromNumber(options.limitCpu ?? 1),
+          memory: k8s.Quantity.fromString(options.limitMemory ?? '1Gi'),
+        },
+      },
     };
     const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {

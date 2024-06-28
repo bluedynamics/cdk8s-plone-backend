@@ -10,6 +10,8 @@ export interface PloneBaseOptions {
   readonly replicas?: number;
   readonly maxUnavailable?: number | string;
   readonly minAvailable?: number | string;
+  readonly limitCpu?: number;
+  readonly limitMemory?: string;
   readonly environment?: kplus.Env;
 }
 export interface PloneOptions {
@@ -36,6 +38,8 @@ export class Plone extends Construct {
         imagePullPolicy: backend.imagePullPolicy ?? 'IfNotPresent',
       },
       replicas: backend.replicas,
+      limitCpu: backend.limitCpu ?? 1,
+      limitMemory: backend.limitMemory ?? '512Mi',
       pdb: {
         maxUnavailable: backend.maxUnavailable ?? undefined,
         minAvailable: backend.minAvailable ?? undefined,
@@ -64,6 +68,8 @@ export class Plone extends Construct {
         imagePullPolicy: frontend.imagePullPolicy ?? 'IfNotPresent',
       },
       replicas: frontend.replicas,
+      limitCpu: frontend.limitCpu ?? 1,
+      limitMemory: frontend.limitMemory ?? '1Gi',
       pdb: {
         maxUnavailable: frontend.maxUnavailable ?? undefined,
         minAvailable: frontend.minAvailable ?? undefined,
