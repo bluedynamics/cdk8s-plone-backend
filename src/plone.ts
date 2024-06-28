@@ -4,22 +4,19 @@ import { Construct } from 'constructs';
 import { PloneDeployment } from './deployment';
 import { PloneService } from './service';
 
-export interface PloneOptions {
-  readonly backendImage?: string;
-  readonly backendImagePullSecret?: string;
-  readonly backendImagePullPolicy?: string;
-  readonly backendReplicas?: number;
-  readonly backendMaxUnavailable?: number | string;
-  readonly backendMinAvailable?: number | string;
-  readonly backendEnvironment?: kplus.Env;
+export interface PloneBaseOptions {
+  readonly image?: string;
+  readonly imagePullSecrets?: string[];
+  readonly imagePullPolicy?: string;
+  readonly replicas?: number;
+  readonly maxUnavailable?: number | string;
+  readonly minAvailable?: number | string;
+  readonly environment?: kplus.Env;
 
-  readonly frontendImage?: string;
-  readonly frontendImagePullSecret?: string;
-  readonly frontendImagePullPolicy?: string;
-  readonly frontendReplicas?: number;
-  readonly frontendMaxUnavailable?: number | string;
-  readonly frontendMinAvailable?: number | string;
-  readonly frontendEnvironment?: kplus.Env;
+}
+export interface PloneOptions {
+  readonly backend?: PloneBaseOptions;
+  readonly frontend?: PloneBaseOptions;
 }
 
 export class Plone extends Construct {
@@ -31,20 +28,21 @@ export class Plone extends Construct {
     super(scope, id);
 
     // Backend
+    const backend = options.backend ?? {};
     const backendPort = 8080;
     const backendDeployment = new PloneDeployment(this, 'backend', {
       image: {
-        image: options.backendImage ?? 'plone/plone-backend:latest',
-        imagePullSecret: options.backendImagePullSecret ?? '',
-        imagePullPolicy: options.backendImagePullPolicy ?? 'ifNotPresent',
+        image: backend.image ?? 'plone/plone-backend:latest',
+        imagePullSecrets: backend.imagePullSecrets ?? [],
+        imagePullPolicy: backend.imagePullPolicy ?? 'IfNotPresent',
       },
-      replicas: options.backendReplicas,
+      replicas: backend.replicas,
       pdb: {
-        maxUnavailable: options.backendMaxUnavailable ?? undefined,
-        minAvailable: options.backendMinAvailable ?? undefined,
+        maxUnavailable: backend.maxUnavailable ?? undefined,
+        minAvailable: backend.minAvailable ?? undefined,
       },
       port: backendPort,
-      environment: options.backendEnvironment,
+      environment: backend.environment,
     });
     const backendService = new PloneService(backendDeployment, 'service', {
       targetPort: backendPort,
@@ -53,22 +51,23 @@ export class Plone extends Construct {
     this.backendServiceName = backendService.name;
 
     // Frontend
+    const frontend = options.frontend ?? {};
     const frontendPort = 3000;
-    var frontendEnvironment = options.frontendEnvironment ?? new kplus.Env([], {});
+    var frontendEnvironment =frontend.environment ?? new kplus.Env([], {});
     if (frontendEnvironment.variables.RAZZLE_INTERNAL_API_PATH === undefined) {
       frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:80`));
     }
 
     const frontendDeployment = new PloneDeployment(this, 'frontend', {
       image: {
-        image: options.frontendImage ?? 'plone/plone-frontend:latest',
-        imagePullSecret: options.frontendImagePullSecret ?? '',
-        imagePullPolicy: options.frontendImagePullPolicy ?? 'ifNotPresent',
+        image: frontend.image ?? 'plone/plone-frontend:latest',
+        imagePullSecrets: frontend.imagePullSecrets ?? [],
+        imagePullPolicy: frontend.imagePullPolicy ?? 'IfNotPresent',
       },
-      replicas: options.frontendReplicas,
+      replicas: frontend.replicas,
       pdb: {
-        maxUnavailable: options.frontendMaxUnavailable ?? undefined,
-        minAvailable: options.frontendMinAvailable ?? undefined,
+        maxUnavailable: frontend.maxUnavailable ?? undefined,
+        minAvailable: frontend.minAvailable ?? undefined,
       },
       port: frontendPort,
       environment: frontendEnvironment,

@@ -15,7 +15,7 @@ export interface PloneImageOptions {
    * Specify Secret to pull image .
    * @default ""
    */
-  readonly imagePullSecret?: string;
+  readonly imagePullSecrets?: string[];
 
   /**
    * Specify Pull Policy .
@@ -87,15 +87,19 @@ export class PloneDeployment extends Construct {
     };
     const kpEnv = options.environment ?? new kplus.Env([], {});
     var env: k8s.EnvVar[] = [];
+    var envFrom: k8s.EnvFromSource[] = [];
     for (const name in kpEnv.variables) {
       env.push({ name: name, value: kpEnv.variables[name].value });
     }
+    // for (const source in kpEnv.sources) {
+    //   envFrom.push({ configMapRef: source.configMap, prefix: source.prefix, secretRef: source.sec });
+    // }
     var ploneContainerSpec: k8s.Container = {
       name: id + '-container', // here the namespaced name shold be used, but how?
       image: image.image,
       imagePullPolicy: image.imagePullPolicy,
-      // imagePullSecret: image.imagePullSecret, -> ServiceAccount should be used
       env: env,
+      envFrom: envFrom,
     };
     const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {
@@ -109,6 +113,7 @@ export class PloneDeployment extends Construct {
         template: {
           metadata: { labels: template_labels },
           spec: {
+            imagePullSecrets: (image.imagePullSecrets ?? []).map((name) => ({ name: name })),
             containers: [
               ploneContainerSpec,
               ...options.sidecarContainers ?? [],

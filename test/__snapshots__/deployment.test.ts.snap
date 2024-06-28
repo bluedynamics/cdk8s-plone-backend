@@ -25,9 +25,11 @@ exports[`defaults 1`] = `
           "containers": [
             {
               "env": [],
+              "envFrom": [],
               "name": "test-container",
             },
           ],
+          "imagePullSecrets": [],
         },
       },
     },
@@ -60,9 +62,11 @@ exports[`defaults-with-pdp 1`] = `
           "containers": [
             {
               "env": [],
+              "envFrom": [],
               "name": "frontend_with_pdb-container",
             },
           ],
+          "imagePullSecrets": [],
         },
       },
     },

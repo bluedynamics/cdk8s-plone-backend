@@ -21,8 +21,12 @@ test('defaults-with-pdps', () => {
 
   // WHEN
   new Plone(chart, 'plone_with_pdbs', {
-    backendMaxUnavailable: 1,
-    frontendMinAvailable: 2,
+    backend: {
+      maxUnavailable: 1,
+    },
+    frontend: {
+      minAvailable: 2,
+    },
   });
 
   // THEN
