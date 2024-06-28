@@ -139,6 +139,89 @@ public readonly frontendServiceName: string;
 
 ## Structs <a name="Structs" id="Structs"></a>
 
+### PloneBaseOptions <a name="PloneBaseOptions" id="cdk8s-plone.PloneBaseOptions"></a>
+
+#### Initializer <a name="Initializer" id="cdk8s-plone.PloneBaseOptions.Initializer"></a>
+
+```typescript
+import { PloneBaseOptions } from 'cdk8s-plone'
+
+const ploneBaseOptions: PloneBaseOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.environment">environment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.image">image</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.imagePullPolicy">imagePullPolicy</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.maxUnavailable">maxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.minAvailable">minAvailable</a></code> | <code>string \| number</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.replicas">replicas</a></code> | <code>number</code> | *No description.* |
+
+---
+
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdk8s-plone.PloneBaseOptions.property.environment"></a>
+
+```typescript
+public readonly environment: Env;
+```
+
+- *Type:* cdk8s-plus-24.Env
+
+---
+
+##### `image`<sup>Optional</sup> <a name="image" id="cdk8s-plone.PloneBaseOptions.property.image"></a>
+
+```typescript
+public readonly image: string;
+```
+
+- *Type:* string
+
+---
+
+##### `imagePullPolicy`<sup>Optional</sup> <a name="imagePullPolicy" id="cdk8s-plone.PloneBaseOptions.property.imagePullPolicy"></a>
+
+```typescript
+public readonly imagePullPolicy: string;
+```
+
+- *Type:* string
+
+---
+
+##### `maxUnavailable`<sup>Optional</sup> <a name="maxUnavailable" id="cdk8s-plone.PloneBaseOptions.property.maxUnavailable"></a>
+
+```typescript
+public readonly maxUnavailable: string | number;
+```
+
+- *Type:* string | number
+
+---
+
+##### `minAvailable`<sup>Optional</sup> <a name="minAvailable" id="cdk8s-plone.PloneBaseOptions.property.minAvailable"></a>
+
+```typescript
+public readonly minAvailable: string | number;
+```
+
+- *Type:* string | number
+
+---
+
+##### `replicas`<sup>Optional</sup> <a name="replicas" id="cdk8s-plone.PloneBaseOptions.property.replicas"></a>
+
+```typescript
+public readonly replicas: number;
+```
+
+- *Type:* number
+
+---
+
 ### PloneOptions <a name="PloneOptions" id="cdk8s-plone.PloneOptions"></a>
 
 #### Initializer <a name="Initializer" id="cdk8s-plone.PloneOptions.Initializer"></a>
@@ -153,160 +236,39 @@ const ploneOptions: PloneOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#cdk8s-plone.PloneOptions.property.backendEnvironment">backendEnvironment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.backendImage">backendImage</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.backendImagePullPolicy">backendImagePullPolicy</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.backendImagePullSecret">backendImagePullSecret</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.backendMaxUnavailable">backendMaxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.backendMinAvailable">backendMinAvailable</a></code> | <code>string \| number</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.backendReplicas">backendReplicas</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.frontendEnvironment">frontendEnvironment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.frontendImage">frontendImage</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.frontendImagePullPolicy">frontendImagePullPolicy</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.frontendImagePullSecret">frontendImagePullSecret</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.frontendMaxUnavailable">frontendMaxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.frontendMinAvailable">frontendMinAvailable</a></code> | <code>string \| number</code> | *No description.* |
-| <code><a href="#cdk8s-plone.PloneOptions.property.frontendReplicas">frontendReplicas</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.backend">backend</a></code> | <code><a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.frontend">frontend</a></code> | <code><a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.imagePullSecrets">imagePullSecrets</a></code> | <code>string[]</code> | *No description.* |
 
 ---
 
-##### `backendEnvironment`<sup>Optional</sup> <a name="backendEnvironment" id="cdk8s-plone.PloneOptions.property.backendEnvironment"></a>
+##### `backend`<sup>Optional</sup> <a name="backend" id="cdk8s-plone.PloneOptions.property.backend"></a>
 
 ```typescript
-public readonly backendEnvironment: Env;
+public readonly backend: PloneBaseOptions;
 ```
 
-- *Type:* cdk8s-plus-24.Env
+- *Type:* <a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a>
 
 ---
 
-##### `backendImage`<sup>Optional</sup> <a name="backendImage" id="cdk8s-plone.PloneOptions.property.backendImage"></a>
+##### `frontend`<sup>Optional</sup> <a name="frontend" id="cdk8s-plone.PloneOptions.property.frontend"></a>
 
 ```typescript
-public readonly backendImage: string;
+public readonly frontend: PloneBaseOptions;
 ```
 
-- *Type:* string
+- *Type:* <a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a>
 
 ---
 
-##### `backendImagePullPolicy`<sup>Optional</sup> <a name="backendImagePullPolicy" id="cdk8s-plone.PloneOptions.property.backendImagePullPolicy"></a>
+##### `imagePullSecrets`<sup>Optional</sup> <a name="imagePullSecrets" id="cdk8s-plone.PloneOptions.property.imagePullSecrets"></a>
 
 ```typescript
-public readonly backendImagePullPolicy: string;
+public readonly imagePullSecrets: string[];
 ```
 
-- *Type:* string
-
----
-
-##### `backendImagePullSecret`<sup>Optional</sup> <a name="backendImagePullSecret" id="cdk8s-plone.PloneOptions.property.backendImagePullSecret"></a>
-
-```typescript
-public readonly backendImagePullSecret: string;
-```
-
-- *Type:* string
-
----
-
-##### `backendMaxUnavailable`<sup>Optional</sup> <a name="backendMaxUnavailable" id="cdk8s-plone.PloneOptions.property.backendMaxUnavailable"></a>
-
-```typescript
-public readonly backendMaxUnavailable: string | number;
-```
-
-- *Type:* string | number
-
----
-
-##### `backendMinAvailable`<sup>Optional</sup> <a name="backendMinAvailable" id="cdk8s-plone.PloneOptions.property.backendMinAvailable"></a>
-
-```typescript
-public readonly backendMinAvailable: string | number;
-```
-
-- *Type:* string | number
-
----
-
-##### `backendReplicas`<sup>Optional</sup> <a name="backendReplicas" id="cdk8s-plone.PloneOptions.property.backendReplicas"></a>
-
-```typescript
-public readonly backendReplicas: number;
-```
-
-- *Type:* number
-
----
-
-##### `frontendEnvironment`<sup>Optional</sup> <a name="frontendEnvironment" id="cdk8s-plone.PloneOptions.property.frontendEnvironment"></a>
-
-```typescript
-public readonly frontendEnvironment: Env;
-```
-
-- *Type:* cdk8s-plus-24.Env
-
----
-
-##### `frontendImage`<sup>Optional</sup> <a name="frontendImage" id="cdk8s-plone.PloneOptions.property.frontendImage"></a>
-
-```typescript
-public readonly frontendImage: string;
-```
-
-- *Type:* string
-
----
-
-##### `frontendImagePullPolicy`<sup>Optional</sup> <a name="frontendImagePullPolicy" id="cdk8s-plone.PloneOptions.property.frontendImagePullPolicy"></a>
-
-```typescript
-public readonly frontendImagePullPolicy: string;
-```
-
-- *Type:* string
-
----
-
-##### `frontendImagePullSecret`<sup>Optional</sup> <a name="frontendImagePullSecret" id="cdk8s-plone.PloneOptions.property.frontendImagePullSecret"></a>
-
-```typescript
-public readonly frontendImagePullSecret: string;
-```
-
-- *Type:* string
-
----
-
-##### `frontendMaxUnavailable`<sup>Optional</sup> <a name="frontendMaxUnavailable" id="cdk8s-plone.PloneOptions.property.frontendMaxUnavailable"></a>
-
-```typescript
-public readonly frontendMaxUnavailable: string | number;
-```
-
-- *Type:* string | number
-
----
-
-##### `frontendMinAvailable`<sup>Optional</sup> <a name="frontendMinAvailable" id="cdk8s-plone.PloneOptions.property.frontendMinAvailable"></a>
-
-```typescript
-public readonly frontendMinAvailable: string | number;
-```
-
-- *Type:* string | number
-
----
-
-##### `frontendReplicas`<sup>Optional</sup> <a name="frontendReplicas" id="cdk8s-plone.PloneOptions.property.frontendReplicas"></a>
-
-```typescript
-public readonly frontendReplicas: number;
-```
-
-- *Type:* number
+- *Type:* string[]
 
 ---
 

@@ -1,1 +1,1 @@
-export { Plone, PloneOptions } from './plone';
+export { Plone, PloneOptions, PloneBaseOptions } from './plone';

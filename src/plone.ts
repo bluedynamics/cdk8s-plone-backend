@@ -6,17 +6,16 @@ import { PloneService } from './service';
 
 export interface PloneBaseOptions {
   readonly image?: string;
-  readonly imagePullSecrets?: string[];
   readonly imagePullPolicy?: string;
   readonly replicas?: number;
   readonly maxUnavailable?: number | string;
   readonly minAvailable?: number | string;
   readonly environment?: kplus.Env;
-
 }
 export interface PloneOptions {
   readonly backend?: PloneBaseOptions;
   readonly frontend?: PloneBaseOptions;
+  readonly imagePullSecrets?: string[];
 }
 
 export class Plone extends Construct {
@@ -33,7 +32,7 @@ export class Plone extends Construct {
     const backendDeployment = new PloneDeployment(this, 'backend', {
       image: {
         image: backend.image ?? 'plone/plone-backend:latest',
-        imagePullSecrets: backend.imagePullSecrets ?? [],
+        imagePullSecrets: options.imagePullSecrets ?? [],
         imagePullPolicy: backend.imagePullPolicy ?? 'IfNotPresent',
       },
       replicas: backend.replicas,
@@ -61,7 +60,7 @@ export class Plone extends Construct {
     const frontendDeployment = new PloneDeployment(this, 'frontend', {
       image: {
         image: frontend.image ?? 'plone/plone-frontend:latest',
-        imagePullSecrets: frontend.imagePullSecrets ?? [],
+        imagePullSecrets: options.imagePullSecrets ?? [],
         imagePullPolicy: frontend.imagePullPolicy ?? 'IfNotPresent',
       },
       replicas: frontend.replicas,
