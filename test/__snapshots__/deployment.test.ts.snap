@@ -19,6 +19,8 @@ exports[`defaults 1`] = `
         "metadata": {
           "labels": {
             "app": "plone-test-c8667035",
+            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/part-of": "plone",
           },
         },
         "spec": {
@@ -43,25 +45,77 @@ exports[`defaults 1`] = `
 ]
 `;
 
-exports[`defaults-with-pdp 1`] = `
+exports[`with-environment 1`] = `
 [
   {
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
-      "name": "plone-frontend_with_pdb-deployment-c8256934",
+      "name": "plone-with_environment-deployment-c80b2568",
     },
     "spec": {
       "replicas": 2,
       "selector": {
         "matchLabels": {
-          "app": "plone-frontend_with_pdb-c80c2373",
+          "app": "plone-with_environment-c8045a0c",
         },
       },
       "template": {
         "metadata": {
           "labels": {
-            "app": "plone-frontend_with_pdb-c80c2373",
+            "app": "plone-with_environment-c8045a0c",
+            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/part-of": "plone",
+          },
+        },
+        "spec": {
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "MY_ENV",
+                  "value": "my-value",
+                },
+              ],
+              "envFrom": [],
+              "name": "with_environment-container",
+              "resources": {
+                "limits": {
+                  "cpu": 1,
+                  "memory": "1Gi",
+                },
+              },
+            },
+          ],
+          "imagePullSecrets": [],
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`with-pdp 1`] = `
+[
+  {
+    "apiVersion": "apps/v1",
+    "kind": "Deployment",
+    "metadata": {
+      "name": "plone-with_pdb-deployment-c87b10de",
+    },
+    "spec": {
+      "replicas": 2,
+      "selector": {
+        "matchLabels": {
+          "app": "plone-with_pdb-c80f43fe",
+        },
+      },
+      "template": {
+        "metadata": {
+          "labels": {
+            "app": "plone-with_pdb-c80f43fe",
+            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/part-of": "plone",
           },
         },
         "spec": {
@@ -69,7 +123,7 @@ exports[`defaults-with-pdp 1`] = `
             {
               "env": [],
               "envFrom": [],
-              "name": "frontend_with_pdb-container",
+              "name": "with_pdb-container",
               "resources": {
                 "limits": {
                   "cpu": 1,
@@ -87,13 +141,13 @@ exports[`defaults-with-pdp 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
-      "name": "plone-frontend_with_pdb-pdb-c8714789",
+      "name": "plone-with_pdb-pdb-c8380749",
     },
     "spec": {
       "minAvailable": 1,
       "selector": {
         "matchLabels": {
-          "app": "plone-frontend_with_pdb-c80c2373",
+          "app": "plone-with_pdb-c80f43fe",
         },
       },
     },

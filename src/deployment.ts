@@ -76,7 +76,7 @@ export interface PloneDeploymentOptions {
    * Sidecar container spec to associate with resources.
    * @default - []
    */
-  readonly sidecarContainers?: k8s.Container[];
+  readonly sidecars?: k8s.Container[];
 
   /**
    * Create a PodDisruptionBugdet for the deployment?
@@ -96,6 +96,8 @@ export class PloneDeployment extends Construct {
     const template_labels = {
       ...options.labels ?? {},
       ...label,
+      'app.kubernetes.io/part-of': 'plone',
+      'app.kubernetes.io/managed-by': 'cdk8s',
     };
     const kpEnv = options.environment ?? new kplus.Env([], {});
     var env: k8s.EnvVar[] = [];
@@ -134,7 +136,7 @@ export class PloneDeployment extends Construct {
             imagePullSecrets: (image.imagePullSecrets ?? []).map((name) => ({ name: name })),
             containers: [
               ploneContainerSpec,
-              ...options.sidecarContainers ?? [],
+              ...options.sidecars ?? [],
             ],
           },
         },

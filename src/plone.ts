@@ -31,7 +31,9 @@ export class Plone extends Construct {
     // Backend
     const backend = options.backend ?? {};
     const backendPort = 8080;
+    const backendLabels = { 'app.kubernetes.io/component': 'plone-backend' };
     const backendDeployment = new PloneDeployment(this, 'backend', {
+      labels: backendLabels,
       image: {
         image: backend.image ?? 'plone/plone-backend:latest',
         imagePullSecrets: options.imagePullSecrets ?? [],

@@ -6,6 +6,9 @@ exports[`defaults 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "plone-backend",
+      },
       "name": "app-plone-backend-deployment-c85baacf",
     },
     "spec": {
@@ -19,6 +22,9 @@ exports[`defaults 1`] = `
         "metadata": {
           "labels": {
             "app": "app-plone-backend-c82290e6",
+            "app.kubernetes.io/component": "plone-backend",
+            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/part-of": "plone",
           },
         },
         "spec": {
@@ -93,6 +99,8 @@ exports[`defaults 1`] = `
         "metadata": {
           "labels": {
             "app": "app-plone-frontend-c8d010d1",
+            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/part-of": "plone",
           },
         },
         "spec": {
@@ -164,6 +172,9 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "plone-backend",
+      },
       "name": "app-plone_with_pdbs-backend-deployment-c8d5991a",
     },
     "spec": {
@@ -177,6 +188,9 @@ exports[`defaults-with-pdps 1`] = `
         "metadata": {
           "labels": {
             "app": "app-plone_with_pdbs-backend-c885cd24",
+            "app.kubernetes.io/component": "plone-backend",
+            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/part-of": "plone",
           },
         },
         "spec": {
@@ -251,6 +265,8 @@ exports[`defaults-with-pdps 1`] = `
         "metadata": {
           "labels": {
             "app": "app-plone_with_pdbs-frontend-c850bc83",
+            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/part-of": "plone",
           },
         },
         "spec": {
