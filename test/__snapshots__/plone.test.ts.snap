@@ -7,7 +7,8 @@ exports[`defaults 1`] = `
     "kind": "Deployment",
     "metadata": {
       "labels": {
-        "app.kubernetes.io/component": "plone-backend",
+        "app.kubernetes.io/component": "backend",
+        "app.kubernetes.io/name": "plone-backend-deployment",
       },
       "name": "app-plone-backend-deployment-c85baacf",
     },
@@ -22,9 +23,11 @@ exports[`defaults 1`] = `
         "metadata": {
           "labels": {
             "app": "app-plone-backend-c82290e6",
-            "app.kubernetes.io/component": "plone-backend",
-            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/component": "backend",
+            "app.kubernetes.io/managed-by": "cdk8s-plone",
+            "app.kubernetes.io/name": "plone-backend",
             "app.kubernetes.io/part-of": "plone",
+            "app.kubernetes.io/version": "undefined",
           },
         },
         "spec": {
@@ -52,6 +55,10 @@ exports[`defaults 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "app-plone-backend-pdb-c8f00fdc",
     },
     "spec": {
@@ -67,6 +74,12 @@ exports[`defaults 1`] = `
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "service",
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/name": "plone-backend-service",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "app-plone-backend-service-c8efef4c",
     },
     "spec": {
@@ -86,6 +99,10 @@ exports[`defaults 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "frontend",
+        "app.kubernetes.io/name": "plone-frontend-deployment",
+      },
       "name": "app-plone-frontend-deployment-c872e367",
     },
     "spec": {
@@ -99,8 +116,11 @@ exports[`defaults 1`] = `
         "metadata": {
           "labels": {
             "app": "app-plone-frontend-c8d010d1",
-            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/component": "frontend",
+            "app.kubernetes.io/managed-by": "cdk8s-plone",
+            "app.kubernetes.io/name": "plone-frontend",
             "app.kubernetes.io/part-of": "plone",
+            "app.kubernetes.io/version": "undefined",
           },
         },
         "spec": {
@@ -133,6 +153,10 @@ exports[`defaults 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "app-plone-frontend-pdb-c82dd14e",
     },
     "spec": {
@@ -148,6 +172,12 @@ exports[`defaults 1`] = `
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "service",
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/name": "plone-frontend-service",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "app-plone-frontend-service-c8f392cd",
     },
     "spec": {
@@ -173,7 +203,8 @@ exports[`defaults-with-pdps 1`] = `
     "kind": "Deployment",
     "metadata": {
       "labels": {
-        "app.kubernetes.io/component": "plone-backend",
+        "app.kubernetes.io/component": "backend",
+        "app.kubernetes.io/name": "plone-backend-deployment",
       },
       "name": "app-plone_with_pdbs-backend-deployment-c8d5991a",
     },
@@ -188,9 +219,11 @@ exports[`defaults-with-pdps 1`] = `
         "metadata": {
           "labels": {
             "app": "app-plone_with_pdbs-backend-c885cd24",
-            "app.kubernetes.io/component": "plone-backend",
-            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/component": "backend",
+            "app.kubernetes.io/managed-by": "cdk8s-plone",
+            "app.kubernetes.io/name": "plone-backend",
             "app.kubernetes.io/part-of": "plone",
+            "app.kubernetes.io/version": "undefined",
           },
         },
         "spec": {
@@ -218,6 +251,10 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "app-plone_with_pdbs-backend-pdb-c810ca80",
     },
     "spec": {
@@ -233,6 +270,12 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "service",
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/name": "plone-backend-service",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "app-plone_with_pdbs-backend-service-c819541f",
     },
     "spec": {
@@ -252,6 +295,10 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "frontend",
+        "app.kubernetes.io/name": "plone-frontend-deployment",
+      },
       "name": "app-plone_with_pdbs-frontend-deployment-c812b31a",
     },
     "spec": {
@@ -265,8 +312,11 @@ exports[`defaults-with-pdps 1`] = `
         "metadata": {
           "labels": {
             "app": "app-plone_with_pdbs-frontend-c850bc83",
-            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/component": "frontend",
+            "app.kubernetes.io/managed-by": "cdk8s-plone",
+            "app.kubernetes.io/name": "plone-frontend",
             "app.kubernetes.io/part-of": "plone",
+            "app.kubernetes.io/version": "undefined",
           },
         },
         "spec": {
@@ -299,6 +349,10 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "app-plone_with_pdbs-frontend-pdb-c8ebc6c1",
     },
     "spec": {
@@ -314,6 +368,12 @@ exports[`defaults-with-pdps 1`] = `
     "apiVersion": "v1",
     "kind": "Service",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "service",
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/name": "plone-frontend-service",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "app-plone_with_pdbs-frontend-service-c8999de8",
     },
     "spec": {

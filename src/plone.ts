@@ -15,6 +15,7 @@ export interface PloneBaseOptions {
   readonly environment?: kplus.Env;
 }
 export interface PloneOptions {
+  readonly version?: string;
   readonly backend?: PloneBaseOptions;
   readonly frontend?: PloneBaseOptions;
   readonly imagePullSecrets?: string[];
@@ -31,7 +32,11 @@ export class Plone extends Construct {
     // Backend
     const backend = options.backend ?? {};
     const backendPort = 8080;
-    const backendLabels = { 'app.kubernetes.io/component': 'plone-backend' };
+    const backendLabels = {
+      'app.kubernetes.io/name': 'plone-backend',
+      'app.kubernetes.io/component': 'backend',
+      'app.kubernetes.io/version': options.version ?? 'undefined',
+    };
     const backendDeployment = new PloneDeployment(this, 'backend', {
       labels: backendLabels,
       image: {
@@ -50,6 +55,10 @@ export class Plone extends Construct {
       environment: backend.environment,
     });
     const backendService = new PloneService(backendDeployment, 'service', {
+      labels: {
+        'app.kubernetes.io/name': 'plone-backend-service',
+        'app.kubernetes.io/component': 'service',
+      },
       targetPort: backendPort,
       selectorLabel: { app: Names.toLabelValue(backendDeployment) },
     });
@@ -58,12 +67,18 @@ export class Plone extends Construct {
     // Frontend
     const frontend = options.frontend ?? {};
     const frontendPort = 3000;
-    var frontendEnvironment =frontend.environment ?? new kplus.Env([], {});
+    const frontendLabels = {
+      'app.kubernetes.io/name': 'plone-frontend',
+      'app.kubernetes.io/component': 'frontend',
+      'app.kubernetes.io/version': options.version ?? 'undefined',
+    };
+    var frontendEnvironment = frontend.environment ?? new kplus.Env([], {});
     if (frontendEnvironment.variables.RAZZLE_INTERNAL_API_PATH === undefined) {
       frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:80`));
     }
 
     const frontendDeployment = new PloneDeployment(this, 'frontend', {
+      labels: frontendLabels,
       image: {
         image: frontend.image ?? 'plone/plone-frontend:latest',
         imagePullSecrets: options.imagePullSecrets ?? [],
@@ -80,6 +95,10 @@ export class Plone extends Construct {
       environment: frontendEnvironment,
     });
     const frontendService = new PloneService(frontendDeployment, 'service', {
+      labels: {
+        'app.kubernetes.io/name': 'plone-frontend-service',
+        'app.kubernetes.io/component': 'service',
+      },
       targetPort: frontendPort,
       selectorLabel: { app: Names.toLabelValue(frontendDeployment) },
     });

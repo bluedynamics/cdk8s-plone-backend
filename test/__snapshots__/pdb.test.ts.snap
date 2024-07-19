@@ -6,6 +6,10 @@ exports[`both 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "plone-pdb-c8ec72df",
     },
     "spec": {
@@ -27,6 +31,10 @@ exports[`defaults 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "plone-pdb-c8ec72df",
     },
     "spec": {
@@ -47,6 +55,10 @@ exports[`maxUnavailableNumber 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "plone-pdb-c8ec72df",
     },
     "spec": {
@@ -67,6 +79,10 @@ exports[`maxUnavailableString 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "plone-pdb-c8ec72df",
     },
     "spec": {
@@ -87,6 +103,10 @@ exports[`minAvailableNumber 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "plone-pdb-c8ec72df",
     },
     "spec": {
@@ -107,6 +127,10 @@ exports[`minAvailableString 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "plone-pdb-c8ec72df",
     },
     "spec": {

@@ -30,10 +30,15 @@ export class PloneService extends Construct {
 
     const targetPort = k8s.IntOrString.fromNumber(options.targetPort);
     const selectorLabel = options.selectorLabel;
+    const service_labels = {
+      ...options.labels ?? {},
+      'app.kubernetes.io/part-of': 'plone',
+      'app.kubernetes.io/managed-by': 'cdk8s-plone',
+    };
 
     const serviceOpts: k8s.KubeServiceProps = {
       metadata: {
-        labels: options.labels ?? {},
+        labels: service_labels,
       },
       spec: {
         ports: [{ port: options.targetPort, targetPort: targetPort, name: 'backend-http' }],

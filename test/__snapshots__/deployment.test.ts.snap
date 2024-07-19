@@ -6,6 +6,10 @@ exports[`defaults 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "-deployment",
+        "app.kubernetes.io/name": "undefined-deployment",
+      },
       "name": "plone-test-deployment-c86dcee1",
     },
     "spec": {
@@ -19,7 +23,7 @@ exports[`defaults 1`] = `
         "metadata": {
           "labels": {
             "app": "plone-test-c8667035",
-            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/managed-by": "cdk8s-plone",
             "app.kubernetes.io/part-of": "plone",
           },
         },
@@ -51,6 +55,10 @@ exports[`with-environment 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "-deployment",
+        "app.kubernetes.io/name": "undefined-deployment",
+      },
       "name": "plone-with_environment-deployment-c80b2568",
     },
     "spec": {
@@ -64,7 +72,7 @@ exports[`with-environment 1`] = `
         "metadata": {
           "labels": {
             "app": "plone-with_environment-c8045a0c",
-            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/managed-by": "cdk8s-plone",
             "app.kubernetes.io/part-of": "plone",
           },
         },
@@ -101,6 +109,10 @@ exports[`with-pdp 1`] = `
     "apiVersion": "apps/v1",
     "kind": "Deployment",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/component": "-deployment",
+        "app.kubernetes.io/name": "undefined-deployment",
+      },
       "name": "plone-with_pdb-deployment-c87b10de",
     },
     "spec": {
@@ -114,7 +126,7 @@ exports[`with-pdp 1`] = `
         "metadata": {
           "labels": {
             "app": "plone-with_pdb-c80f43fe",
-            "app.kubernetes.io/managed-by": "cdk8s",
+            "app.kubernetes.io/managed-by": "cdk8s-plone",
             "app.kubernetes.io/part-of": "plone",
           },
         },
@@ -141,6 +153,10 @@ exports[`with-pdp 1`] = `
     "apiVersion": "policy/v1",
     "kind": "PodDisruptionBudget",
     "metadata": {
+      "labels": {
+        "app.kubernetes.io/managed-by": "cdk8s-plone",
+        "app.kubernetes.io/part-of": "plone",
+      },
       "name": "plone-with_pdb-pdb-c8380749",
     },
     "spec": {

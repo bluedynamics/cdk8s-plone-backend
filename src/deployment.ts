@@ -93,11 +93,16 @@ export class PloneDeployment extends Construct {
     const image = options.image ?? {};
     const replicas = options.replicas ?? 2;
     const label = { app: Names.toLabelValue(this) };
+    const optionLabels = options.labels ?? {};
+    const deploymentLabels = {
+      'app.kubernetes.io/name': optionLabels['app.kubernetes.io/name'] + '-deployment',
+      'app.kubernetes.io/component': optionLabels['app.kubernetes.io/component'] ?? '' + '-deployment',
+    };
     const template_labels = {
-      ...options.labels ?? {},
+      ...optionLabels,
       ...label,
       'app.kubernetes.io/part-of': 'plone',
-      'app.kubernetes.io/managed-by': 'cdk8s',
+      'app.kubernetes.io/managed-by': 'cdk8s-plone',
     };
     const kpEnv = options.environment ?? new kplus.Env([], {});
     var env: k8s.EnvVar[] = [];
@@ -123,7 +128,7 @@ export class PloneDeployment extends Construct {
     };
     const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {
-        labels: options.labels ?? {},
+        labels: deploymentLabels,
       },
       spec: {
         replicas,

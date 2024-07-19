@@ -261,6 +261,7 @@ const ploneOptions: PloneOptions = { ... }
 | <code><a href="#cdk8s-plone.PloneOptions.property.backend">backend</a></code> | <code><a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.frontend">frontend</a></code> | <code><a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
 | <code><a href="#cdk8s-plone.PloneOptions.property.imagePullSecrets">imagePullSecrets</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.version">version</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -291,6 +292,16 @@ public readonly imagePullSecrets: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `version`<sup>Optional</sup> <a name="version" id="cdk8s-plone.PloneOptions.property.version"></a>
+
+```typescript
+public readonly version: string;
+```
+
+- *Type:* string
 
 ---
 

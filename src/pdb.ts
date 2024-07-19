@@ -58,10 +58,15 @@ export class PlonePDB extends Construct {
       ...spec,
       selector: { matchLabels: selectorLabel },
     };
+    const pdb_labels = {
+      ...options.labels ?? {},
+      'app.kubernetes.io/part-of': 'plone',
+      'app.kubernetes.io/managed-by': 'cdk8s-plone',
+    };
 
     new k8s.KubePodDisruptionBudget(this, 'PDB', {
       metadata: {
-        labels: options.labels ?? {},
+        labels: pdb_labels,
       },
       spec: spec,
     });
