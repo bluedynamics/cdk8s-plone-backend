@@ -30,26 +30,19 @@ npx projen test
 Each step need to be implemented with tests!
 
 - [ ] Start Backend
-    - [ ] deployment
-        - [ ] depend on "some" postgres db - which can be provided in different ways
-    - [ ] service
-    - [ ] pdb
+    - [x] deployment
+    - [x] service
+    - [x] pdb
     - [ ] init container running plone-site-create
     - [ ] lifecycle checks (readiness, liveness)
-    - [ ] sidecars
-        - [ ] generic way to inject sidecars
-        - [ ] (optional) direct way to specify metrics sidecar (prometheus exporter)
-        - [ ] (optional) direct way to specify logging sidecar (fluentd/loki?)
+    - [x] generic way to inject sidecars
 - [ ] Start Frontend
-    - [ ] deployment
-        - [ ] depend on ready/live backend
-    - [ ] service
-    - [ ] pdb
+    - [x] deployment
+    - [x] service
+    - [x] pdb
     - [ ] lifecycle checks (readiness, liveness)
-    - [ ] sidecars
-        - [ ] generic way to inject sidecars
-        - [ ] (optional) direct way to specify metrics sidecar (prometheus exporter)
-        - [ ] (optional) direct way to specify logging sidecar (fluentd/loki?)
+    - [ ] depend on ready/live backend (needed?)
+    - [x] generic way to inject sidecars
 
 - [ ] Start Varnish
     - [ ] deployment
@@ -57,13 +50,10 @@ Each step need to be implemented with tests!
     - [ ] service
     - [ ] pdb
     - [ ] lifecycle checks (readiness, liveness)
-    - [ ] sidecars
-        - [ ] generic way to inject sidecars
-        - [ ] (optional) direct way to specify metrics sidecar (prometheus exporter)
-        - [ ] (optional) direct way to specify logging sidecar (fluentd/loki?)
+    - [ ] generic way to inject sidecars
     - find a way to purge caches. based on kitconcept varnish purger? needs
 
 - [ ] Other Languages
-    - [ ] Check Python distribution
+    - [x] Check Python distribution
     - [ ] Check Java distribution
     - [ ] Check Go distribution
