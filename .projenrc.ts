@@ -33,7 +33,7 @@ const project = new cdk.JsiiProject({
   },
   githubOptions: {
     workflows: true,
-    projenCredentials: github.GithubCredentials.fromPersonalAccessToken({ secret: '${{ secrets.GITHUB_TOKEN }}' }),
+    projenCredentials: github.GithubCredentials.fromPersonalAccessToken({ secret: 'GITHUB_TOKEN' }),
   },
 
 });
