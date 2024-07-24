@@ -130,7 +130,7 @@ export class Plone extends Construct {
       failureThreshold: 3,
     };
 
-    // Environment
+    // Environment for RAZZLE
     var frontendEnvironment = frontend.environment ?? new kplus.Env([], {});
     if (frontendEnvironment.variables.RAZZLE_INTERNAL_API_PATH === undefined) {
       frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:80`));
