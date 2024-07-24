@@ -7,7 +7,7 @@ const project = new cdk.JsiiProject({
   authorAddress: 'jk@kleinundpartner.at',
   defaultReleaseBranch: 'main',
   jsiiVersion: '~5.4.0',
-  name: 'cdk8s-plone',
+  name: '@bluedynamics/cdk8s-plone',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/bluedynamics/cdk8s-plone.git',
   description: 'Provides a CMS Plone Backend and Frontend for Kubernetes with cdk8s',
