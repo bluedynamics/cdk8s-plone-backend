@@ -34,7 +34,7 @@ Each step need to be implemented with tests!
     - [x] service
     - [x] pdb
     - [ ] init container running plone-site-create
-    - [ ] lifecycle checks (readiness, liveness)
+    - [x] lifecycle checks (readiness, liveness)
     - [x] generic way to inject sidecars
 - [ ] Start Frontend
     - [x] deployment

@@ -32,7 +32,9 @@ exports[`defaults 1`] = `
             {
               "env": [],
               "envFrom": [],
+              "livenessProbe": {},
               "name": "test-container",
+              "readinessProbe": {},
               "resources": {
                 "limits": {
                   "cpu": 1,
@@ -86,7 +88,9 @@ exports[`with-environment 1`] = `
                 },
               ],
               "envFrom": [],
+              "livenessProbe": {},
               "name": "with_environment-container",
+              "readinessProbe": {},
               "resources": {
                 "limits": {
                   "cpu": 1,
@@ -135,7 +139,9 @@ exports[`with-pdp 1`] = `
             {
               "env": [],
               "envFrom": [],
+              "livenessProbe": {},
               "name": "with_pdb-container",
+              "readinessProbe": {},
               "resources": {
                 "limits": {
                   "cpu": 1,
