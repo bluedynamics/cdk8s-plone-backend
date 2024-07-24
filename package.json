@@ -1,5 +1,5 @@
 {
-  "name": "@bluedynamics/cdk8s-plone",
+  "name": "cdk8s-plone",
   "description": "Provides a CMS Plone Backend and Frontend for Kubernetes with cdk8s",
   "repository": {
     "type": "git",
@@ -72,6 +72,9 @@
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "0.0.0",
   "jest": {
     "coverageProvider": "v8",

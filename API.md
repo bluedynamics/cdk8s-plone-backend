@@ -2,39 +2,39 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### Plone <a name="Plone" id="@bluedynamics/cdk8s-plone.Plone"></a>
+### Plone <a name="Plone" id="cdk8s-plone.Plone"></a>
 
-#### Initializers <a name="Initializers" id="@bluedynamics/cdk8s-plone.Plone.Initializer"></a>
+#### Initializers <a name="Initializers" id="cdk8s-plone.Plone.Initializer"></a>
 
 ```typescript
-import { Plone } from '@bluedynamics/cdk8s-plone'
+import { Plone } from 'cdk8s-plone'
 
 new Plone(scope: Construct, id: string, options?: PloneOptions)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@bluedynamics/cdk8s-plone.Plone.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.Plone.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.Plone.Initializer.parameter.options">options</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions">PloneOptions</a></code> | *No description.* |
+| <code><a href="#cdk8s-plone.Plone.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#cdk8s-plone.Plone.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.Plone.Initializer.parameter.options">options</a></code> | <code><a href="#cdk8s-plone.PloneOptions">PloneOptions</a></code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="@bluedynamics/cdk8s-plone.Plone.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="cdk8s-plone.Plone.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="@bluedynamics/cdk8s-plone.Plone.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="cdk8s-plone.Plone.Initializer.parameter.id"></a>
 
 - *Type:* string
 
 ---
 
-##### `options`<sup>Optional</sup> <a name="options" id="@bluedynamics/cdk8s-plone.Plone.Initializer.parameter.options"></a>
+##### `options`<sup>Optional</sup> <a name="options" id="cdk8s-plone.Plone.Initializer.parameter.options"></a>
 
-- *Type:* <a href="#@bluedynamics/cdk8s-plone.PloneOptions">PloneOptions</a>
+- *Type:* <a href="#cdk8s-plone.PloneOptions">PloneOptions</a>
 
 ---
 
@@ -42,11 +42,11 @@ new Plone(scope: Construct, id: string, options?: PloneOptions)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@bluedynamics/cdk8s-plone.Plone.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#cdk8s-plone.Plone.toString">toString</a></code> | Returns a string representation of this construct. |
 
 ---
 
-##### `toString` <a name="toString" id="@bluedynamics/cdk8s-plone.Plone.toString"></a>
+##### `toString` <a name="toString" id="cdk8s-plone.Plone.toString"></a>
 
 ```typescript
 public toString(): string
@@ -58,14 +58,14 @@ Returns a string representation of this construct.
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#@bluedynamics/cdk8s-plone.Plone.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#cdk8s-plone.Plone.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="@bluedynamics/cdk8s-plone.Plone.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="cdk8s-plone.Plone.isConstruct"></a>
 
 ```typescript
-import { Plone } from '@bluedynamics/cdk8s-plone'
+import { Plone } from 'cdk8s-plone'
 
 Plone.isConstruct(x: any)
 ```
@@ -86,7 +86,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="@bluedynamics/cdk8s-plone.Plone.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="cdk8s-plone.Plone.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -98,13 +98,13 @@ Any object.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@bluedynamics/cdk8s-plone.Plone.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#@bluedynamics/cdk8s-plone.Plone.property.backendServiceName">backendServiceName</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.Plone.property.frontendServiceName">frontendServiceName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.Plone.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#cdk8s-plone.Plone.property.backendServiceName">backendServiceName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.Plone.property.frontendServiceName">frontendServiceName</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="@bluedynamics/cdk8s-plone.Plone.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="cdk8s-plone.Plone.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -116,7 +116,7 @@ The tree node.
 
 ---
 
-##### `backendServiceName`<sup>Required</sup> <a name="backendServiceName" id="@bluedynamics/cdk8s-plone.Plone.property.backendServiceName"></a>
+##### `backendServiceName`<sup>Required</sup> <a name="backendServiceName" id="cdk8s-plone.Plone.property.backendServiceName"></a>
 
 ```typescript
 public readonly backendServiceName: string;
@@ -126,7 +126,7 @@ public readonly backendServiceName: string;
 
 ---
 
-##### `frontendServiceName`<sup>Required</sup> <a name="frontendServiceName" id="@bluedynamics/cdk8s-plone.Plone.property.frontendServiceName"></a>
+##### `frontendServiceName`<sup>Required</sup> <a name="frontendServiceName" id="cdk8s-plone.Plone.property.frontendServiceName"></a>
 
 ```typescript
 public readonly frontendServiceName: string;
@@ -139,12 +139,12 @@ public readonly frontendServiceName: string;
 
 ## Structs <a name="Structs" id="Structs"></a>
 
-### PloneBaseOptions <a name="PloneBaseOptions" id="@bluedynamics/cdk8s-plone.PloneBaseOptions"></a>
+### PloneBaseOptions <a name="PloneBaseOptions" id="cdk8s-plone.PloneBaseOptions"></a>
 
-#### Initializer <a name="Initializer" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk8s-plone.PloneBaseOptions.Initializer"></a>
 
 ```typescript
-import { PloneBaseOptions } from '@bluedynamics/cdk8s-plone'
+import { PloneBaseOptions } from 'cdk8s-plone'
 
 const ploneBaseOptions: PloneBaseOptions = { ... }
 ```
@@ -153,18 +153,18 @@ const ploneBaseOptions: PloneBaseOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.environment">environment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.image">image</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.imagePullPolicy">imagePullPolicy</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitCpu">limitCpu</a></code> | <code>number</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.maxUnavailable">maxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.minAvailable">minAvailable</a></code> | <code>string \| number</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.replicas">replicas</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.environment">environment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.image">image</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.imagePullPolicy">imagePullPolicy</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.limitCpu">limitCpu</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.maxUnavailable">maxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.minAvailable">minAvailable</a></code> | <code>string \| number</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneBaseOptions.property.replicas">replicas</a></code> | <code>number</code> | *No description.* |
 
 ---
 
-##### `environment`<sup>Optional</sup> <a name="environment" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.environment"></a>
+##### `environment`<sup>Optional</sup> <a name="environment" id="cdk8s-plone.PloneBaseOptions.property.environment"></a>
 
 ```typescript
 public readonly environment: Env;
@@ -174,7 +174,7 @@ public readonly environment: Env;
 
 ---
 
-##### `image`<sup>Optional</sup> <a name="image" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.image"></a>
+##### `image`<sup>Optional</sup> <a name="image" id="cdk8s-plone.PloneBaseOptions.property.image"></a>
 
 ```typescript
 public readonly image: string;
@@ -184,7 +184,7 @@ public readonly image: string;
 
 ---
 
-##### `imagePullPolicy`<sup>Optional</sup> <a name="imagePullPolicy" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.imagePullPolicy"></a>
+##### `imagePullPolicy`<sup>Optional</sup> <a name="imagePullPolicy" id="cdk8s-plone.PloneBaseOptions.property.imagePullPolicy"></a>
 
 ```typescript
 public readonly imagePullPolicy: string;
@@ -194,7 +194,7 @@ public readonly imagePullPolicy: string;
 
 ---
 
-##### `limitCpu`<sup>Optional</sup> <a name="limitCpu" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitCpu"></a>
+##### `limitCpu`<sup>Optional</sup> <a name="limitCpu" id="cdk8s-plone.PloneBaseOptions.property.limitCpu"></a>
 
 ```typescript
 public readonly limitCpu: number;
@@ -204,7 +204,7 @@ public readonly limitCpu: number;
 
 ---
 
-##### `limitMemory`<sup>Optional</sup> <a name="limitMemory" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitMemory"></a>
+##### `limitMemory`<sup>Optional</sup> <a name="limitMemory" id="cdk8s-plone.PloneBaseOptions.property.limitMemory"></a>
 
 ```typescript
 public readonly limitMemory: string;
@@ -214,7 +214,7 @@ public readonly limitMemory: string;
 
 ---
 
-##### `maxUnavailable`<sup>Optional</sup> <a name="maxUnavailable" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.maxUnavailable"></a>
+##### `maxUnavailable`<sup>Optional</sup> <a name="maxUnavailable" id="cdk8s-plone.PloneBaseOptions.property.maxUnavailable"></a>
 
 ```typescript
 public readonly maxUnavailable: string | number;
@@ -224,7 +224,7 @@ public readonly maxUnavailable: string | number;
 
 ---
 
-##### `minAvailable`<sup>Optional</sup> <a name="minAvailable" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.minAvailable"></a>
+##### `minAvailable`<sup>Optional</sup> <a name="minAvailable" id="cdk8s-plone.PloneBaseOptions.property.minAvailable"></a>
 
 ```typescript
 public readonly minAvailable: string | number;
@@ -234,7 +234,7 @@ public readonly minAvailable: string | number;
 
 ---
 
-##### `replicas`<sup>Optional</sup> <a name="replicas" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.replicas"></a>
+##### `replicas`<sup>Optional</sup> <a name="replicas" id="cdk8s-plone.PloneBaseOptions.property.replicas"></a>
 
 ```typescript
 public readonly replicas: number;
@@ -244,12 +244,12 @@ public readonly replicas: number;
 
 ---
 
-### PloneOptions <a name="PloneOptions" id="@bluedynamics/cdk8s-plone.PloneOptions"></a>
+### PloneOptions <a name="PloneOptions" id="cdk8s-plone.PloneOptions"></a>
 
-#### Initializer <a name="Initializer" id="@bluedynamics/cdk8s-plone.PloneOptions.Initializer"></a>
+#### Initializer <a name="Initializer" id="cdk8s-plone.PloneOptions.Initializer"></a>
 
 ```typescript
-import { PloneOptions } from '@bluedynamics/cdk8s-plone'
+import { PloneOptions } from 'cdk8s-plone'
 
 const ploneOptions: PloneOptions = { ... }
 ```
@@ -258,34 +258,34 @@ const ploneOptions: PloneOptions = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.backend">backend</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.frontend">frontend</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.imagePullSecrets">imagePullSecrets</a></code> | <code>string[]</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.version">version</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.backend">backend</a></code> | <code><a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.frontend">frontend</a></code> | <code><a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.imagePullSecrets">imagePullSecrets</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#cdk8s-plone.PloneOptions.property.version">version</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `backend`<sup>Optional</sup> <a name="backend" id="@bluedynamics/cdk8s-plone.PloneOptions.property.backend"></a>
+##### `backend`<sup>Optional</sup> <a name="backend" id="cdk8s-plone.PloneOptions.property.backend"></a>
 
 ```typescript
 public readonly backend: PloneBaseOptions;
 ```
 
-- *Type:* <a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a>
+- *Type:* <a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a>
 
 ---
 
-##### `frontend`<sup>Optional</sup> <a name="frontend" id="@bluedynamics/cdk8s-plone.PloneOptions.property.frontend"></a>
+##### `frontend`<sup>Optional</sup> <a name="frontend" id="cdk8s-plone.PloneOptions.property.frontend"></a>
 
 ```typescript
 public readonly frontend: PloneBaseOptions;
 ```
 
-- *Type:* <a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a>
+- *Type:* <a href="#cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a>
 
 ---
 
-##### `imagePullSecrets`<sup>Optional</sup> <a name="imagePullSecrets" id="@bluedynamics/cdk8s-plone.PloneOptions.property.imagePullSecrets"></a>
+##### `imagePullSecrets`<sup>Optional</sup> <a name="imagePullSecrets" id="cdk8s-plone.PloneOptions.property.imagePullSecrets"></a>
 
 ```typescript
 public readonly imagePullSecrets: string[];
@@ -295,7 +295,7 @@ public readonly imagePullSecrets: string[];
 
 ---
 
-##### `version`<sup>Optional</sup> <a name="version" id="@bluedynamics/cdk8s-plone.PloneOptions.property.version"></a>
+##### `version`<sup>Optional</sup> <a name="version" id="cdk8s-plone.PloneOptions.property.version"></a>
 
 ```typescript
 public readonly version: string;
