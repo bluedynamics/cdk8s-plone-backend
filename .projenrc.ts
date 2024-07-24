@@ -1,6 +1,7 @@
 import { cdk } from 'projen';
 const kplus = 'cdk8s-plus-24';
 const project = new cdk.JsiiProject({
+  // majorVersion: 1,
   author: 'Jens W. Klein',
   authorAddress: 'jk@kleinundpartner.at',
   defaultReleaseBranch: 'main',
