@@ -3,7 +3,7 @@
   "description": "Provides a CMS Plone Backend and Frontend for Kubernetes with cdk8s",
   "repository": {
     "type": "git",
-    "url": "git@github.com:bluedynamics/cdk8s-plone.git"
+    "url": "https://github.com/bluedynamics/cdk8s-plone.git"
   },
   "scripts": {
     "build": "npx projen build",
