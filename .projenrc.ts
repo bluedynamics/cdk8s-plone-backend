@@ -1,4 +1,5 @@
-import { cdk } from 'projen';
+import { cdk, github } from 'projen';
+
 const kplus = 'cdk8s-plus-24';
 const project = new cdk.JsiiProject({
   // majorVersion: 1,
@@ -30,5 +31,11 @@ const project = new cdk.JsiiProject({
     distName: 'cdk8s-plone',
     module: 'cdk8s_plone',
   },
+  githubOptions: {
+    workflows: true,
+    projenCredentials: github.GithubCredentials.fromPersonalAccessToken({ secret: '${{ secrets.GITHUB_TOKEN }}' }),
+  },
+
 });
+
 project.synth();
