@@ -151,7 +151,7 @@ exports[`defaults 1`] = `
               "env": [
                 {
                   "name": "RAZZLE_INTERNAL_API_PATH",
-                  "value": "http://app-plone-backend-service-c8efef4c:80",
+                  "value": "http://app-plone-backend-service-c8efef4c:{backendPort}",
                 },
               ],
               "envFrom": [],
@@ -391,7 +391,7 @@ exports[`defaults-with-pdps 1`] = `
               "env": [
                 {
                   "name": "RAZZLE_INTERNAL_API_PATH",
-                  "value": "http://app-plone_with_pdbs-backend-service-c819541f:80",
+                  "value": "http://app-plone_with_pdbs-backend-service-c819541f:{backendPort}",
                 },
               ],
               "envFrom": [],
