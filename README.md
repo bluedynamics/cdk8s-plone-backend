@@ -9,7 +9,9 @@ It provides
 
 ## Usage
 
-TODO
+For now have a look at the [example project](https://github.com/bluedynamics/cdk8s-plone-example)..
+
+```typescript
 
 ## Development
 
