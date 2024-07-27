@@ -17,7 +17,7 @@ export interface PloneBaseOptions {
 }
 export interface PloneOptions {
   readonly version?: string;
-  readonly site_id?: string;
+  readonly siteId?: string;
   readonly backend?: PloneBaseOptions;
   readonly frontend?: PloneBaseOptions;
   readonly imagePullSecrets?: string[];
@@ -33,7 +33,7 @@ export class Plone extends Construct {
 
     // ------------------------------------------------------------------------
     // General
-    const site_id = options.site_id ?? 'Plone';
+    const siteId = options.siteId ?? 'Plone';
 
     // ------------------------------------------------------------------------
     // Backend
@@ -139,7 +139,7 @@ export class Plone extends Construct {
     var frontendEnvironment = frontend.environment ?? new kplus.Env([], {});
     if (frontendEnvironment.variables.RAZZLE_INTERNAL_API_PATH === undefined) {
       // connect with backend service
-      frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:${backendPort}/${site_id}`));
+      frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:${backendPort}/${siteId}`));
     }
 
     // Deployment
