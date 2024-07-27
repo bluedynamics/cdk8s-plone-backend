@@ -261,6 +261,7 @@ const ploneOptions: PloneOptions = { ... }
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.backend">backend</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.frontend">frontend</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.imagePullSecrets">imagePullSecrets</a></code> | <code>string[]</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.siteId">siteId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.version">version</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -292,6 +293,16 @@ public readonly imagePullSecrets: string[];
 ```
 
 - *Type:* string[]
+
+---
+
+##### `siteId`<sup>Optional</sup> <a name="siteId" id="@bluedynamics/cdk8s-plone.PloneOptions.property.siteId"></a>
+
+```typescript
+public readonly siteId: string;
+```
+
+- *Type:* string
 
 ---
 
