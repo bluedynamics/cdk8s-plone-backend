@@ -133,6 +133,7 @@ export class Plone extends Construct {
     // Environment for RAZZLE
     var frontendEnvironment = frontend.environment ?? new kplus.Env([], {});
     if (frontendEnvironment.variables.RAZZLE_INTERNAL_API_PATH === undefined) {
+      // connect with backend service
       frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:${backendPort}`));
     }
 
