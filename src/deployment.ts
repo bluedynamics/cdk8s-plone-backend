@@ -1,3 +1,4 @@
+// import { log } from 'console';
 import { Names } from 'cdk8s';
 import * as kplus from 'cdk8s-plus-24';
 import { Construct } from 'constructs';
@@ -117,15 +118,16 @@ export class PloneDeployment extends Construct {
       'app.kubernetes.io/part-of': 'plone',
       'app.kubernetes.io/managed-by': 'cdk8s-plone',
     };
-    const kpEnv = options.environment ?? new kplus.Env([], {});
+    const kpEnv: kplus.Env = options?.environment ?? new kplus.Env([], {});
     var env: k8s.EnvVar[] = [];
-    var envFrom: k8s.EnvFromSource[] = [];
     for (const name in kpEnv.variables) {
-      env.push({ name: name, value: kpEnv.variables[name].value });
+      env.push({ name: name, value: kpEnv.variables[name].value, valueFrom: kpEnv.variables[name].valueFrom });
     }
-    // for (const source in kpEnv.sources) {
-    //   envFrom.push({ configMapRef: source.configMap, prefix: source.prefix, secretRef: source.sec });
-    // }
+    var envFrom: k8s.EnvFromSource[] = [];
+    for (const idx in kpEnv.sources) {
+      const source = kpEnv.sources[idx];
+      envFrom.push(source._toKube());
+    }
     var ploneContainerSpec: k8s.Container = {
       name: id + '-container', // here the namespaced name shold be used, but how?
       image: image.image,
@@ -138,8 +140,8 @@ export class PloneDeployment extends Construct {
           memory: k8s.Quantity.fromString(options.limitMemory ?? '1Gi'),
         },
       },
-      livenessProbe: options.livenessProbe ?? { },
-      readinessProbe: options.readinessProbe ?? { },
+      livenessProbe: options.livenessProbe ?? {},
+      readinessProbe: options.readinessProbe ?? {},
     };
     const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {
