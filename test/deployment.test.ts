@@ -44,3 +44,36 @@ test('with-environment', () => {
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();
 });
+
+test('with-environment-valueFrom', () => {
+  // GIVEN
+  const app = Testing.app();
+  const chart = new Chart(app, 'plone');
+
+  // WHEN
+  const env = new kplus.Env([], { MY_ENV: { valueFrom: { secretKeyRef: { name: 'my-secret', key: 'MY_ENV_SECRET' } } } });
+  new PloneDeployment(chart, 'with_environment_valueFrom', {
+    port: 3000,
+    environment: env,
+  });
+
+  // THEN
+  expect(Testing.synth(chart)).toMatchSnapshot();
+});
+
+test('with-environment-from-secret', () => {
+  // GIVEN
+  const app = Testing.app();
+  const chart = new Chart(app, 'plone');
+
+  // WHEN
+  const envfrom = kplus.Env.fromSecret(new kplus.Secret(chart, 'foo'));
+  const env = new kplus.Env([envfrom], {});
+  new PloneDeployment(chart, 'with_environment_secret', {
+    port: 3000,
+    environment: env,
+  });
+
+  // THEN
+  expect(Testing.synth(chart)).toMatchSnapshot();
+});
