@@ -156,11 +156,13 @@ const ploneBaseOptions: PloneBaseOptions = { ... }
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.environment">environment</a></code> | <code>cdk8s-plus-24.Env</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.image">image</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.imagePullPolicy">imagePullPolicy</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitCpu">limitCpu</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitCpu">limitCpu</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.maxUnavailable">maxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.minAvailable">minAvailable</a></code> | <code>string \| number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.replicas">replicas</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.requestCpu">requestCpu</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.requestMemory">requestMemory</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -197,10 +199,10 @@ public readonly imagePullPolicy: string;
 ##### `limitCpu`<sup>Optional</sup> <a name="limitCpu" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitCpu"></a>
 
 ```typescript
-public readonly limitCpu: number;
+public readonly limitCpu: string;
 ```
 
-- *Type:* number
+- *Type:* string
 
 ---
 
@@ -241,6 +243,26 @@ public readonly replicas: number;
 ```
 
 - *Type:* number
+
+---
+
+##### `requestCpu`<sup>Optional</sup> <a name="requestCpu" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.requestCpu"></a>
+
+```typescript
+public readonly requestCpu: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requestMemory`<sup>Optional</sup> <a name="requestMemory" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.requestMemory"></a>
+
+```typescript
+public readonly requestMemory: string;
+```
+
+- *Type:* string
 
 ---
 

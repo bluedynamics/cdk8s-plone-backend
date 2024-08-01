@@ -48,13 +48,25 @@ export interface PloneDeploymentOptions {
  * CPU limit
  * @default 1
  */
-  readonly limitCpu?: number;
+  readonly limitCpu?: string;
 
   /**
  * memory limit
  * @default 1
  */
   readonly limitMemory?: string;
+
+  /**
+ * CPU request
+ * @default 1
+ */
+  readonly requestCpu?: string;
+
+  /**
+ * memory request
+ * @default 1
+ */
+  readonly requestMemory?: string;
 
   /**
    * Port number.
@@ -136,8 +148,12 @@ export class PloneDeployment extends Construct {
       envFrom: envFrom,
       resources: {
         limits: {
-          cpu: k8s.Quantity.fromNumber(options.limitCpu ?? 1),
+          cpu: k8s.Quantity.fromString(options.limitCpu ?? '1000m'),
           memory: k8s.Quantity.fromString(options.limitMemory ?? '1Gi'),
+        },
+        requests: {
+          cpu: k8s.Quantity.fromString(options.requestCpu ?? '200m'),
+          memory: k8s.Quantity.fromString(options.requestMemory ?? '300Mi'),
         },
       },
       livenessProbe: options.livenessProbe ?? {},

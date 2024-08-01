@@ -37,8 +37,12 @@ exports[`defaults 1`] = `
               "readinessProbe": {},
               "resources": {
                 "limits": {
-                  "cpu": 1,
+                  "cpu": "1000m",
                   "memory": "1Gi",
+                },
+                "requests": {
+                  "cpu": "200m",
+                  "memory": "300Mi",
                 },
               },
             },
@@ -93,8 +97,12 @@ exports[`with-environment 1`] = `
               "readinessProbe": {},
               "resources": {
                 "limits": {
-                  "cpu": 1,
+                  "cpu": "1000m",
                   "memory": "1Gi",
+                },
+                "requests": {
+                  "cpu": "200m",
+                  "memory": "300Mi",
                 },
               },
             },
@@ -159,8 +167,12 @@ exports[`with-environment-from-secret 1`] = `
               "readinessProbe": {},
               "resources": {
                 "limits": {
-                  "cpu": 1,
+                  "cpu": "1000m",
                   "memory": "1Gi",
+                },
+                "requests": {
+                  "cpu": "200m",
+                  "memory": "300Mi",
                 },
               },
             },
@@ -220,8 +232,12 @@ exports[`with-environment-valueFrom 1`] = `
               "readinessProbe": {},
               "resources": {
                 "limits": {
-                  "cpu": 1,
+                  "cpu": "1000m",
                   "memory": "1Gi",
+                },
+                "requests": {
+                  "cpu": "200m",
+                  "memory": "300Mi",
                 },
               },
             },
@@ -271,8 +287,12 @@ exports[`with-pdp 1`] = `
               "readinessProbe": {},
               "resources": {
                 "limits": {
-                  "cpu": 1,
+                  "cpu": "1000m",
                   "memory": "1Gi",
+                },
+                "requests": {
+                  "cpu": "200m",
+                  "memory": "300Mi",
                 },
               },
             },
