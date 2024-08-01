@@ -80,9 +80,9 @@ export class Plone extends Construct {
         imagePullPolicy: backend.imagePullPolicy ?? 'IfNotPresent',
       },
       replicas: backend.replicas,
-      limitCpu: backend.limitCpu ?? '500Mi',
+      limitCpu: backend.limitCpu ?? '500m',
       limitMemory: backend.limitMemory ?? '512Mi',
-      requestCpu: backend.requestCpu ?? '200Mi',
+      requestCpu: backend.requestCpu ?? '200m',
       requestMemory: backend.requestMemory ?? '256Mi',
       pdb: {
         maxUnavailable: backend.maxUnavailable ?? undefined,
@@ -155,9 +155,9 @@ export class Plone extends Construct {
         imagePullPolicy: frontend.imagePullPolicy ?? 'IfNotPresent',
       },
       replicas: frontend.replicas,
-      limitCpu: frontend.limitCpu ?? '500Mi',
+      limitCpu: frontend.limitCpu ?? '500m',
       limitMemory: frontend.limitMemory ?? '1Gi',
-      requestCpu: backend.requestCpu ?? '200Mi',
+      requestCpu: backend.requestCpu ?? '200m',
       requestMemory: backend.requestMemory ?? '256Mi',
 
       pdb: {
