@@ -62,11 +62,11 @@ exports[`defaults 1`] = `
               },
               "resources": {
                 "limits": {
-                  "cpu": "500Mi",
+                  "cpu": "500m",
                   "memory": "512Mi",
                 },
                 "requests": {
-                  "cpu": "200Mi",
+                  "cpu": "200m",
                   "memory": "256Mi",
                 },
               },
@@ -186,11 +186,11 @@ exports[`defaults 1`] = `
               },
               "resources": {
                 "limits": {
-                  "cpu": "500Mi",
+                  "cpu": "500m",
                   "memory": "1Gi",
                 },
                 "requests": {
-                  "cpu": "200Mi",
+                  "cpu": "200m",
                   "memory": "256Mi",
                 },
               },
@@ -310,11 +310,11 @@ exports[`defaults-with-pdps 1`] = `
               },
               "resources": {
                 "limits": {
-                  "cpu": "500Mi",
+                  "cpu": "500m",
                   "memory": "512Mi",
                 },
                 "requests": {
-                  "cpu": "200Mi",
+                  "cpu": "200m",
                   "memory": "256Mi",
                 },
               },
@@ -434,11 +434,11 @@ exports[`defaults-with-pdps 1`] = `
               },
               "resources": {
                 "limits": {
-                  "cpu": "500Mi",
+                  "cpu": "500m",
                   "memory": "1Gi",
                 },
                 "requests": {
-                  "cpu": "200Mi",
+                  "cpu": "200m",
                   "memory": "256Mi",
                 },
               },
