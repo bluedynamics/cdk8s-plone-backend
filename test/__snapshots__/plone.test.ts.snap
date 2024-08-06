@@ -46,15 +46,11 @@ exports[`defaults 1`] = `
                 "initialDelaySeconds": 30,
                 "periodSeconds": 10,
                 "successThreshold": 1,
-                "timeoutSeconds": 1,
+                "timeoutSeconds": 5,
               },
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
-                "httpGet": {
-                  "path": "/",
-                  "port": 8080,
-                },
                 "initialDelaySeconds": 10,
                 "periodSeconds": 10,
                 "successThreshold": 1,
@@ -170,7 +166,7 @@ exports[`defaults 1`] = `
                 "initialDelaySeconds": 30,
                 "periodSeconds": 10,
                 "successThreshold": 1,
-                "timeoutSeconds": 1,
+                "timeoutSeconds": 5,
               },
               "name": "frontend-container",
               "readinessProbe": {
@@ -294,15 +290,11 @@ exports[`defaults-with-pdps 1`] = `
                 "initialDelaySeconds": 30,
                 "periodSeconds": 10,
                 "successThreshold": 1,
-                "timeoutSeconds": 1,
+                "timeoutSeconds": 5,
               },
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
-                "httpGet": {
-                  "path": "/",
-                  "port": 8080,
-                },
                 "initialDelaySeconds": 10,
                 "periodSeconds": 10,
                 "successThreshold": 1,
@@ -418,7 +410,7 @@ exports[`defaults-with-pdps 1`] = `
                 "initialDelaySeconds": 30,
                 "periodSeconds": 10,
                 "successThreshold": 1,
-                "timeoutSeconds": 1,
+                "timeoutSeconds": 5,
               },
               "name": "frontend-container",
               "readinessProbe": {

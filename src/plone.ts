@@ -3,19 +3,35 @@ import * as kplus from 'cdk8s-plus-24';
 import { Construct } from 'constructs';
 import { PloneDeployment } from './deployment';
 import { Probe, IntOrString } from './imports/k8s';
+import * as k8s from './imports/k8s';
 import { PloneService } from './service';
 
 export interface PloneBaseOptions {
+  // image
   readonly image?: string;
   readonly imagePullPolicy?: string;
+  // replicas
   readonly replicas?: number;
   readonly maxUnavailable?: number | string;
   readonly minAvailable?: number | string;
+  // resources
   readonly limitCpu?: string;
   readonly limitMemory?: string;
   readonly requestCpu?: string;
   readonly requestMemory?: string;
   readonly environment?: kplus.Env;
+  // readiness Probe
+  readonly readinessInitialDelaySeconds?: number;
+  readonly readinessIimeoutSeconds?: number;
+  readonly readinessPeriodSeconds?: number;
+  readonly readinessSuccessThreshold?: number;
+  readonly readinessFailureThreshold?: number;
+  // liveness Probe
+  readonly livenessInitialDelaySeconds?: number;
+  readonly livenessIimeoutSeconds?: number;
+  readonly livenessPeriodSeconds?: number;
+  readonly livenessSuccessThreshold?: number;
+  readonly livenessFailureThreshold?: number;
 }
 export interface PloneOptions {
   readonly version?: string;
@@ -23,6 +39,7 @@ export interface PloneOptions {
   readonly backend?: PloneBaseOptions;
   readonly frontend?: PloneBaseOptions;
   readonly imagePullSecrets?: string[];
+
 }
 
 export class Plone extends Construct {
@@ -40,35 +57,33 @@ export class Plone extends Construct {
     // ------------------------------------------------------------------------
     // Backend
     const backend = options.backend ?? {};
-    const backendPort = 8080;
     const backendLabels = {
       'app.kubernetes.io/name': 'plone-backend',
       'app.kubernetes.io/component': 'backend',
       'app.kubernetes.io/version': options.version ?? 'undefined',
     };
+    const backendPort = 8080;
 
     // Probing
+    const backendActionHttpGet: k8s.HttpGetAction = {
+      path: '/',
+      port: IntOrString.fromNumber(backendPort),
+    };
+
     const backendLivenessProbe: Probe = {
-      httpGet: {
-        path: '/',
-        port: IntOrString.fromNumber(backendPort),
-      },
-      initialDelaySeconds: 30,
-      timeoutSeconds: 1,
-      periodSeconds: 10,
-      successThreshold: 1,
-      failureThreshold: 3,
+      httpGet: backendActionHttpGet,
+      initialDelaySeconds: backend.livenessInitialDelaySeconds ?? 30,
+      timeoutSeconds: backend.livenessIimeoutSeconds ?? 5,
+      periodSeconds: backend.livenessPeriodSeconds ?? 10,
+      successThreshold: backend.livenessSuccessThreshold ?? 1,
+      failureThreshold: backend.livenessFailureThreshold ?? 3,
     };
     const backendReadinessProbe: Probe = {
-      httpGet: {
-        path: '/',
-        port: IntOrString.fromNumber(backendPort),
-      },
-      initialDelaySeconds: 10,
-      timeoutSeconds: 15,
-      periodSeconds: 10,
-      successThreshold: 1,
-      failureThreshold: 3,
+      initialDelaySeconds: backend.readinessInitialDelaySeconds ?? 10,
+      timeoutSeconds: backend.readinessIimeoutSeconds ?? 15,
+      periodSeconds: backend.readinessPeriodSeconds ?? 10,
+      successThreshold: backend.readinessSuccessThreshold ?? 1,
+      failureThreshold: backend.readinessFailureThreshold ?? 3,
     };
 
     // Deployment
@@ -116,27 +131,25 @@ export class Plone extends Construct {
     };
 
     // Probing
+    const frontendActionHttpGet: k8s.HttpGetAction = {
+      path: '/',
+      port: IntOrString.fromNumber(frontendPort),
+    };
     const frontendLivenessProbe: Probe = {
-      httpGet: {
-        path: '/',
-        port: IntOrString.fromNumber(frontendPort),
-      },
-      initialDelaySeconds: 30,
-      timeoutSeconds: 1,
-      periodSeconds: 10,
-      successThreshold: 1,
-      failureThreshold: 3,
+      httpGet: frontendActionHttpGet,
+      initialDelaySeconds: frontend.livenessInitialDelaySeconds ?? 30,
+      timeoutSeconds: frontend.livenessIimeoutSeconds ?? 5,
+      periodSeconds: frontend.livenessPeriodSeconds ?? 10,
+      successThreshold: frontend.livenessSuccessThreshold ?? 1,
+      failureThreshold: frontend.livenessFailureThreshold ?? 3,
     };
     const frontendReadinessProbe: Probe = {
-      httpGet: {
-        path: '/',
-        port: IntOrString.fromNumber(frontendPort),
-      },
-      initialDelaySeconds: 10,
-      timeoutSeconds: 15,
-      periodSeconds: 10,
-      successThreshold: 1,
-      failureThreshold: 3,
+      httpGet: frontendActionHttpGet,
+      initialDelaySeconds: frontend.readinessInitialDelaySeconds ?? 10,
+      timeoutSeconds: frontend.readinessIimeoutSeconds ?? 15,
+      periodSeconds: frontend.readinessPeriodSeconds ?? 10,
+      successThreshold: frontend.readinessSuccessThreshold ?? 1,
+      failureThreshold: frontend.readinessFailureThreshold ?? 3,
     };
 
     // Environment for RAZZLE
