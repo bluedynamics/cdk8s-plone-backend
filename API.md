@@ -158,8 +158,18 @@ const ploneBaseOptions: PloneBaseOptions = { ... }
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.imagePullPolicy">imagePullPolicy</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitCpu">limitCpu</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessFailureThreshold">livenessFailureThreshold</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessIimeoutSeconds">livenessIimeoutSeconds</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessInitialDelaySeconds">livenessInitialDelaySeconds</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessPeriodSeconds">livenessPeriodSeconds</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessSuccessThreshold">livenessSuccessThreshold</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.maxUnavailable">maxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.minAvailable">minAvailable</a></code> | <code>string \| number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessFailureThreshold">readinessFailureThreshold</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessIimeoutSeconds">readinessIimeoutSeconds</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessInitialDelaySeconds">readinessInitialDelaySeconds</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessPeriodSeconds">readinessPeriodSeconds</a></code> | <code>number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessSuccessThreshold">readinessSuccessThreshold</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.replicas">replicas</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.requestCpu">requestCpu</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.requestMemory">requestMemory</a></code> | <code>string</code> | *No description.* |
@@ -216,6 +226,56 @@ public readonly limitMemory: string;
 
 ---
 
+##### `livenessFailureThreshold`<sup>Optional</sup> <a name="livenessFailureThreshold" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessFailureThreshold"></a>
+
+```typescript
+public readonly livenessFailureThreshold: number;
+```
+
+- *Type:* number
+
+---
+
+##### `livenessIimeoutSeconds`<sup>Optional</sup> <a name="livenessIimeoutSeconds" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessIimeoutSeconds"></a>
+
+```typescript
+public readonly livenessIimeoutSeconds: number;
+```
+
+- *Type:* number
+
+---
+
+##### `livenessInitialDelaySeconds`<sup>Optional</sup> <a name="livenessInitialDelaySeconds" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessInitialDelaySeconds"></a>
+
+```typescript
+public readonly livenessInitialDelaySeconds: number;
+```
+
+- *Type:* number
+
+---
+
+##### `livenessPeriodSeconds`<sup>Optional</sup> <a name="livenessPeriodSeconds" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessPeriodSeconds"></a>
+
+```typescript
+public readonly livenessPeriodSeconds: number;
+```
+
+- *Type:* number
+
+---
+
+##### `livenessSuccessThreshold`<sup>Optional</sup> <a name="livenessSuccessThreshold" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessSuccessThreshold"></a>
+
+```typescript
+public readonly livenessSuccessThreshold: number;
+```
+
+- *Type:* number
+
+---
+
 ##### `maxUnavailable`<sup>Optional</sup> <a name="maxUnavailable" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.maxUnavailable"></a>
 
 ```typescript
@@ -233,6 +293,56 @@ public readonly minAvailable: string | number;
 ```
 
 - *Type:* string | number
+
+---
+
+##### `readinessFailureThreshold`<sup>Optional</sup> <a name="readinessFailureThreshold" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessFailureThreshold"></a>
+
+```typescript
+public readonly readinessFailureThreshold: number;
+```
+
+- *Type:* number
+
+---
+
+##### `readinessIimeoutSeconds`<sup>Optional</sup> <a name="readinessIimeoutSeconds" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessIimeoutSeconds"></a>
+
+```typescript
+public readonly readinessIimeoutSeconds: number;
+```
+
+- *Type:* number
+
+---
+
+##### `readinessInitialDelaySeconds`<sup>Optional</sup> <a name="readinessInitialDelaySeconds" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessInitialDelaySeconds"></a>
+
+```typescript
+public readonly readinessInitialDelaySeconds: number;
+```
+
+- *Type:* number
+
+---
+
+##### `readinessPeriodSeconds`<sup>Optional</sup> <a name="readinessPeriodSeconds" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessPeriodSeconds"></a>
+
+```typescript
+public readonly readinessPeriodSeconds: number;
+```
+
+- *Type:* number
+
+---
+
+##### `readinessSuccessThreshold`<sup>Optional</sup> <a name="readinessSuccessThreshold" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessSuccessThreshold"></a>
+
+```typescript
+public readonly readinessSuccessThreshold: number;
+```
+
+- *Type:* number
 
 ---
 
