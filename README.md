@@ -41,7 +41,7 @@ Each step need to be implemented with tests!
     - [x] deployment
     - [x] service
     - [x] pdb
-    - [ ] lifecycle checks (readiness, liveness)
+    - [x] lifecycle checks (readiness, liveness)
     - [ ] depend on ready/live backend (needed?)
     - [x] generic way to inject sidecars
 
@@ -52,7 +52,7 @@ Each step need to be implemented with tests!
     - [ ] pdb
     - [ ] lifecycle checks (readiness, liveness)
     - [ ] generic way to inject sidecars
-    - find a way to purge caches. based on kitconcept varnish purger? needs
+    - find a way to purge caches. based on kitconcept varnish purger? needs evaluation
 
 - [ ] Other Languages
     - [x] Check Python distribution

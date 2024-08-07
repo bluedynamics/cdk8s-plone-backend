@@ -79,6 +79,7 @@ export class Plone extends Construct {
       failureThreshold: backend.livenessFailureThreshold ?? 3,
     };
     const backendReadinessProbe: Probe = {
+      httpGet: backendActionHttpGet,
       initialDelaySeconds: backend.readinessInitialDelaySeconds ?? 10,
       timeoutSeconds: backend.readinessIimeoutSeconds ?? 15,
       periodSeconds: backend.readinessPeriodSeconds ?? 10,
