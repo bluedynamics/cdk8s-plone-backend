@@ -51,6 +51,10 @@ exports[`defaults 1`] = `
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/",
+                  "port": 8080,
+                },
                 "initialDelaySeconds": 10,
                 "periodSeconds": 10,
                 "successThreshold": 1,
@@ -295,6 +299,10 @@ exports[`defaults-with-pdps 1`] = `
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
+                "httpGet": {
+                  "path": "/",
+                  "port": 8080,
+                },
                 "initialDelaySeconds": 10,
                 "periodSeconds": 10,
                 "successThreshold": 1,
