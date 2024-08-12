@@ -9,7 +9,11 @@ test('defaults', () => {
   const plone = new Plone(chart, 'plone');
 
   // WHEN
-  new PloneHttpcache(chart, 'test', { plone: plone, varnishVcl: 'test' });
+  new PloneHttpcache(
+    chart,
+    'test',
+    { plone: plone, varnishVcl: 'test', existingSecret: 'testsecret' },
+  );
 
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();

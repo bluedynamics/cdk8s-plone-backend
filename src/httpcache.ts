@@ -21,6 +21,12 @@ export interface PloneHttpCacheOptions {
    */
   readonly varnishVclFile?: string | undefined;
 
+  /** existingSecret - Read admin credentials from user provided secret
+   * @default - undefined
+  */
+  readonly existingSecret?: string;
+
+
   // resources
   readonly limitCpu?: string;
   readonly limitMemory?: string;
@@ -48,6 +54,7 @@ export class PloneHttpcache extends Construct {
       varnishVcl = options.varnishVcl;
     }
     const httpcache = new Helm(this, 'httpcache', {
+      // see https://github.com/mittwald/kube-httpcache/chart
       repo: 'https://helm.mittwald.de',
       chart: 'kube-httpcache',
       values: {
@@ -56,6 +63,7 @@ export class PloneHttpcache extends Construct {
           // need to looks at the frontendWatch, do we need it?
           frontendWatch: false,
           backendWatch: false,
+          existingSecret: options.existingSecret ?? undefined,
         },
         vclTemplate: varnishVcl,
         extraEnvVars: [
