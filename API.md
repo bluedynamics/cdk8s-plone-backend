@@ -137,6 +137,130 @@ public readonly frontendServiceName: string;
 ---
 
 
+### PloneHttpcache <a name="PloneHttpcache" id="@bluedynamics/cdk8s-plone.PloneHttpcache"></a>
+
+#### Initializers <a name="Initializers" id="@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer"></a>
+
+```typescript
+import { PloneHttpcache } from '@bluedynamics/cdk8s-plone'
+
+new PloneHttpcache(scope: Construct, id: string, options: PloneHttpCacheOptions)
+```
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.options">options</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions">PloneHttpCacheOptions</a></code> | *No description.* |
+
+---
+
+##### `scope`<sup>Required</sup> <a name="scope" id="@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.scope"></a>
+
+- *Type:* constructs.Construct
+
+---
+
+##### `id`<sup>Required</sup> <a name="id" id="@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.id"></a>
+
+- *Type:* string
+
+---
+
+##### `options`<sup>Required</sup> <a name="options" id="@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.options"></a>
+
+- *Type:* <a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions">PloneHttpCacheOptions</a>
+
+---
+
+#### Methods <a name="Methods" id="Methods"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.toString">toString</a></code> | Returns a string representation of this construct. |
+
+---
+
+##### `toString` <a name="toString" id="@bluedynamics/cdk8s-plone.PloneHttpcache.toString"></a>
+
+```typescript
+public toString(): string
+```
+
+Returns a string representation of this construct.
+
+#### Static Functions <a name="Static Functions" id="Static Functions"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+
+---
+
+##### `isConstruct` <a name="isConstruct" id="@bluedynamics/cdk8s-plone.PloneHttpcache.isConstruct"></a>
+
+```typescript
+import { PloneHttpcache } from '@bluedynamics/cdk8s-plone'
+
+PloneHttpcache.isConstruct(x: any)
+```
+
+Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
+
+###### `x`<sup>Required</sup> <a name="x" id="@bluedynamics/cdk8s-plone.PloneHttpcache.isConstruct.parameter.x"></a>
+
+- *Type:* any
+
+Any object.
+
+---
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.property.httpcacheServiceName">httpcacheServiceName</a></code> | <code>string</code> | *No description.* |
+
+---
+
+##### `node`<sup>Required</sup> <a name="node" id="@bluedynamics/cdk8s-plone.PloneHttpcache.property.node"></a>
+
+```typescript
+public readonly node: Node;
+```
+
+- *Type:* constructs.Node
+
+The tree node.
+
+---
+
+##### `httpcacheServiceName`<sup>Required</sup> <a name="httpcacheServiceName" id="@bluedynamics/cdk8s-plone.PloneHttpcache.property.httpcacheServiceName"></a>
+
+```typescript
+public readonly httpcacheServiceName: string;
+```
+
+- *Type:* string
+
+---
+
+
 ## Structs <a name="Structs" id="Structs"></a>
 
 ### PloneBaseOptions <a name="PloneBaseOptions" id="@bluedynamics/cdk8s-plone.PloneBaseOptions"></a>
@@ -373,6 +497,109 @@ public readonly requestMemory: string;
 ```
 
 - *Type:* string
+
+---
+
+### PloneHttpCacheOptions <a name="PloneHttpCacheOptions" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions"></a>
+
+#### Initializer <a name="Initializer" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.Initializer"></a>
+
+```typescript
+import { PloneHttpCacheOptions } from '@bluedynamics/cdk8s-plone'
+
+const ploneHttpCacheOptions: PloneHttpCacheOptions = { ... }
+```
+
+#### Properties <a name="Properties" id="Properties"></a>
+
+| **Name** | **Type** | **Description** |
+| --- | --- | --- |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.plone">plone</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.Plone">Plone</a></code> | plone chart. |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitCpu">limitCpu</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestCpu">requestCpu</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestMemory">requestMemory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.varnishVcl">varnishVcl</a></code> | <code>string</code> | varnishVcl. |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.varnishVclFile">varnishVclFile</a></code> | <code>string</code> | varnishVclFile. |
+
+---
+
+##### `plone`<sup>Required</sup> <a name="plone" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.plone"></a>
+
+```typescript
+public readonly plone: Plone;
+```
+
+- *Type:* <a href="#@bluedynamics/cdk8s-plone.Plone">Plone</a>
+- *Default:* none
+
+plone chart.
+
+---
+
+##### `limitCpu`<sup>Optional</sup> <a name="limitCpu" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitCpu"></a>
+
+```typescript
+public readonly limitCpu: string;
+```
+
+- *Type:* string
+
+---
+
+##### `limitMemory`<sup>Optional</sup> <a name="limitMemory" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitMemory"></a>
+
+```typescript
+public readonly limitMemory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requestCpu`<sup>Optional</sup> <a name="requestCpu" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestCpu"></a>
+
+```typescript
+public readonly requestCpu: string;
+```
+
+- *Type:* string
+
+---
+
+##### `requestMemory`<sup>Optional</sup> <a name="requestMemory" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestMemory"></a>
+
+```typescript
+public readonly requestMemory: string;
+```
+
+- *Type:* string
+
+---
+
+##### `varnishVcl`<sup>Optional</sup> <a name="varnishVcl" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.varnishVcl"></a>
+
+```typescript
+public readonly varnishVcl: string;
+```
+
+- *Type:* string
+- *Default:* file in config folder
+
+varnishVcl.
+
+---
+
+##### `varnishVclFile`<sup>Optional</sup> <a name="varnishVclFile" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.varnishVclFile"></a>
+
+```typescript
+public readonly varnishVclFile: string;
+```
+
+- *Type:* string
+- *Default:* undefined
+
+varnishVclFile.
 
 ---
 
