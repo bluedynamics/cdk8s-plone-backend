@@ -45,14 +45,7 @@ Each step need to be implemented with tests!
     - [ ] depend on ready/live backend (needed?)
     - [x] generic way to inject sidecars
 
-- [ ] Start Varnish
-    - [ ] deployment
-        - [ ] do not depend on backend/front end to be  up, but configure to deliver from cache if possible.
-    - [ ] service
-    - [ ] pdb
-    - [ ] lifecycle checks (readiness, liveness)
-    - [ ] generic way to inject sidecars
-    - find a way to purge caches. based on kitconcept varnish purger? needs evaluation
+- [x] Start Varnish (using kube-httcache)
 
 - [ ] Other Languages
     - [x] Check Python distribution
