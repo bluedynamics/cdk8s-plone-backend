@@ -32,6 +32,9 @@ const project = new cdk.JsiiProject({
     distName: 'cdk8s-plone',
     module: 'cdk8s_plone',
   },
+  // publishToGo: {
+  //   moduleName: 'github.com/bluedynamics/cdk8s-plone-go',
+  // },
   npmProvenance: true,
   npmAccess: NpmAccess.PUBLIC,
 });

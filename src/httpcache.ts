@@ -4,7 +4,7 @@ import { Helm } from 'cdk8s';
 import { Construct } from 'constructs';
 import { Plone } from './plone';
 
-export interface PloneHttpCacheOptions {
+export interface PloneHttpcacheOptions {
   /**
    * plone chart
    * @default - none
@@ -38,7 +38,7 @@ export class PloneHttpcache extends Construct {
 
   public readonly httpcacheServiceName: string;
 
-  constructor(scope: Construct, id: string, options: PloneHttpCacheOptions) {
+  constructor(scope: Construct, id: string, options: PloneHttpcacheOptions) {
     super(scope, id);
     let varnishVcl: string;
     if (!options.varnishVcl) {
@@ -49,7 +49,6 @@ export class PloneHttpcache extends Construct {
         vclPath = options.varnishVclFile;
       }
       varnishVcl = fs.readFileSync(vclPath, 'utf8');
-      throw new Error(varnishVcl);
     } else {
       varnishVcl = options.varnishVcl;
     }
