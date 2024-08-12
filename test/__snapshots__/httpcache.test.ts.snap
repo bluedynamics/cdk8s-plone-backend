@@ -285,7 +285,7 @@ exports[`defaults 1`] = `
   {
     "apiVersion": "v1",
     "data": {
-      "secret": "VGtTcktSdzhRSWRBUDRMZ0MwRDMzdERWWHVJZ1M2ZmQ=",
+      "secret": "UmI1Z0xWSW5aRGRSdTV3S1IwZndZQ2JWNm93aDMxMzU=",
     },
     "kind": "Secret",
     "metadata": {
