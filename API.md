@@ -515,6 +515,7 @@ const ploneHttpCacheOptions: PloneHttpCacheOptions = { ... }
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.plone">plone</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.Plone">Plone</a></code> | plone chart. |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.existingSecret">existingSecret</a></code> | <code>string</code> | existingSecret - Read admin credentials from user provided secret. |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitCpu">limitCpu</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestCpu">requestCpu</a></code> | <code>string</code> | *No description.* |
@@ -534,6 +535,19 @@ public readonly plone: Plone;
 - *Default:* none
 
 plone chart.
+
+---
+
+##### `existingSecret`<sup>Optional</sup> <a name="existingSecret" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.existingSecret"></a>
+
+```typescript
+public readonly existingSecret: string;
+```
+
+- *Type:* string
+- *Default:* undefined
+
+existingSecret - Read admin credentials from user provided secret.
 
 ---
 
