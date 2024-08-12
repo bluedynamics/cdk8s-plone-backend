@@ -144,14 +144,14 @@ public readonly frontendServiceName: string;
 ```typescript
 import { PloneHttpcache } from '@bluedynamics/cdk8s-plone'
 
-new PloneHttpcache(scope: Construct, id: string, options: PloneHttpCacheOptions)
+new PloneHttpcache(scope: Construct, id: string, options: PloneHttpcacheOptions)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.options">options</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions">PloneHttpCacheOptions</a></code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.options">options</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions">PloneHttpcacheOptions</a></code> | *No description.* |
 
 ---
 
@@ -169,7 +169,7 @@ new PloneHttpcache(scope: Construct, id: string, options: PloneHttpCacheOptions)
 
 ##### `options`<sup>Required</sup> <a name="options" id="@bluedynamics/cdk8s-plone.PloneHttpcache.Initializer.parameter.options"></a>
 
-- *Type:* <a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions">PloneHttpCacheOptions</a>
+- *Type:* <a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions">PloneHttpcacheOptions</a>
 
 ---
 
@@ -500,32 +500,32 @@ public readonly requestMemory: string;
 
 ---
 
-### PloneHttpCacheOptions <a name="PloneHttpCacheOptions" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions"></a>
+### PloneHttpcacheOptions <a name="PloneHttpcacheOptions" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions"></a>
 
-#### Initializer <a name="Initializer" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.Initializer"></a>
+#### Initializer <a name="Initializer" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.Initializer"></a>
 
 ```typescript
-import { PloneHttpCacheOptions } from '@bluedynamics/cdk8s-plone'
+import { PloneHttpcacheOptions } from '@bluedynamics/cdk8s-plone'
 
-const ploneHttpCacheOptions: PloneHttpCacheOptions = { ... }
+const ploneHttpcacheOptions: PloneHttpcacheOptions = { ... }
 ```
 
 #### Properties <a name="Properties" id="Properties"></a>
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.plone">plone</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.Plone">Plone</a></code> | plone chart. |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.existingSecret">existingSecret</a></code> | <code>string</code> | existingSecret - Read admin credentials from user provided secret. |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitCpu">limitCpu</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestCpu">requestCpu</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestMemory">requestMemory</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.varnishVcl">varnishVcl</a></code> | <code>string</code> | varnishVcl. |
-| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.varnishVclFile">varnishVclFile</a></code> | <code>string</code> | varnishVclFile. |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.plone">plone</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.Plone">Plone</a></code> | plone chart. |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.existingSecret">existingSecret</a></code> | <code>string</code> | existingSecret - Read admin credentials from user provided secret. |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.limitCpu">limitCpu</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.requestCpu">requestCpu</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.requestMemory">requestMemory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.varnishVcl">varnishVcl</a></code> | <code>string</code> | varnishVcl. |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.varnishVclFile">varnishVclFile</a></code> | <code>string</code> | varnishVclFile. |
 
 ---
 
-##### `plone`<sup>Required</sup> <a name="plone" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.plone"></a>
+##### `plone`<sup>Required</sup> <a name="plone" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.plone"></a>
 
 ```typescript
 public readonly plone: Plone;
@@ -538,7 +538,7 @@ plone chart.
 
 ---
 
-##### `existingSecret`<sup>Optional</sup> <a name="existingSecret" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.existingSecret"></a>
+##### `existingSecret`<sup>Optional</sup> <a name="existingSecret" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.existingSecret"></a>
 
 ```typescript
 public readonly existingSecret: string;
@@ -551,7 +551,7 @@ existingSecret - Read admin credentials from user provided secret.
 
 ---
 
-##### `limitCpu`<sup>Optional</sup> <a name="limitCpu" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitCpu"></a>
+##### `limitCpu`<sup>Optional</sup> <a name="limitCpu" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.limitCpu"></a>
 
 ```typescript
 public readonly limitCpu: string;
@@ -561,7 +561,7 @@ public readonly limitCpu: string;
 
 ---
 
-##### `limitMemory`<sup>Optional</sup> <a name="limitMemory" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.limitMemory"></a>
+##### `limitMemory`<sup>Optional</sup> <a name="limitMemory" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.limitMemory"></a>
 
 ```typescript
 public readonly limitMemory: string;
@@ -571,7 +571,7 @@ public readonly limitMemory: string;
 
 ---
 
-##### `requestCpu`<sup>Optional</sup> <a name="requestCpu" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestCpu"></a>
+##### `requestCpu`<sup>Optional</sup> <a name="requestCpu" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.requestCpu"></a>
 
 ```typescript
 public readonly requestCpu: string;
@@ -581,7 +581,7 @@ public readonly requestCpu: string;
 
 ---
 
-##### `requestMemory`<sup>Optional</sup> <a name="requestMemory" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.requestMemory"></a>
+##### `requestMemory`<sup>Optional</sup> <a name="requestMemory" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.requestMemory"></a>
 
 ```typescript
 public readonly requestMemory: string;
@@ -591,7 +591,7 @@ public readonly requestMemory: string;
 
 ---
 
-##### `varnishVcl`<sup>Optional</sup> <a name="varnishVcl" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.varnishVcl"></a>
+##### `varnishVcl`<sup>Optional</sup> <a name="varnishVcl" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.varnishVcl"></a>
 
 ```typescript
 public readonly varnishVcl: string;
@@ -604,7 +604,7 @@ varnishVcl.
 
 ---
 
-##### `varnishVclFile`<sup>Optional</sup> <a name="varnishVclFile" id="@bluedynamics/cdk8s-plone.PloneHttpCacheOptions.property.varnishVclFile"></a>
+##### `varnishVclFile`<sup>Optional</sup> <a name="varnishVclFile" id="@bluedynamics/cdk8s-plone.PloneHttpcacheOptions.property.varnishVclFile"></a>
 
 ```typescript
 public readonly varnishVclFile: string;
