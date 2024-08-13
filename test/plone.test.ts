@@ -1,5 +1,5 @@
 import { Chart, Testing } from 'cdk8s';
-import { Plone } from '../src/plone';
+import { Plone, InstallationVariant } from '../src/plone';
 
 
 test('defaults', () => {
@@ -9,6 +9,18 @@ test('defaults', () => {
 
   // WHEN
   new Plone(chart, 'plone');
+
+  // THEN
+  expect(Testing.synth(chart)).toMatchSnapshot();
+});
+
+test('defaults-classicui', () => {
+  // GIVEN
+  const app = Testing.app();
+  const chart = new Chart(app, 'app');
+
+  // WHEN
+  new Plone(chart, 'plone', { variant: InstallationVariant.CLASSICUI });
 
   // THEN
   expect(Testing.synth(chart)).toMatchSnapshot();

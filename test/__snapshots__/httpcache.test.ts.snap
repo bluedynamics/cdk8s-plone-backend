@@ -399,6 +399,10 @@ exports[`defaults 1`] = `
                   "value": "8080",
                 },
                 {
+                  "name": "BACKEND_SITE_ID",
+                  "value": "Plone",
+                },
+                {
                   "name": "FRONTEND_SERVICE_NAME",
                   "value": "plone-frontend-service-c87c3840",
                 },
