@@ -33,14 +33,14 @@ export interface PloneBaseOptions {
   readonly livenessSuccessThreshold?: number;
   readonly livenessFailureThreshold?: number;
 }
-export enum InstallationVariant {
+export enum PloneVariant {
   VOLTO = 'volto',
   CLASSICUI = 'classicui',
 }
 export interface PloneOptions {
   readonly version?: string;
   readonly siteId?: string;
-  readonly variant?: InstallationVariant;
+  readonly variant?: PloneVariant;
   readonly backend?: PloneBaseOptions;
   readonly frontend?: PloneBaseOptions;
   readonly imagePullSecrets?: string[];
@@ -59,14 +59,14 @@ export class Plone extends Construct {
     */
   public readonly backendServiceName: string;
   public readonly frontendServiceName: string | undefined;
-  public readonly variant: InstallationVariant;
+  public readonly variant: PloneVariant;
   public readonly siteId: string;
 
   constructor(scope: Construct, id: string, options: PloneOptions = {}) {
     super(scope, id);
     this.frontendServiceName = undefined;
     this.siteId = options.siteId ?? 'Plone';
-    this.variant = options.variant ?? InstallationVariant.VOLTO;
+    this.variant = options.variant ?? PloneVariant.VOLTO;
 
     // ------------------------------------------------------------------------
     // Backend
@@ -137,7 +137,7 @@ export class Plone extends Construct {
 
     // ------------------------------------------------------------------------
     // Frontend
-    if (this.variant == InstallationVariant.VOLTO) {
+    if (this.variant == PloneVariant.VOLTO) {
       const frontend = options.frontend ?? {};
       const frontendPort = 3000;
       const frontendLabels = {

@@ -100,6 +100,8 @@ Any object.
 | --- | --- | --- |
 | <code><a href="#@bluedynamics/cdk8s-plone.Plone.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
 | <code><a href="#@bluedynamics/cdk8s-plone.Plone.property.backendServiceName">backendServiceName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.Plone.property.siteId">siteId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.Plone.property.variant">variant</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.InstallationVariant">InstallationVariant</a></code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.Plone.property.frontendServiceName">frontendServiceName</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -126,7 +128,27 @@ public readonly backendServiceName: string;
 
 ---
 
-##### `frontendServiceName`<sup>Required</sup> <a name="frontendServiceName" id="@bluedynamics/cdk8s-plone.Plone.property.frontendServiceName"></a>
+##### `siteId`<sup>Required</sup> <a name="siteId" id="@bluedynamics/cdk8s-plone.Plone.property.siteId"></a>
+
+```typescript
+public readonly siteId: string;
+```
+
+- *Type:* string
+
+---
+
+##### `variant`<sup>Required</sup> <a name="variant" id="@bluedynamics/cdk8s-plone.Plone.property.variant"></a>
+
+```typescript
+public readonly variant: InstallationVariant;
+```
+
+- *Type:* <a href="#@bluedynamics/cdk8s-plone.InstallationVariant">InstallationVariant</a>
+
+---
+
+##### `frontendServiceName`<sup>Optional</sup> <a name="frontendServiceName" id="@bluedynamics/cdk8s-plone.Plone.property.frontendServiceName"></a>
 
 ```typescript
 public readonly frontendServiceName: string;
@@ -635,6 +657,7 @@ const ploneOptions: PloneOptions = { ... }
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.frontend">frontend</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions">PloneBaseOptions</a></code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.imagePullSecrets">imagePullSecrets</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.siteId">siteId</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.variant">variant</a></code> | <code><a href="#@bluedynamics/cdk8s-plone.InstallationVariant">InstallationVariant</a></code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneOptions.property.version">version</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -679,6 +702,16 @@ public readonly siteId: string;
 
 ---
 
+##### `variant`<sup>Optional</sup> <a name="variant" id="@bluedynamics/cdk8s-plone.PloneOptions.property.variant"></a>
+
+```typescript
+public readonly variant: InstallationVariant;
+```
+
+- *Type:* <a href="#@bluedynamics/cdk8s-plone.InstallationVariant">InstallationVariant</a>
+
+---
+
 ##### `version`<sup>Optional</sup> <a name="version" id="@bluedynamics/cdk8s-plone.PloneOptions.property.version"></a>
 
 ```typescript
@@ -690,4 +723,26 @@ public readonly version: string;
 ---
 
 
+
+## Enums <a name="Enums" id="Enums"></a>
+
+### InstallationVariant <a name="InstallationVariant" id="@bluedynamics/cdk8s-plone.InstallationVariant"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@bluedynamics/cdk8s-plone.InstallationVariant.VOLTO">VOLTO</a></code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.InstallationVariant.CLASSICUI">CLASSICUI</a></code> | *No description.* |
+
+---
+
+##### `VOLTO` <a name="VOLTO" id="@bluedynamics/cdk8s-plone.InstallationVariant.VOLTO"></a>
+
+---
+
+
+##### `CLASSICUI` <a name="CLASSICUI" id="@bluedynamics/cdk8s-plone.InstallationVariant.CLASSICUI"></a>
+
+---
 
