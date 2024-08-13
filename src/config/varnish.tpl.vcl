@@ -117,7 +117,7 @@ sub vcl_recv {
     if (req.http.X-Forwarded-Proto) {
       set req.http.x-vcl-proto = req.http.X-Forwarded-Proto;
     }
-    set req.url = "/VirtualHostBase/" + req.http.x-vcl-proto + "/" + req.http.host + "/Plone/VirtualHostRoot" + req.url;
+    set req.url = "/VirtualHostBase/" + req.http.x-vcl-proto + "/" + req.http.host + "/{{ .Env.BACKEND_SITE_ID }}/VirtualHostRoot" + req.url;
   } else {
     set req.http.x-vcl-plone = "Frontend";
     set req.backend_hint = lbPloneFrontend.backend();
