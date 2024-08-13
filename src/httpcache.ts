@@ -68,6 +68,7 @@ export class PloneHttpcache extends Construct {
         extraEnvVars: [
           { name: 'BACKEND_SERVICE_NAME', value: options.plone.backendServiceName },
           { name: 'BACKEND_SERVICE_PORT', value: '8080' },
+          { name: 'BACKEND_SITE_ID', value: options.plone.siteId },
           { name: 'FRONTEND_SERVICE_NAME', value: options.plone.frontendServiceName },
           { name: 'FRONTEND_SERVICE_PORT', value: '3000' },
         ],
