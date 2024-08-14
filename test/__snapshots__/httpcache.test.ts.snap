@@ -481,6 +481,9 @@ exports[`defaults 1`] = `
               ],
             },
           ],
+          "nodeSelector": {
+            "kubernetes.io/arch": "amd64",
+          },
           "securityContext": {},
           "serviceAccountName": "plone-test-httpcache-c8667035-kube-httpcache",
           "volumes": [

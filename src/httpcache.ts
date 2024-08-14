@@ -72,6 +72,10 @@ export class PloneHttpcache extends Construct {
           { name: 'FRONTEND_SERVICE_NAME', value: options.plone.frontendServiceName },
           { name: 'FRONTEND_SERVICE_PORT', value: '3000' },
         ],
+        // see https://github.com/mittwald/kube-httpcache/issues/253
+        nodeSelector: {
+          'kubernetes.io/arch': 'amd64',
+        },
         resources: {
           limits: {
             cpu: options.limitCpu || '500m',
