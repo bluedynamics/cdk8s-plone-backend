@@ -15,17 +15,17 @@ const project = new cdk.JsiiProject({
   deps: [
     'cdk8s',
     kplus,
-    'constructs@^10.3.0',
+    'constructs@10.3.0',
   ],
   peerDeps: [
     'cdk8s',
     kplus,
-    'constructs@^10.3.0',
+    'constructs@10.3.0',
   ],
   devDeps: [
     'cdk8s',
     kplus,
-    'constructs@^10.3.0',
+    'constructs@10.3.0',
     'yaml',
   ],
   publishToPypi: {

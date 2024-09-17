@@ -7,7 +7,6 @@ It provides
 - Frontend (Plone-Volto, a ReactJS based user interface)
 - Varnish using kube-httpcache. It includes a way to invalidate varnish cluster (optional)
 
-## Installation
 
 ### Typescript
 
@@ -74,7 +73,10 @@ For more have a look at the [example project](https://github.com/bluedynamics/cd
 Clone the repository and install the dependencies:
 
 ```bash
-yarn install
+```
+nvm use lts/*
+npm install yarn
+projen
 ```
 
 Then run the following command to run the test:
