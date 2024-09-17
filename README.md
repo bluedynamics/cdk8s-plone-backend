@@ -75,7 +75,7 @@ Clone the repository and install the dependencies:
 ```bash
 ```
 nvm use lts/*
-corepack enable
+npm install yarn
 projen
 ```
 
