@@ -37,17 +37,7 @@ exports[`defaults 1`] = `
               "envFrom": [],
               "image": "plone/plone-backend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {
-                "failureThreshold": 3,
-                "httpGet": {
-                  "path": "/",
-                  "port": 8080,
-                },
-                "initialDelaySeconds": 30,
-                "periodSeconds": 10,
-                "successThreshold": 1,
-                "timeoutSeconds": 5,
-              },
+              "livenessProbe": {},
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
@@ -161,17 +151,7 @@ exports[`defaults 1`] = `
               "envFrom": [],
               "image": "plone/plone-frontend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {
-                "failureThreshold": 3,
-                "httpGet": {
-                  "path": "/",
-                  "port": 3000,
-                },
-                "initialDelaySeconds": 30,
-                "periodSeconds": 10,
-                "successThreshold": 1,
-                "timeoutSeconds": 5,
-              },
+              "livenessProbe": {},
               "name": "frontend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
@@ -285,17 +265,7 @@ exports[`defaults-classicui 1`] = `
               "envFrom": [],
               "image": "plone/plone-backend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {
-                "failureThreshold": 3,
-                "httpGet": {
-                  "path": "/",
-                  "port": 8080,
-                },
-                "initialDelaySeconds": 30,
-                "periodSeconds": 10,
-                "successThreshold": 1,
-                "timeoutSeconds": 5,
-              },
+              "livenessProbe": {},
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
@@ -409,17 +379,7 @@ exports[`defaults-with-pdps 1`] = `
               "envFrom": [],
               "image": "plone/plone-backend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {
-                "failureThreshold": 3,
-                "httpGet": {
-                  "path": "/",
-                  "port": 8080,
-                },
-                "initialDelaySeconds": 30,
-                "periodSeconds": 10,
-                "successThreshold": 1,
-                "timeoutSeconds": 5,
-              },
+              "livenessProbe": {},
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
@@ -533,17 +493,7 @@ exports[`defaults-with-pdps 1`] = `
               "envFrom": [],
               "image": "plone/plone-frontend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {
-                "failureThreshold": 3,
-                "httpGet": {
-                  "path": "/",
-                  "port": 3000,
-                },
-                "initialDelaySeconds": 30,
-                "periodSeconds": 10,
-                "successThreshold": 1,
-                "timeoutSeconds": 5,
-              },
+              "livenessProbe": {},
               "name": "frontend-container",
               "readinessProbe": {
                 "failureThreshold": 3,

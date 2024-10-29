@@ -21,12 +21,14 @@ export interface PloneBaseOptions {
   readonly requestMemory?: string;
   readonly environment?: kplus.Env;
   // readiness Probe
+  readonly readinessEnabled?: boolean;
   readonly readinessInitialDelaySeconds?: number;
   readonly readinessIimeoutSeconds?: number;
   readonly readinessPeriodSeconds?: number;
   readonly readinessSuccessThreshold?: number;
   readonly readinessFailureThreshold?: number;
   // liveness Probe
+  readonly livenessEnabled?: boolean;
   readonly livenessInitialDelaySeconds?: number;
   readonly livenessIimeoutSeconds?: number;
   readonly livenessPeriodSeconds?: number;
@@ -83,24 +85,28 @@ export class Plone extends Construct {
       path: '/',
       port: IntOrString.fromNumber(backendPort),
     };
-
-    const backendLivenessProbe: Probe = {
-      httpGet: backendActionHttpGet,
-      initialDelaySeconds: backend.livenessInitialDelaySeconds ?? 30,
-      timeoutSeconds: backend.livenessIimeoutSeconds ?? 5,
-      periodSeconds: backend.livenessPeriodSeconds ?? 10,
-      successThreshold: backend.livenessSuccessThreshold ?? 1,
-      failureThreshold: backend.livenessFailureThreshold ?? 3,
-    };
-    const backendReadinessProbe: Probe = {
-      httpGet: backendActionHttpGet,
-      initialDelaySeconds: backend.readinessInitialDelaySeconds ?? 10,
-      timeoutSeconds: backend.readinessIimeoutSeconds ?? 15,
-      periodSeconds: backend.readinessPeriodSeconds ?? 10,
-      successThreshold: backend.readinessSuccessThreshold ?? 1,
-      failureThreshold: backend.readinessFailureThreshold ?? 3,
-    };
-
+    var backendLivenessProbe: Probe | undefined = undefined;
+    if (backend.livenessEnabled ?? false) {
+      backendLivenessProbe = {
+        httpGet: backendActionHttpGet,
+        initialDelaySeconds: backend.livenessInitialDelaySeconds ?? 30,
+        timeoutSeconds: backend.livenessIimeoutSeconds ?? 5,
+        periodSeconds: backend.livenessPeriodSeconds ?? 10,
+        successThreshold: backend.livenessSuccessThreshold ?? 1,
+        failureThreshold: backend.livenessFailureThreshold ?? 3,
+      };
+    }
+    var backendReadinessProbe: Probe | undefined = undefined;
+    if (backend.readinessEnabled ?? true) {
+      backendReadinessProbe = {
+        httpGet: backendActionHttpGet,
+        initialDelaySeconds: backend.readinessInitialDelaySeconds ?? 10,
+        timeoutSeconds: backend.readinessIimeoutSeconds ?? 15,
+        periodSeconds: backend.readinessPeriodSeconds ?? 10,
+        successThreshold: backend.readinessSuccessThreshold ?? 1,
+        failureThreshold: backend.readinessFailureThreshold ?? 3,
+      };
+    }
     // Deployment
     const backendDeployment = new PloneDeployment(this, 'backend', {
       labels: backendLabels,
@@ -151,22 +157,28 @@ export class Plone extends Construct {
         path: '/',
         port: IntOrString.fromNumber(frontendPort),
       };
-      const frontendLivenessProbe: Probe = {
-        httpGet: frontendActionHttpGet,
-        initialDelaySeconds: frontend.livenessInitialDelaySeconds ?? 30,
-        timeoutSeconds: frontend.livenessIimeoutSeconds ?? 5,
-        periodSeconds: frontend.livenessPeriodSeconds ?? 10,
-        successThreshold: frontend.livenessSuccessThreshold ?? 1,
-        failureThreshold: frontend.livenessFailureThreshold ?? 3,
-      };
-      const frontendReadinessProbe: Probe = {
-        httpGet: frontendActionHttpGet,
-        initialDelaySeconds: frontend.readinessInitialDelaySeconds ?? 10,
-        timeoutSeconds: frontend.readinessIimeoutSeconds ?? 15,
-        periodSeconds: frontend.readinessPeriodSeconds ?? 10,
-        successThreshold: frontend.readinessSuccessThreshold ?? 1,
-        failureThreshold: frontend.readinessFailureThreshold ?? 3,
-      };
+      var frontendLivenessProbe: Probe | undefined = undefined;
+      if (frontend.livenessEnabled ?? false) {
+        frontendLivenessProbe = {
+          httpGet: frontendActionHttpGet,
+          initialDelaySeconds: frontend.livenessInitialDelaySeconds ?? 30,
+          timeoutSeconds: frontend.livenessIimeoutSeconds ?? 5,
+          periodSeconds: frontend.livenessPeriodSeconds ?? 10,
+          successThreshold: frontend.livenessSuccessThreshold ?? 1,
+          failureThreshold: frontend.livenessFailureThreshold ?? 3,
+        };
+      }
+      var frontendReadinessProbe: Probe | undefined = undefined;
+      if (frontend.readinessEnabled ?? true) {
+        frontendReadinessProbe = {
+          httpGet: frontendActionHttpGet,
+          initialDelaySeconds: frontend.readinessInitialDelaySeconds ?? 10,
+          timeoutSeconds: frontend.readinessIimeoutSeconds ?? 15,
+          periodSeconds: frontend.readinessPeriodSeconds ?? 10,
+          successThreshold: frontend.readinessSuccessThreshold ?? 1,
+          failureThreshold: frontend.readinessFailureThreshold ?? 3,
+        };
+      }
 
       // Environment for RAZZLE
       var frontendEnvironment = frontend.environment ?? new kplus.Env([], {});
