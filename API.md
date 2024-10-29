@@ -304,6 +304,7 @@ const ploneBaseOptions: PloneBaseOptions = { ... }
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.imagePullPolicy">imagePullPolicy</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitCpu">limitCpu</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.limitMemory">limitMemory</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessEnabled">livenessEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessFailureThreshold">livenessFailureThreshold</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessIimeoutSeconds">livenessIimeoutSeconds</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessInitialDelaySeconds">livenessInitialDelaySeconds</a></code> | <code>number</code> | *No description.* |
@@ -311,6 +312,7 @@ const ploneBaseOptions: PloneBaseOptions = { ... }
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessSuccessThreshold">livenessSuccessThreshold</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.maxUnavailable">maxUnavailable</a></code> | <code>string \| number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.minAvailable">minAvailable</a></code> | <code>string \| number</code> | *No description.* |
+| <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessEnabled">readinessEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessFailureThreshold">readinessFailureThreshold</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessIimeoutSeconds">readinessIimeoutSeconds</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessInitialDelaySeconds">readinessInitialDelaySeconds</a></code> | <code>number</code> | *No description.* |
@@ -369,6 +371,16 @@ public readonly limitMemory: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `livenessEnabled`<sup>Optional</sup> <a name="livenessEnabled" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.livenessEnabled"></a>
+
+```typescript
+public readonly livenessEnabled: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
@@ -439,6 +451,16 @@ public readonly minAvailable: string | number;
 ```
 
 - *Type:* string | number
+
+---
+
+##### `readinessEnabled`<sup>Optional</sup> <a name="readinessEnabled" id="@bluedynamics/cdk8s-plone.PloneBaseOptions.property.readinessEnabled"></a>
+
+```typescript
+public readonly readinessEnabled: boolean;
+```
+
+- *Type:* boolean
 
 ---
 
