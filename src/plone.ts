@@ -198,8 +198,8 @@ export class Plone extends Construct {
         replicas: frontend.replicas,
         limitCpu: frontend.limitCpu ?? '500m',
         limitMemory: frontend.limitMemory ?? '1Gi',
-        requestCpu: backend.requestCpu ?? '200m',
-        requestMemory: backend.requestMemory ?? '256Mi',
+        requestCpu: frontend.requestCpu ?? '200m',
+        requestMemory: frontend.requestMemory ?? '256Mi',
 
         pdb: {
           maxUnavailable: frontend.maxUnavailable ?? undefined,
