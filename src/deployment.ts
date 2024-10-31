@@ -102,13 +102,13 @@ export interface PloneDeploymentOptions {
    * Liveness Probe for the pod.
    * @default - generated
    */
-  readonly livenessProbe?: k8s.Probe;
+  livenessProbe?: k8s.Probe;
 
   /**
    * Readiness Probe for the pod.
    * @default - generated
    */
-  readonly readinessProbe?: k8s.Probe;
+  readinessProbe?: k8s.Probe;
 
 }
 

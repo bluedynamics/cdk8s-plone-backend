@@ -1,8 +1,8 @@
 import { Names } from 'cdk8s';
 import * as kplus from 'cdk8s-plus-29';
 import { Construct } from 'constructs';
-import { PloneDeployment } from './deployment';
-import { Probe, IntOrString } from './imports/k8s';
+import { PloneDeployment, PloneDeploymentOptions } from './deployment';
+import { IntOrString } from './imports/k8s';
 import * as k8s from './imports/k8s';
 import { PloneService } from './service';
 
@@ -80,35 +80,8 @@ export class Plone extends Construct {
     };
     const backendPort = 8080;
 
-    // Probing
-    const backendActionHttpGet: k8s.HttpGetAction = {
-      path: '/',
-      port: IntOrString.fromNumber(backendPort),
-    };
-    var backendLivenessProbe: Probe | undefined = undefined;
-    if (backend.livenessEnabled ?? false) {
-      backendLivenessProbe = {
-        httpGet: backendActionHttpGet,
-        initialDelaySeconds: backend.livenessInitialDelaySeconds ?? 30,
-        timeoutSeconds: backend.livenessIimeoutSeconds ?? 5,
-        periodSeconds: backend.livenessPeriodSeconds ?? 10,
-        successThreshold: backend.livenessSuccessThreshold ?? 1,
-        failureThreshold: backend.livenessFailureThreshold ?? 3,
-      };
-    }
-    var backendReadinessProbe: Probe | undefined = undefined;
-    if (backend.readinessEnabled ?? true) {
-      backendReadinessProbe = {
-        httpGet: backendActionHttpGet,
-        initialDelaySeconds: backend.readinessInitialDelaySeconds ?? 10,
-        timeoutSeconds: backend.readinessIimeoutSeconds ?? 15,
-        periodSeconds: backend.readinessPeriodSeconds ?? 10,
-        successThreshold: backend.readinessSuccessThreshold ?? 1,
-        failureThreshold: backend.readinessFailureThreshold ?? 3,
-      };
-    }
-    // Deployment
-    const backendDeployment = new PloneDeployment(this, 'backend', {
+    // Options
+    var backendOptions: PloneDeploymentOptions = {
       labels: backendLabels,
       image: {
         image: backend.image ?? 'plone/plone-backend:latest',
@@ -126,9 +99,35 @@ export class Plone extends Construct {
       },
       port: backendPort,
       environment: backend.environment,
-      livenessProbe: backendLivenessProbe,
-      readinessProbe: backendReadinessProbe,
-    });
+    };
+
+    // Probing
+    const backendActionHttpGet: k8s.HttpGetAction = {
+      path: '/',
+      port: IntOrString.fromNumber(backendPort),
+    };
+    if (backend.livenessEnabled ?? false) {
+      backendOptions.livenessProbe = {
+        httpGet: backendActionHttpGet,
+        initialDelaySeconds: backend.livenessInitialDelaySeconds ?? 30,
+        timeoutSeconds: backend.livenessIimeoutSeconds ?? 5,
+        periodSeconds: backend.livenessPeriodSeconds ?? 10,
+        successThreshold: backend.livenessSuccessThreshold ?? 1,
+        failureThreshold: backend.livenessFailureThreshold ?? 3,
+      };
+    }
+    if (backend.readinessEnabled ?? true) {
+      backendOptions.readinessProbe = {
+        httpGet: backendActionHttpGet,
+        initialDelaySeconds: backend.readinessInitialDelaySeconds ?? 10,
+        timeoutSeconds: backend.readinessIimeoutSeconds ?? 15,
+        periodSeconds: backend.readinessPeriodSeconds ?? 10,
+        successThreshold: backend.readinessSuccessThreshold ?? 1,
+        failureThreshold: backend.readinessFailureThreshold ?? 3,
+      };
+    }
+    // Deployment
+    var backendDeployment = new PloneDeployment(this, 'backend', backendOptions);
 
     // Service
     const backendService = new PloneService(backendDeployment, 'service', {
@@ -152,34 +151,6 @@ export class Plone extends Construct {
         'app.kubernetes.io/version': options.version ?? 'undefined',
       };
 
-      // Probing
-      const frontendActionHttpGet: k8s.HttpGetAction = {
-        path: '/',
-        port: IntOrString.fromNumber(frontendPort),
-      };
-      var frontendLivenessProbe: Probe | undefined = undefined;
-      if (frontend.livenessEnabled ?? false) {
-        frontendLivenessProbe = {
-          httpGet: frontendActionHttpGet,
-          initialDelaySeconds: frontend.livenessInitialDelaySeconds ?? 30,
-          timeoutSeconds: frontend.livenessIimeoutSeconds ?? 5,
-          periodSeconds: frontend.livenessPeriodSeconds ?? 10,
-          successThreshold: frontend.livenessSuccessThreshold ?? 1,
-          failureThreshold: frontend.livenessFailureThreshold ?? 3,
-        };
-      }
-      var frontendReadinessProbe: Probe | undefined = undefined;
-      if (frontend.readinessEnabled ?? true) {
-        frontendReadinessProbe = {
-          httpGet: frontendActionHttpGet,
-          initialDelaySeconds: frontend.readinessInitialDelaySeconds ?? 10,
-          timeoutSeconds: frontend.readinessIimeoutSeconds ?? 15,
-          periodSeconds: frontend.readinessPeriodSeconds ?? 10,
-          successThreshold: frontend.readinessSuccessThreshold ?? 1,
-          failureThreshold: frontend.readinessFailureThreshold ?? 3,
-        };
-      }
-
       // Environment for RAZZLE
       var frontendEnvironment = frontend.environment ?? new kplus.Env([], {});
       if (frontendEnvironment.variables.RAZZLE_INTERNAL_API_PATH === undefined) {
@@ -187,8 +158,8 @@ export class Plone extends Construct {
         frontendEnvironment?.addVariable('RAZZLE_INTERNAL_API_PATH', kplus.EnvValue.fromValue(`http://${backendService.name}:${backendPort}/${this.siteId}`));
       }
 
-      // Deployment
-      const frontendDeployment = new PloneDeployment(this, 'frontend', {
+      // Options
+      var frontendOptions: PloneDeploymentOptions = {
         labels: frontendLabels,
         image: {
           image: frontend.image ?? 'plone/plone-frontend:latest',
@@ -207,9 +178,36 @@ export class Plone extends Construct {
         },
         port: frontendPort,
         environment: frontendEnvironment,
-        livenessProbe: frontendLivenessProbe,
-        readinessProbe: frontendReadinessProbe,
-      });
+      };
+
+      // Probing
+      const frontendActionHttpGet: k8s.HttpGetAction = {
+        path: '/',
+        port: IntOrString.fromNumber(frontendPort),
+      };
+      if (frontend.livenessEnabled ?? false) {
+        frontendOptions.livenessProbe = {
+          httpGet: frontendActionHttpGet,
+          initialDelaySeconds: frontend.livenessInitialDelaySeconds ?? 30,
+          timeoutSeconds: frontend.livenessIimeoutSeconds ?? 5,
+          periodSeconds: frontend.livenessPeriodSeconds ?? 10,
+          successThreshold: frontend.livenessSuccessThreshold ?? 1,
+          failureThreshold: frontend.livenessFailureThreshold ?? 3,
+        };
+      }
+      if (frontend.readinessEnabled ?? true) {
+        frontendOptions.readinessProbe = {
+          httpGet: frontendActionHttpGet,
+          initialDelaySeconds: frontend.readinessInitialDelaySeconds ?? 10,
+          timeoutSeconds: frontend.readinessIimeoutSeconds ?? 15,
+          periodSeconds: frontend.readinessPeriodSeconds ?? 10,
+          successThreshold: frontend.readinessSuccessThreshold ?? 1,
+          failureThreshold: frontend.readinessFailureThreshold ?? 3,
+        };
+      }
+
+      // Deployment
+      const frontendDeployment = new PloneDeployment(this, 'frontend', frontendOptions);
 
       // Service
       const frontendService = new PloneService(frontendDeployment, 'service', {
