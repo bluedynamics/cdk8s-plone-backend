@@ -3,7 +3,7 @@
 This chart provides a library to bootstrap a Plone deployment on a Kubernetes cluster using the [CDK8S](https://cdk8s.io) framework.
 
 It provides
-- Backend (for API with `plone.volto` or as Classic-UI)
+- Backend (as API with `plone.volto` or as Classic-UI)
 - Frontend (Plone-Volto, a ReactJS based user interface)
 - Varnish using kube-httpcache. It includes a way to invalidate varnish cluster (optional)
 
@@ -37,8 +37,6 @@ cdk8s init python-app
 ```
 
 Python package name is [cdk8s-plone](https://pypi.org/project/cdk8s-plone/).
-
-
 
 
 ## Usage
@@ -75,7 +73,8 @@ Clone the repository and install the dependencies:
 ```bash
 ```
 nvm use lts/*
-npx projen install
+corepack enable
+npx projen
 ```
 
 Then run the following command to run the test:
@@ -83,35 +82,3 @@ Then run the following command to run the test:
 ```bash
 npx projen test
 ```
-
-### Feature Wishlist:
-
-Each step need to be implemented with tests!
-
-- [x] Support Variants for ClassicUI or Volto
-- [ ] Start Backend
-    - [x] deployment
-    - [x] service
-    - [x] pdb
-    - [ ] init container running `plone-site-create`
-    - [x] lifecycle checks (readiness, liveness)
-    - [x] generic way to inject sidecars
-    - [ ] metrics sidecar
-- [ ] Start Frontend
-    - [x] deployment
-    - [x] service
-    - [x] pdb
-    - [x] lifecycle checks (readiness, liveness)
-    - [x] generic way to inject sidecars
-    - [ ] metrics sidecar
-- [x] Start Varnish (using `kube-httpcache`) optional in separate chart
-    - [x] provide a default VCL for Volto with routing to backend and frontend
-    - [ ] provide a default VCL for ClassicUI
-- [ ] Configure Ingress, optional in separate chart
-    - [ ] Traefik
-    - [ ] Konq
-
-- [ ] Release packages for other Languages
-    - [x] Python
-    - [ ] Golang
-    - [ ] Java

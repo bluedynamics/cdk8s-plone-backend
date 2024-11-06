@@ -102,13 +102,13 @@ export interface PloneDeploymentOptions {
    * Liveness Probe for the pod.
    * @default - generated
    */
-  readonly livenessProbe?: k8s.Probe;
+  livenessProbe?: k8s.Probe;
 
   /**
    * Readiness Probe for the pod.
    * @default - generated
    */
-  readonly readinessProbe?: k8s.Probe;
+  readinessProbe?: k8s.Probe;
 
 }
 
@@ -156,8 +156,8 @@ export class PloneDeployment extends Construct {
           memory: k8s.Quantity.fromString(options.requestMemory ?? '300Mi'),
         },
       },
-      livenessProbe: options.livenessProbe ?? {},
-      readinessProbe: options.readinessProbe ?? {},
+      livenessProbe: options.livenessProbe ?? undefined,
+      readinessProbe: options.readinessProbe ?? undefined,
     };
     const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {

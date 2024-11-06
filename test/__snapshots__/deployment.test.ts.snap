@@ -32,9 +32,7 @@ exports[`defaults 1`] = `
             {
               "env": [],
               "envFrom": [],
-              "livenessProbe": {},
               "name": "test-container",
-              "readinessProbe": {},
               "resources": {
                 "limits": {
                   "cpu": "1000m",
@@ -92,9 +90,7 @@ exports[`with-environment 1`] = `
                 },
               ],
               "envFrom": [],
-              "livenessProbe": {},
               "name": "with_environment-container",
-              "readinessProbe": {},
               "resources": {
                 "limits": {
                   "cpu": "1000m",
@@ -162,9 +158,7 @@ exports[`with-environment-from-secret 1`] = `
                   },
                 },
               ],
-              "livenessProbe": {},
               "name": "with_environment_secret-container",
-              "readinessProbe": {},
               "resources": {
                 "limits": {
                   "cpu": "1000m",
@@ -227,9 +221,7 @@ exports[`with-environment-valueFrom 1`] = `
                 },
               ],
               "envFrom": [],
-              "livenessProbe": {},
               "name": "with_environment_valueFrom-container",
-              "readinessProbe": {},
               "resources": {
                 "limits": {
                   "cpu": "1000m",
@@ -282,9 +274,7 @@ exports[`with-pdp 1`] = `
             {
               "env": [],
               "envFrom": [],
-              "livenessProbe": {},
               "name": "with_pdb-container",
-              "readinessProbe": {},
               "resources": {
                 "limits": {
                   "cpu": "1000m",
