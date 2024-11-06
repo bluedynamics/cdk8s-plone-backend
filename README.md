@@ -75,8 +75,7 @@ Clone the repository and install the dependencies:
 ```bash
 ```
 nvm use lts/*
-npm install yarn
-projen
+npx projen install
 ```
 
 Then run the following command to run the test:
