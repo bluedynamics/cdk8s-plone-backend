@@ -1,5 +1,5 @@
 import { Names } from 'cdk8s';
-import * as kplus from 'cdk8s-plus-24';
+import * as kplus from 'cdk8s-plus-29';
 import { Construct } from 'constructs';
 import { PloneDeployment } from './deployment';
 import { Probe, IntOrString } from './imports/k8s';
