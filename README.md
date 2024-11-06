@@ -73,7 +73,8 @@ Clone the repository and install the dependencies:
 ```bash
 ```
 nvm use lts/*
-npx projen install
+corepack enable
+npx projen
 ```
 
 Then run the following command to run the test:
