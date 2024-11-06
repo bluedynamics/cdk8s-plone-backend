@@ -37,7 +37,6 @@ exports[`defaults 1`] = `
               "envFrom": [],
               "image": "plone/plone-backend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {},
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
@@ -151,7 +150,6 @@ exports[`defaults 1`] = `
               "envFrom": [],
               "image": "plone/plone-frontend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {},
               "name": "frontend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
@@ -265,7 +263,6 @@ exports[`defaults-classicui 1`] = `
               "envFrom": [],
               "image": "plone/plone-backend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {},
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
@@ -379,7 +376,6 @@ exports[`defaults-with-pdps 1`] = `
               "envFrom": [],
               "image": "plone/plone-backend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {},
               "name": "backend-container",
               "readinessProbe": {
                 "failureThreshold": 3,
@@ -493,7 +489,6 @@ exports[`defaults-with-pdps 1`] = `
               "envFrom": [],
               "image": "plone/plone-frontend:latest",
               "imagePullPolicy": "IfNotPresent",
-              "livenessProbe": {},
               "name": "frontend-container",
               "readinessProbe": {
                 "failureThreshold": 3,

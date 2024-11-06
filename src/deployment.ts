@@ -156,8 +156,8 @@ export class PloneDeployment extends Construct {
           memory: k8s.Quantity.fromString(options.requestMemory ?? '300Mi'),
         },
       },
-      livenessProbe: options.livenessProbe ?? {},
-      readinessProbe: options.readinessProbe ?? {},
+      livenessProbe: options.livenessProbe ?? undefined,
+      readinessProbe: options.readinessProbe ?? undefined,
     };
     const deploymentOptions: k8s.KubeDeploymentProps = {
       metadata: {
