@@ -65,7 +65,7 @@
     "constructs": "^10.0.0"
   },
   "dependencies": {
-    "cdk8s": "^2.69.20",
+    "cdk8s": "^2.69.21",
     "cdk8s-plus-29": "^2.5.8",
     "constructs": "^10.0.0"
   },
